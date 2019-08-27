@@ -1,0 +1,31 @@
+{
+  "sections": {
+    "Customer": {
+      "type": "entity",
+      "name": "Customer"
+    },
+    "Supplier": {
+      "type": "entity",
+      "name": "Supplier"
+    },
+    "Order": {
+      "type": "entity",
+      "name": "Order"
+    },
+    "OrderItem": {
+      "type": "entity",
+      "name": "Order item"
+    }
+  },
+  "references": {
+    "Order": [
+      "Customer",
+      "OrderItem"
+    ],
+    "OrderItem": [
+      "Order",
+      "Customer",
+      "Supplier"
+    ]
+  }
+}

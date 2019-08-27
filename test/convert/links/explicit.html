@@ -1,0 +1,19 @@
+<section id="Customer">
+<h2><i class="fas fa-database text-muted"></i> Customer <code>Customer</code></h2>
+<div id="section-computed-Customer"/>
+</section>
+<section id="Supplier">
+<h2><i class="fas fa-database text-muted"></i> Supplier <code>Supplier</code></h2>
+<div id="section-computed-Supplier"/>
+</section>
+<section id="Order">
+<h2><i class="fas fa-database text-muted"></i> Order <code>Order</code></h2>
+<p>Refers to <a href="#Customer">customer</a> and <a href="#OrderItem">order item</a>.</p>
+<p>And also refers to <a href="#Customer">customer</a> again and implicit link <a href="#Customer">Customer</a>.</p>
+<div id="section-computed-Order"/>
+</section>
+<section id="OrderItem">
+<h2><i class="fas fa-database text-muted"></i> Order item <code>OrderItem</code></h2>
+<p>Refers to <a href="#Order">order</a>, <a href="#Customer">customer</a> and implicit link <a href="#Supplier">Supplier</a>.</p>
+<div id="section-computed-OrderItem"/>
+</section>
