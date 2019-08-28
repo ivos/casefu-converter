@@ -52,7 +52,7 @@ const {
   homeEnd,
   isHome
 } = require('./home')
-const { captureExpandedReferences, expandInternalLinks } = require('./refs')
+const { captureExpandedReferences, addTitleToExpandedReferences, expandInternalLinks } = require('./refs')
 require('./marked-link')
 
 const debug = false
@@ -229,6 +229,7 @@ const sectionEnd = () => {
 const processGenericToken = () => {
   if (token().text) {
     captureExpandedReferences()
+    addTitleToExpandedReferences()
     token().text = expandInternalLinks(token().text)
   }
   keep()

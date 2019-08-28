@@ -1,3 +1,5 @@
+## Entity: Address
+
 ## Entity: Customer
 
 ## Entity: Supplier
@@ -7,6 +9,8 @@
 Refers to [customer](#Customer) and [order item](#OrderItem).
 
 And also refers to [customer](#Customer) again and implicit link `#Customer`.
+
+And also refers to [address](#Address "Address title") with custom title.
 
 ## Entity: Order item
 
