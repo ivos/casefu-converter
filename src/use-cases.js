@@ -1,4 +1,5 @@
 const {
+  icons,
   token,
   sectionCode,
   sectionName,
@@ -17,7 +18,7 @@ const useCaseStart = () => {
   if (!sectionCodeValue) {
     token().text += ' `' + useCaseCodeValue + '`'
   }
-  token().text = token().text.replace(/UC:\s*/, '<i class="fas fa-list-alt text-muted"></i> ')
+  token().text = token().text.replace(/UC:\s*/, `<i class="${icons.useCase} text-muted"></i> `)
   keep()
 }
 

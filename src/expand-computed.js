@@ -1,10 +1,14 @@
+const { icons } = require('./common')
+
 const sectionLink = (meta, code) => {
   const section = meta.sections[code]
   if (!section) {
     console.error('ERROR: Reference to non-existing section via code:', code)
     return ''
   }
-  return `<a href="#${code}">${section.name}</a>`
+  const title = section.type === 'useCase' ? `${code} - ${section.name}` : section.name
+  return `<i class="${icons[section.type]} text-muted"></i>&nbsp;` +
+    `<a href="#${code}" title="${title}">${section.name}</a>`
 }
 
 const expandComputed = (html, sectionCode, meta) => {
@@ -12,10 +16,10 @@ const expandComputed = (html, sectionCode, meta) => {
   if (meta.references[sectionCode]) {
     refersTo = `
 <div id="section-refers-to-${sectionCode}">
-<strong>Refers to:</strong> `
+<strong>Refers to:</strong>\n`
     const refersToHtml = meta.references[sectionCode]
       .map(ref => sectionLink(meta, ref))
-      .join(', ')
+      .join(',\n')
     refersTo += refersToHtml + `\n</div>`
   }
 
@@ -23,10 +27,10 @@ const expandComputed = (html, sectionCode, meta) => {
   if (meta.backReferences[sectionCode]) {
     referredFrom = `
 <div id="section-referred-from-${sectionCode}">
-<strong>Referred from:</strong> `
+<strong>Referred from:</strong>\n`
     const referredFromHtml = meta.backReferences[sectionCode]
       .map(ref => sectionLink(meta, ref))
-      .join(', ')
+      .join(',\n')
     referredFrom += referredFromHtml + `\n</div>`
   }
 

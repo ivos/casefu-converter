@@ -1,3 +1,9 @@
+const icons = {
+  screen: 'fas fa-desktop',
+  entity: 'fas fa-database',
+  useCase: 'fas fa-list-alt'
+}
+
 let _context = null
 
 const context = () => _context
@@ -51,6 +57,7 @@ const isHeading = (level = null) => token().type === 'heading' && (!level || tok
 const isHeadingOrHigher = level => token().type === 'heading' && token().depth <= level
 
 module.exports = {
+  icons,
   context,
   setContext,
   token,

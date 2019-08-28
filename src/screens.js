@@ -1,4 +1,5 @@
 const {
+  icons,
   context,
   token,
   next,
@@ -74,7 +75,7 @@ const screenStart = () => {
   if (!sectionCodeValue) {
     token().text += ' `' + screenCodeValue + '`'
   }
-  token().text = token().text.replace(/Screen:\s*/, '<i class="fas fa-desktop text-muted"></i> ')
+  token().text = token().text.replace(/Screen:\s*/, `<i class="${icons.screen} text-muted"></i> `)
   keep()
 }
 const formStart = defaultStatus => {

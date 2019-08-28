@@ -1,6 +1,7 @@
 const pascalCase = require('pascal-case')
 const camelCase = require('camel-case')
 const {
+  icons,
   context,
   token,
   next,
@@ -25,7 +26,7 @@ const entityStart = () => {
   if (!sectionCodeValue) {
     token().text += ' `' + entityCodeValue + '`'
   }
-  token().text = token().text.replace(/Entity:\s*/, '<i class="fas fa-database text-muted"></i> ')
+  token().text = token().text.replace(/Entity:\s*/, `<i class="${icons.entity} text-muted"></i> `)
   keep()
 }
 const attributesStart = () => {
