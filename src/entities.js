@@ -82,6 +82,7 @@ const attributeStatusAndDataType = () => {
     naturalKey: { code: 'NK', label: 'Natural key', variant: 'warning' },
     businessKey: { code: 'BK', label: 'Business key', variant: 'warning' },
     unique: { code: 'U', label: 'Unique', variant: 'warning' },
+    optionalUnique: { code: 'OU', label: 'Optional unique', variant: 'warning' },
     mandatory: { code: 'M', label: 'Mandatory', variant: 'primary' },
     conditional: { code: 'C', label: 'Conditional', variant: 'info' },
     optional: { code: 'O', label: 'Optional', variant: 'success' },
