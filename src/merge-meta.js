@@ -24,7 +24,7 @@ const mergeMeta = files => {
         references[refKey] = accRefs
       })
       return { sections, references }
-    })
+    }, { sections: {}, references: {} })
 
   merged.backReferences = {}
   Object.keys(merged.references)

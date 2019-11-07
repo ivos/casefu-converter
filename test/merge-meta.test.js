@@ -53,5 +53,11 @@ test('merges metadata', () => {
       sl: ['s4']
     }
   }
-  expect(mergeMeta([f1, f2, f3])).toStrictEqual(merged)
+  expect(mergeMeta([f1, f2, f3]))
+    .toStrictEqual(merged)
+})
+
+test('merges empty files', () => {
+  expect(mergeMeta([]))
+    .toStrictEqual({ sections: {}, references: {}, backReferences: {} })
 })
