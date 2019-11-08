@@ -1,9 +1,11 @@
+const chalk = require('chalk')
+
 const verifyCodeDuplicities = (mergedSections, fileSections) => {
   const mergedCodes = Object.keys(mergedSections)
   Object.keys(fileSections)
     .filter(code => mergedCodes.includes(code))
     .forEach(code => {
-      console.error(`ERROR: Duplicate section code: ${code}. The code has been overwritten.`)
+      console.error(chalk.red(`ERROR: Duplicate section code: ${code}. The code has been overwritten.`))
     })
 }
 

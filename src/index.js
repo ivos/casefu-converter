@@ -243,6 +243,7 @@ const isListItemEnd = () => token().type === 'list_item_end'
 const htmlTemplate = require('./html-template').htmlTemplate
 const mergeMeta = require('./merge-meta')
 const expandComputed = require('./expand-computed')
+const transformInnerLinks = require('./transform-inner-links')
 const buildSearchSection = require('./search-section')
 
 module.exports = {
@@ -250,6 +251,7 @@ module.exports = {
   htmlTemplate,
   mergeMeta,
   expandComputed,
+  transformInnerLinks,
   buildSearchSection
 }
 

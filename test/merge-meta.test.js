@@ -1,7 +1,21 @@
+const chalk = require('chalk')
 const expect = require('expect')
 const test = window.test
+const beforeEach = window.beforeEach
+const afterEach = window.afterEach
 
 const mergeMeta = require('../src/merge-meta')
+
+let errors = []
+const originalConsoleError = console.error
+beforeEach(() => {
+  errors = []
+  console.error = output => errors.push(output)
+})
+
+afterEach(() => {
+  console.error = originalConsoleError
+})
 
 test('merges metadata', () => {
   const f1 = {
@@ -55,9 +69,14 @@ test('merges metadata', () => {
   }
   expect(mergeMeta([f1, f2, f3]))
     .toStrictEqual(merged)
+  expect(errors).toEqual([
+    chalk.red('ERROR: Duplicate section code: s2. The code has been overwritten.'),
+    chalk.red('ERROR: Duplicate section code: s3. The code has been overwritten.')
+  ])
 })
 
 test('merges empty files', () => {
   expect(mergeMeta([]))
     .toStrictEqual({ sections: {}, references: {}, backReferences: {} })
+  expect(errors).toEqual([])
 })

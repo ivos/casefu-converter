@@ -3,8 +3,7 @@ const { icons } = require('./common')
 const sectionLink = (meta, code) => {
   const section = meta.sections[code]
   if (!section) {
-    console.error('ERROR: Reference to non-existing section via code:', code)
-    return ''
+    return `<a href="#${code}" title="${code}">${code}</a>`
   }
   const title = section.type === 'useCase' ? `${code} - ${section.name}` : section.name
   return `<i class="${icons[section.type]} text-muted"></i>&nbsp;` +
