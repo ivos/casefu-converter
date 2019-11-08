@@ -168,6 +168,16 @@ const columnValuesListEnd = () => {
   next()
   context().inColumnValues = false
 }
+const columnValueStart = () => {
+  next()
+  context().columnValueSet = false
+}
+const columnValueEnd = () => {
+  if (!context().columnValueSet) {
+    context().currentColumnValues.push({ type: 'text', text: '' })
+  }
+  next()
+}
 const field = () => {
   html(`<div class="form-group row">`)
   if (isLink()) {
@@ -307,6 +317,7 @@ const column = () => {
 }
 const columnValue = () => {
   context().currentColumnValues.push(token())
+  context().columnValueSet = true
   next()
 }
 
@@ -331,6 +342,8 @@ module.exports = {
   columnEnd,
   columnValuesListStart,
   columnValuesListEnd,
+  columnValueStart,
+  columnValueEnd,
   field,
   column,
   columnValue,

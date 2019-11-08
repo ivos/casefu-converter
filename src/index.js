@@ -24,6 +24,8 @@ const {
   columnEnd,
   columnValuesListStart,
   columnValuesListEnd,
+  columnValueStart,
+  columnValueEnd,
   field,
   column,
   columnValue,
@@ -134,6 +136,7 @@ const initContext = tokens => {
     inColumn: false,
     inColumnValues: false,
     currentColumnValues: null,
+    columnValueSet: null,
     tableColumnValues: null,
     inAttributes: false,
     inAttribute: false
@@ -202,13 +205,13 @@ const processTopLevelToken = () => {
   } else if (isListItemStart() && (context().inTable && !context().inColumn)) {
     columnStart()
   } else if (isListItemStart() && context().inColumnValues) {
-    next()
+    columnValueStart()
   } else if (isListItemStart() && (context().inAttributes)) {
     attributeStart()
   } else if (isListItemEnd() && (context().inColumn && !context().inColumnValues)) {
     columnEnd()
   } else if (isListItemEnd() && context().inColumnValues) {
-    next()
+    columnValueEnd()
   } else if (isListItemEnd() && (context().inAttributes)) {
     attributeEnd()
   } else if (isFieldSet() && context().inField) {
