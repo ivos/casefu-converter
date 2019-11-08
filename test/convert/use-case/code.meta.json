@@ -1,0 +1,25 @@
+{
+  "sections": {
+    "Use-case-1": {
+      "type": "useCase",
+      "name": "Use case 1"
+    },
+    "CodeEnd": {
+      "type": "useCase",
+      "name": "Use case 2"
+    },
+    "CodeStart": {
+      "type": "useCase",
+      "name": "Use case 3"
+    },
+    "code-middle-unprocessed": {
+      "type": "useCase",
+      "name": "Use case  4"
+    },
+    "Use-case-012389-name": {
+      "type": "useCase",
+      "name": "Use case       012389   ěščřžýáíéňúů ~!@#$%^&*()-=+[]{};'\\:\"|,./<>?   name"
+    }
+  },
+  "references": {}
+}

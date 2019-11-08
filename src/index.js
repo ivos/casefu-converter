@@ -44,6 +44,10 @@ const {
   isAttributes
 } = require('./entities')
 const {
+  actorStart,
+  isActor
+} = require('./actors')
+const {
   useCaseStart,
   isUseCase
 } = require('./use-cases')
@@ -162,6 +166,11 @@ const processTopLevelToken = () => {
       homeEnd()
     }
     entityStart()
+  } else if (isActor()) {
+    if (context().inHome) {
+      homeEnd()
+    }
+    actorStart()
   } else if (isUseCase()) {
     if (context().inHome) {
       homeEnd()

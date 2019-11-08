@@ -1,0 +1,25 @@
+{
+  "sections": {
+    "Actor_1": {
+      "type": "actor",
+      "name": "Actor 1"
+    },
+    "CodeEnd": {
+      "type": "actor",
+      "name": "Actor 2"
+    },
+    "CodeStart": {
+      "type": "actor",
+      "name": "Actor 3"
+    },
+    "code-middle-unprocessed": {
+      "type": "actor",
+      "name": "Actor  4"
+    },
+    "Actor_012389Name": {
+      "type": "actor",
+      "name": "Actor       012389   ěščřžýáíéňúů ~!@#$%^&*()-=+[]{};'\\:\"|,./<>?   name"
+    }
+  },
+  "references": {}
+}

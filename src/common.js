@@ -1,6 +1,7 @@
 const icons = {
   screen: 'fas fa-desktop',
   entity: 'fas fa-database',
+  actor: 'fas fa-user',
   useCase: 'fas fa-list-alt'
 }
 

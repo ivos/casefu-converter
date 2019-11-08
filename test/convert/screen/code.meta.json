@@ -1,0 +1,25 @@
+{
+  "sections": {
+    "/screen/1": {
+      "type": "screen",
+      "name": "Screen 1"
+    },
+    "code-end": {
+      "type": "screen",
+      "name": "Screen 2"
+    },
+    "code-start": {
+      "type": "screen",
+      "name": "Screen 3"
+    },
+    "code-middle": {
+      "type": "screen",
+      "name": "Screen  4"
+    },
+    "/screen/012389/name": {
+      "type": "screen",
+      "name": "ScReEN       012389   ěščřžýáíéňúů ~!@#$%^&*()-=+[]{};'\\:\"|,./<>?   name"
+    }
+  },
+  "references": {}
+}
