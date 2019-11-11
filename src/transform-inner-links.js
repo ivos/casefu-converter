@@ -5,9 +5,17 @@ const transformInnerLinks = (fileName, html, meta) => {
   let matches = html.match(pattern)
   if (matches) {
     matches.forEach(match => {
-      const code = match.match(/<a href="#([^"]*)"/)[1]
-      if (!meta.sections[code]) {
+      const re = /<a href="#([^"]*)"/
+      const code = match.match(re)[1]
+      const translated = meta.attributeToEntity[code]
+      if (!meta.sections[translated || code]) {
         console.error(chalk.red(`ERROR: Unknown reference to ${code} in file ${fileName}`))
+      }
+      if (translated) {
+        const toBeReplaced = `<a href="#${code}"`
+        while (html.includes(toBeReplaced)) {
+          html = html.replace(toBeReplaced, `<a href="#${translated}"`)
+        }
       }
     })
   }

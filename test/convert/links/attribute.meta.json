@@ -1,0 +1,42 @@
+{
+  "sections": {
+    "A": {
+      "type": "entity",
+      "name": "A"
+    },
+    "EntityB": {
+      "type": "entity",
+      "name": "Entity B"
+    },
+    "C": {
+      "type": "entity",
+      "name": "C"
+    },
+    "D": {
+      "type": "entity",
+      "name": "D"
+    }
+  },
+  "references": {
+    "C": [
+      "A.attA1",
+      "A.a2",
+      "EntityB.attB1",
+      "EntityB.b3",
+      "A.a3"
+    ],
+    "D": [
+      "EntityB.attB1",
+      "EntityB.b3",
+      "A.a3"
+    ]
+  },
+  "attributeToEntity": {
+    "A.attA1": "A",
+    "A.a2": "A",
+    "A.a3": "A",
+    "EntityB.attB1": "EntityB",
+    "EntityB.b2": "EntityB",
+    "EntityB.b3": "EntityB"
+  }
+}
