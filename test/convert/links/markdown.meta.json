@@ -16,5 +16,6 @@
       "Entity7",
       "Entity12"
     ]
-  }
+  },
+  "attributeToEntity": {}
 }

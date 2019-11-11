@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "Entity_1": {
+      "type": "entity",
+      "name": "Entity 1"
+    }
+  },
+  "references": {},
+  "attributeToEntity": {
+    "Entity_1.labelOnly": "Entity_1",
+    "Entity_1.code-only": "Entity_1",
+    "Entity_1.code-as-well": "Entity_1",
+    "Entity_1.code-in-the": "Entity_1",
+    "Entity_1.code-at-the": "Entity_1",
+    "Entity_1.multiple": "Entity_1",
+    "Entity_1.withUnclosedCodeStart": "Entity_1"
+  }
+}
