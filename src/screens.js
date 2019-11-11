@@ -156,7 +156,7 @@ const columnStart = () => {
 const columnEnd = () => {
   html('</th>')
   next()
-  context().tableColumnValues.push(context().currentColumnValues)
+  context().tableColumnValues && context().tableColumnValues.push(context().currentColumnValues)
   context().currentColumnValues = null
   context().inColumn = false
 }
@@ -316,7 +316,7 @@ const column = () => {
   keep()
 }
 const columnValue = () => {
-  context().currentColumnValues.push(token())
+  context().currentColumnValues && context().currentColumnValues.push(token())
   context().columnValueSet = true
   next()
 }
