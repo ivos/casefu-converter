@@ -32,5 +32,6 @@
       "Customer",
       "Supplier"
     ]
-  }
+  },
+  "attributeToEntity": {}
 }

@@ -27,5 +27,6 @@
       "Order",
       "Customer"
     ]
-  }
+  },
+  "attributeToEntity": {}
 }

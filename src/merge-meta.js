@@ -16,6 +16,7 @@ const mergeMeta = files => {
       verifyCodeDuplicities(acc.sections, val.sections)
       const sections = { ...acc.sections, ...val.sections }
       const references = { ...acc.references }
+      const attributeToEntity = { ...acc.attributeToEntity, ...val.attributeToEntity }
       Object.keys(val.references).forEach(refKey => {
         const accRefs = references[refKey] || []
         val.references[refKey].forEach(ref => {
@@ -25,16 +26,20 @@ const mergeMeta = files => {
         })
         references[refKey] = accRefs
       })
-      return { sections, references }
-    }, { sections: {}, references: {} })
+      return { sections, references, attributeToEntity }
+    }, { sections: {}, references: {}, attributeToEntity: {} })
 
   merged.backReferences = {}
   Object.keys(merged.references)
     .forEach(key => {
       merged.references[key]
         .forEach(ref => {
-          const backRefs = merged.backReferences[ref] || []
-          merged.backReferences[ref] = [...backRefs, key]
+          const translated = merged.attributeToEntity[ref]
+          const code = translated || ref
+          const backRefs = merged.backReferences[code] || []
+          if (!backRefs.includes(key)) {
+            merged.backReferences[code] = [...backRefs, key]
+          }
         })
     })
 

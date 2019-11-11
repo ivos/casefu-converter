@@ -1,0 +1,23 @@
+{
+  "sections": {
+    "Entity_1": {
+      "type": "entity",
+      "name": "Entity 1"
+    },
+    "Entity_2": {
+      "type": "entity",
+      "name": "Entity 2"
+    },
+    "Entity_3": {
+      "type": "entity",
+      "name": "Entity 3"
+    }
+  },
+  "references": {},
+  "attributeToEntity": {
+    "Entity_2.attributeA": "Entity_2",
+    "Entity_2.attributeB": "Entity_2",
+    "Entity_2.attributeC": "Entity_2",
+    "Entity_3.attribute_3A": "Entity_3"
+  }
+}

@@ -58,18 +58,22 @@ const attributeEnd = () => {
   next()
   context().inAttribute = false
 }
-const attributeName = () => {
+const attributeNameAndCode = () => {
   let name = fieldName()
-  const re = /`.*`/
+  let code
+  const re = /`([^`]*)`/
   if (!name.match(re)) {
-    const defaultCode = camelCase(name)
-    name += `<code class="float-right">${defaultCode}</code>`
+    code = camelCase(name)
+    name += `<code class="float-right">${code}</code>`
   }
   while (name.match(re)) {
+    if (!code) {
+      code = name.match(re)[1]
+    }
     name = name.replace('`', '<code class="float-right">')
     name = name.replace('`', '</code>')
   }
-  return name
+  return { name, code }
 }
 const attributeStatusAndDataType = () => {
   const statuses = {
@@ -117,7 +121,7 @@ const attributeDataType = dataType => {
   html(`</td>`)
 }
 const attribute = () => {
-  const name = attributeName()
+  const { name, code } = attributeNameAndCode()
   const statusAndDataType = attributeStatusAndDataType()
   const status = statusAndDataType[0]
   const dataType = statusAndDataType[1]
@@ -138,6 +142,7 @@ const attribute = () => {
     html('<td></td>')
   }
   next()
+  context().meta.attributeToEntity[context().sectionCode + '.' + code] = context().sectionCode
 }
 
 const isEntity = () => isHeading(2) && token().text.startsWith('Entity:')
