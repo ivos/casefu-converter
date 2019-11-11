@@ -18,7 +18,7 @@
   "dependencies": {
     "camel-case": "3.0.0",
     "chalk": "2.4.2",
-    "marked": "0.6.2",
+    "marked": "0.7.0",
     "pascal-case": "2.0.1"
   },
   "devDependencies": {

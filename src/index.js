@@ -65,7 +65,8 @@ const debug = false
 
 marked.setOptions({
   headerIds: false,
-  smartLists: true
+  smartLists: true,
+  silent: true
 })
 
 const convert = markdown => {
