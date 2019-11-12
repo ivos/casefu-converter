@@ -1,0 +1,52 @@
+{
+  "sections": {
+    "Entity_1": {
+      "type": "entity",
+      "name": "Entity 1"
+    },
+    "E2": {
+      "type": "entity",
+      "name": "Entity 2"
+    },
+    "E3": {
+      "type": "entity",
+      "name": "Entity 3"
+    },
+    "Entity_4": {
+      "type": "entity",
+      "name": "Entity 4"
+    },
+    "Entity_5": {
+      "type": "entity",
+      "name": "Entity 5"
+    },
+    "Entity_6": {
+      "type": "entity",
+      "name": "Entity 6"
+    },
+    "Entity_7": {
+      "type": "entity",
+      "name": "Entity 7"
+    }
+  },
+  "references": {
+    "Entity_1": [
+      "E2",
+      "E3",
+      "Entity_4",
+      "Entity_5",
+      "Entity_6",
+      "Entity_7"
+    ],
+    "E2": [
+      "Entity_1"
+    ]
+  },
+  "attributeToEntity": {
+    "Entity_1.inDataType": "Entity_1",
+    "Entity_1.inDataTypeWithStatus": "Entity_1",
+    "Entity_1.explicitInDataType": "Entity_1",
+    "Entity_1.inDescription": "Entity_1",
+    "Entity_1.explicitInDescription": "Entity_1"
+  }
+}

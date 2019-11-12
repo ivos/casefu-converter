@@ -1,0 +1,56 @@
+{
+  "sections": {
+    "/screen/1": {
+      "type": "screen",
+      "name": "Screen 1"
+    },
+    "S2": {
+      "type": "screen",
+      "name": "Screen 2"
+    },
+    "/screen/3": {
+      "type": "screen",
+      "name": "Screen 3"
+    },
+    "/screen/4": {
+      "type": "screen",
+      "name": "Screen 4"
+    },
+    "/screen/5": {
+      "type": "screen",
+      "name": "Screen 5"
+    },
+    "/screen/6": {
+      "type": "screen",
+      "name": "Screen 6"
+    },
+    "/screen/7": {
+      "type": "screen",
+      "name": "Screen 7"
+    },
+    "/screen/8": {
+      "type": "screen",
+      "name": "Screen 8"
+    },
+    "/screen/9": {
+      "type": "screen",
+      "name": "Screen 9"
+    }
+  },
+  "references": {
+    "/screen/1": [
+      "S2",
+      "/screen/3",
+      "/screen/4",
+      "/screen/5",
+      "/screen/6",
+      "/screen/7",
+      "/screen/8",
+      "/screen/9"
+    ],
+    "S2": [
+      "/screen/1"
+    ]
+  },
+  "attributeToEntity": {}
+}

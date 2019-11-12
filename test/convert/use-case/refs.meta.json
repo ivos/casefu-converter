@@ -1,0 +1,31 @@
+{
+  "sections": {
+    "UC-1": {
+      "type": "useCase",
+      "name": "UC 1"
+    },
+    "UC2": {
+      "type": "useCase",
+      "name": "UC 2"
+    },
+    "UC-3": {
+      "type": "useCase",
+      "name": "UC 3"
+    },
+    "UC-4": {
+      "type": "useCase",
+      "name": "UC 4"
+    }
+  },
+  "references": {
+    "UC-1": [
+      "UC-3",
+      "UC2",
+      "UC-4"
+    ],
+    "UC2": [
+      "UC-1"
+    ]
+  },
+  "attributeToEntity": {}
+}

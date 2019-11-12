@@ -14,7 +14,7 @@ const {
   isHeading
 } = require('./common')
 const { fieldName } = require('./screens')
-const { expandInternalLinks } = require('./refs')
+const { processLinks } = require('./refs')
 
 const entityCode = () => sectionCode() ||
   pascalCase(sectionName().replace(/[^\w]+/g, ' '))
@@ -115,7 +115,7 @@ const attributeDescription = () => {
   return (matches && matches[1].trim()) || ''
 }
 const attributeDataType = dataType => {
-  dataType = expandInternalLinks(dataType)
+  dataType = processLinks(dataType)
   html(`<td>`)
   addToken({ type: 'text', text: dataType })
   html(`</td>`)
@@ -136,7 +136,7 @@ const attribute = () => {
   }
   if (description) {
     html(`<td>`)
-    addToken({ type: 'text', text: description })
+    addToken({ type: 'text', text: processLinks(description) })
     html(`</td>`)
   } else {
     html('<td></td>')

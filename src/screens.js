@@ -13,11 +13,12 @@ const {
   isText,
   isHeading
 } = require('./common')
+const { processLinks, processLinksToHtml } = require('./refs')
 
 const screenCode = () => sectionCode() ||
   '/' + sectionName().replace(/[^\w]+/g, '/').toLowerCase()
 
-const isLink = () => !!token().text.match(/^\[.*\]\(.*\)/)
+const isLink = () => !!token().text.match(/^\[.*\]\(.*\)|^`#[^`]*`/)
 const fieldName = () => token().text.split(/\(|:| - /)[0].trim()
 const fieldStatus = () => {
   const statuses = ['optional', 'readOnly', 'required']
@@ -182,6 +183,7 @@ const field = () => {
   html(`<div class="form-group row">`)
   if (isLink()) {
     html(`<div class="offset-sm-4 offset-lg-3 col-sm-7 col-lg-8">`)
+    token().text = processLinks(token().text)
     keep()
     html(`</div>`)
   } else {
@@ -225,7 +227,7 @@ const field = () => {
 }
 const getDisabled = disabled => disabled ? ' disabled' : ''
 const getRequired = required => required ? '<span class="cf-required">&nbsp;*</span>' : ''
-const getHint = hint => hint ? `  <small class="form-text text-muted">${hint}</small>\n` : ''
+const getHint = hint => hint ? `  <small class="form-text text-muted">${processLinksToHtml(hint)}</small>\n` : ''
 const labelledField = (id, name, required, hint, content) => {
   const labelFor = id ? ` for="${id}"` : ''
   html(` <label${labelFor} class="col-sm-4 col-lg-3 col-form-label">${name}${getRequired(required)}</label>
@@ -316,6 +318,7 @@ const column = () => {
   keep()
 }
 const columnValue = () => {
+  token().text = processLinks(token().text)
   context().currentColumnValues && context().currentColumnValues.push(token())
   context().columnValueSet = true
   next()
