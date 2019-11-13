@@ -91,7 +91,7 @@
           var itemId = item.id
           var code = itemId.substr('__search-item-'.length)
           var section = document.getElementById(code)
-          var matches = !query.trim() || section.innerHTML.toLowerCase().includes(query.toLowerCase())
+          var matches = !query.trim() || section.innerHTML.toLowerCase().indexOf(query.toLowerCase()) > -1
           item.style.display = matches ? 'list-item' : 'none'
         }
       }
