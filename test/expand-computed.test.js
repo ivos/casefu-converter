@@ -17,18 +17,24 @@ after`
       'sec/1': { type: 'screen', name: 'Sec 1' },
       'sec/2': { type: 'screen', name: 'Sec 2' },
       'sec/3': { type: 'entity', name: 'Sec 3' },
+      'EntityA': { type: 'entity', name: 'Entity A' },
       'sec/5': { type: 'useCase', name: 'Sec 5' },
       'sec/7': { type: 'screen', name: 'Sec 7' }
     },
     references: {
       'sec/1': ['sec/2'],
-      'sec/2': ['sec/1', 'sec/3', 'sec/rf666', 'sec/5'],
+      'sec/2': ['sec/1', 'sec/3', 'sec/rf666', 'EntityA.att2', 'sec/5'],
       'sec/3': ['sec/4']
     },
     backReferences: {
       'sec/1': ['sec/2'],
       'sec/2': ['sec/3', 'sec/5', 'sec/br666', 'sec/7'],
       'sec/3': ['sec/4']
+    },
+    attributeToEntity: {
+      'EntityA.att1': 'EntityA',
+      'EntityA.att2': 'EntityA',
+      'EntityA.att3': 'EntityA'
     }
   }
 
@@ -41,6 +47,7 @@ between 1
 <i class="fas fa-desktop text-muted"></i>&nbsp;<a href="#sec/1" title="Sec 1">Sec 1</a>,
 <i class="fas fa-database text-muted"></i>&nbsp;<a href="#sec/3" title="Sec 3">Sec 3</a>,
 <a href="#sec/rf666" title="sec/rf666">sec/rf666</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#EntityA" title="Entity A">EntityA.att2</a>,
 <i class="fas fa-list-alt text-muted"></i>&nbsp;<a href="#sec/5" title="sec/5 - Sec 5">Sec 5</a>
 </div>
 <div id="section-referred-from-sec/2">

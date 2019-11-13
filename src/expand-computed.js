@@ -1,13 +1,14 @@
 const { icons } = require('./common')
 
 const sectionLink = (meta, code) => {
-  const section = meta.sections[code]
+  const translated = meta.attributeToEntity[code]
+  const section = meta.sections[translated || code]
   if (!section) {
-    return `<a href="#${code}" title="${code}">${code}</a>`
+    return `<a href="#${translated || code}" title="${code}">${code}</a>`
   }
   const title = section.type === 'useCase' ? `${code} - ${section.name}` : section.name
   return `<i class="${icons[section.type]} text-muted"></i>&nbsp;` +
-    `<a href="#${code}" title="${title}">${section.name}</a>`
+    `<a href="#${translated || code}" title="${title}">${translated ? code : section.name}</a>`
 }
 
 const expandComputed = (html, sectionCode, meta) => {
