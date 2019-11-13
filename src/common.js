@@ -15,7 +15,7 @@ const setContext = context => {
 
 const token = () => context().tokens[context().i]
 const next = () => context().i++
-const nextAutoId = () => `cf-aid-${context().autoId++}`
+const nextAutoId = () => `cf-aid-${context().sectionCode || ''}-${context().autoId++}`
 
 const sectionCode = () => {
   const codeStart = token().text.indexOf('`')
