@@ -37,6 +37,7 @@ const expandInternalLinks = text => {
   while (matches) {
     const ref = matches[1]
     text = text.replace(re, `[${ref}](#${ref} "${ref}")`)
+    addReference(context().sectionCode, ref)
     matches = text.match(re)
   }
   return text
@@ -65,9 +66,9 @@ const convertToHtml = text => {
   return text
 }
 const processLinks = text => {
-  text = expandInternalLinks(text)
-  text = addTitleToExpandedReferences(text)
   captureExpandedReferences(text)
+  text = addTitleToExpandedReferences(text)
+  text = expandInternalLinks(text)
   return text
 }
 const processLinksToHtml = text => {

@@ -18,7 +18,7 @@
 
 Refers to `#A.attA1`, `#A.a2`, `#EntityB.attB1` and `#EntityB.b3` implicitly.
 
-Also refers to `#A.a2` again and explicit link to [a a3](`#A.a3`).
+Also refers to `#A.a2` again and explicit link to [a a3](#A.a3).
 
 ## Entity: D
 

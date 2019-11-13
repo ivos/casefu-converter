@@ -22,3 +22,21 @@
 - Value with colon parens (readOnly text): Value with (parens): 1b
 - Value only with parens (readOnly): Value with (parens) 2a
 - Value only with colon parens (readOnly): Value with (parens): 2b
+
+### Form: Short code
+
+- RO only (RO)
+- RO with value (RO): value 1
+
+- Text field (RO text)
+- Text field with value (RO text): value 2
+- Password field (RO password): value 3
+- Date field (RO date): value 4
+- Time field (RO time): value 5
+- MultiLine field (RO multiLine): value 6
+- Checkbox field checked (RO checkbox): true
+- Checkbox field unchecked (RO checkbox): false
+- Select field (RO select: Value s1, Value s2, Value s3): Value s2
+- Radios field (RO radios: Value r1, Value r2, Value r3): Value r2
+- MultiSelect field (RO multiSelect: Value m1, Value m2, Value m3): Value m1, Value m3
+- Checkboxes field (RO checkboxes: Value c1, Value c2, Value c3): Value c1, Value c3

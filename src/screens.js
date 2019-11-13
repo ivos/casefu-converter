@@ -21,10 +21,15 @@ const screenCode = () => sectionCode() ||
 const isLink = () => !!token().text.match(/^\[.*\]\(.*\)|^`#[^`]*`/)
 const fieldName = () => token().text.split(/\(|:| - /)[0].trim()
 const fieldStatus = () => {
-  const statuses = ['optional', 'readOnly', 'required']
+  const statuses = {
+    O: 'optional',
+    RO: 'readOnly',
+    R: 'required'
+  }
   const matches = token().text.match(/\(([^:\s)]+).*\)/)
   const status = matches && matches[1]
-  return statuses.includes(status) ? status : context().defaultStatus
+  const mappedStatus = statuses[status] || status
+  return Object.values(statuses).includes(mappedStatus) ? mappedStatus : context().defaultStatus
 }
 const fieldType = () => {
   const types = ['text', 'password', 'date', 'time', 'multiLine', 'checkbox',
@@ -294,12 +299,14 @@ ${type === 'select' ? '   <option></option>\n' : ''}${options}  </select>
 `)
 }
 const radiosField = (name, disabled, required, typeValues, values, hint) => {
+  let inputName
   const radios = typeValues ? typeValues.split(',')
     .map(value => value.trim())
     .map(value => {
       const id = nextAutoId()
+      inputName = inputName || id
       return `  <div class="form-check">
-   <input id="${id}" class="form-check-input" type="radio" name="Radios field" ` +
+   <input id="${id}" class="form-check-input" type="radio" name="${inputName}" ` +
         `value="${value}"${values.includes(value) ? ' checked' : ''}${getDisabled(disabled)}>
    <label for="${id}" class="form-check-label">${value}</label>
   </div>`
