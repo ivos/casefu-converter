@@ -12,7 +12,7 @@
 	- Value C1
 
 	- Value C2
-	- Value C3
+	- 20\. 10. 2020 date value
 
 	- Value C4
 - Field D
