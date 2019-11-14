@@ -250,7 +250,7 @@ const textField = (name, disabled, required, type, value, hint) => {
   if (disabled && type === null) {
     html(` <label class="col-sm-4 col-lg-3 col-form-label">${name}</label>
  <div class="col-sm-7 col-lg-8">`)
-    addToken({ type: 'text', text: value })
+    addToken({ type: 'text', text: processLinksToHtml(value) })
     html(` </div>`)
   } else {
     const id = nextAutoId()

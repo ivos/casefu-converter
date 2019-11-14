@@ -35,6 +35,22 @@
     "/screen/9": {
       "type": "screen",
       "name": "Screen 9"
+    },
+    "/screen/10": {
+      "type": "screen",
+      "name": "Screen 10"
+    },
+    "/screen/11": {
+      "type": "screen",
+      "name": "Screen 11"
+    },
+    "/screen/12": {
+      "type": "screen",
+      "name": "Screen 12"
+    },
+    "/screen/13": {
+      "type": "screen",
+      "name": "Screen 13"
     }
   },
   "references": {
@@ -46,7 +62,11 @@
       "/screen/6",
       "/screen/7",
       "/screen/8",
-      "/screen/9"
+      "/screen/9",
+      "/screen/10",
+      "/screen/11",
+      "/screen/12",
+      "/screen/13"
     ],
     "S2": [
       "/screen/1"
