@@ -86,7 +86,7 @@ const screenStart = () => {
 }
 const formStart = defaultStatus => {
   html(`<div class="card">
-<div class="card-body">`)
+<div class="card-body pb-0">`)
   token().text = token().text.replace(/Form:\s*|ReadOnlyForm:\s*/, '<i class="fas fa-list text-muted"></i> ')
   keep()
   context().inForm = true
@@ -139,7 +139,7 @@ const tableEnd = () => {
 }
 const fieldSetStart = () => {
   html(`<div class="card">
-<div class="card-body">
+<div class="card-body pb-0">
  <h5 class="card-title">`)
   token().text = token().text.replace(/FieldSet:\s*/, '')
   keep()
