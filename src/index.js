@@ -141,6 +141,8 @@ const initContext = tokens => {
     currentColumnValues: null,
     columnValueSet: null,
     tableColumnValues: null,
+    insideTable: false,
+    afterTable: null,
     inAttributes: false,
     inAttribute: false
   })
@@ -245,7 +247,12 @@ const processGenericToken = () => {
   if (token().text) {
     token().text = processLinks(token().text)
   }
-  keep()
+  if (context().insideTable) {
+    context().afterTable.push(token())
+    next()
+  } else {
+    keep()
+  }
 }
 
 const isListStart = () => token().type === 'list_start'

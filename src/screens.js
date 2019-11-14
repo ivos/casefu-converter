@@ -100,15 +100,17 @@ const formEnd = () => {
 }
 const tableStart = defaultStatus => {
   html(`<div class="card">
-<div class="card-body">`)
+<div class="card-body pb-0">`)
   token().text = token().text.replace(/Table:\s*|EditTable:\s*/, '<i class="fas fa-table text-muted"></i> ')
   keep()
-  html(`<table class="table table-bordered table-hover table-sm mb-0">
+  html(`<table class="table table-bordered table-hover table-sm">
 <thead>
 <tr>`)
   context().inTable = true
   context().defaultStatus = defaultStatus
   context().tableColumnValues = []
+  context().insideTable = false
+  context().afterTable = []
 }
 const tableEnd = () => {
   html(`</tr>
@@ -123,9 +125,13 @@ const tableEnd = () => {
     })
     html('</tr>')
   }
-  html(`</table>
-</div>
+  html(`</table>`)
+  context().afterTable
+    .forEach(addToken)
+  html(`</div>
 </div>`)
+  context().afterTable = null
+  context().insideTable = false
   context().tableColumnValues = null
   context().currentColumnValues = null
   context().defaultStatus = null
@@ -156,6 +162,7 @@ const fieldEnd = () => {
 const columnStart = () => {
   html('<th>')
   next()
+  context().insideTable = true
   context().inColumn = true
   context().currentColumnValues = []
 }
