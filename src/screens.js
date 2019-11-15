@@ -103,11 +103,12 @@ const tableStart = defaultStatus => {
 <div class="card-body pb-0">`)
   token().text = token().text.replace(/Table:\s*|EditTable:\s*/, '<i class="fas fa-table text-muted"></i> ')
   keep()
-  html(`<table class="table table-bordered table-hover table-sm">
+  html(`<table class="table table-bordered table-sm">
 <thead>
 <tr>`)
   context().inTable = true
   context().defaultStatus = defaultStatus
+  context().tableFields = []
   context().tableColumnValues = []
   context().insideTable = false
   context().afterTable = []
@@ -118,9 +119,14 @@ const tableEnd = () => {
   const rows = context().tableColumnValues.reduce((acc, columnValues) => Math.max(acc, columnValues.length), 0)
   for (let row = 0; row < rows; row++) {
     html('<tr>')
-    context().tableColumnValues.forEach(columnValues => {
+    context().tableColumnValues.forEach((columnValues, index) => {
       html('<td>')
-      columnValues[row] && addToken(columnValues[row])
+      const tableField = context().tableFields[index]
+      const { name, type, typeValues, disabled, required, hint } = (tableField || {})
+      const value = columnValues[row] && columnValues[row].text
+      if (value || type) {
+        widget({ name, type, typeValues, disabled, required, value: value || '', hint })
+      }
       html('</td>')
     })
     html('</tr>')
@@ -133,6 +139,7 @@ const tableEnd = () => {
   context().afterTable = null
   context().insideTable = false
   context().tableColumnValues = null
+  context().tableFields = null
   context().currentColumnValues = null
   context().defaultStatus = null
   context().inTable = false
@@ -164,13 +171,18 @@ const columnStart = () => {
   next()
   context().insideTable = true
   context().inColumn = true
+  context().columnSet = false
   context().currentColumnValues = []
 }
 const columnEnd = () => {
   html('</th>')
   next()
+  if (!context().columnSet) {
+    context().tableFields && context().tableFields.push({})
+  }
   context().tableColumnValues && context().tableColumnValues.push(context().currentColumnValues)
   context().currentColumnValues = null
+  context().columnSet = false
   context().inColumn = false
 }
 const columnValuesListStart = () => {
@@ -190,6 +202,34 @@ const columnValueEnd = () => {
     context().currentColumnValues.push({ type: 'text', text: '' })
   }
   next()
+}
+const widget = ({ name, type, typeValues, disabled, required, value, hint }) => {
+  switch (type) {
+    case null:
+    case 'text':
+    case 'password':
+      textColumnWidget(name, disabled, required, type, value, hint)
+      break
+    case 'date':
+    case 'time':
+      temporalColumnWidget(name, disabled, required, type, value, hint)
+      break
+    case 'multiLine':
+      multiLineColumnWidget(name, disabled, required, value, hint)
+      break
+    case 'checkbox':
+      checkboxColumnWidget(name, disabled, required, value, hint)
+      break
+    case 'select':
+    case 'multiSelect':
+      selectColumnWidget(name, disabled, required, type, typeValues, fieldValues(value), hint)
+      break
+    case 'radios':
+      radiosColumnWidget(name, disabled, required, typeValues, fieldValues(value), hint)
+      break
+    case 'checkboxes':
+      checkboxesColumnWidget(name, disabled, required, typeValues, fieldValues(value), hint)
+  }
 }
 const field = () => {
   html(`<div class="form-group row">`)
@@ -239,26 +279,44 @@ const field = () => {
 }
 const getDisabled = disabled => disabled ? ' disabled' : ''
 const getRequired = required => required ? '<span class="cf-required">&nbsp;*</span>' : ''
-const getHint = hint => hint ? `  <small class="form-text text-muted">${processLinksToHtml(hint)}</small>\n` : ''
+const getHint = hint => hint ? `\n  <small class="form-text text-muted">${processLinksToHtml(hint)}</small>` : ''
 const labelledField = (id, name, required, hint, content) => {
   const labelFor = id ? ` for="${id}"` : ''
   html(` <label${labelFor} class="col-sm-4 col-lg-3 col-form-label">${name}${getRequired(required)}</label>
  <div class="col-sm-7 col-lg-8">
-${content}${getHint(hint)} </div>`)
+${content}${getHint(hint)}
+ </div>`)
+}
+const textColumnWidget = (name, disabled, required, type, value, hint) => {
+  if (disabled && type === null) {
+    addToken({ type: 'text', text: processLinks(value) })
+  } else {
+    html(`  <input type="${type || 'text'}" class="form-control" placeholder="${name}" ` +
+      `value="${value}"${getDisabled(disabled)}>${getHint(hint)}`)
+  }
 }
 const textField = (name, disabled, required, type, value, hint) => {
   if (disabled && type === null) {
     html(` <label class="col-sm-4 col-lg-3 col-form-label">${name}</label>
  <div class="col-sm-7 col-lg-8">`)
-    addToken({ type: 'text', text: processLinksToHtml(value) })
+    addToken({ type: 'text', text: processLinks(value) })
     html(` </div>`)
   } else {
     const id = nextAutoId()
     labelledField(id, name, required, hint,
       `  <input id="${id}" type="${type || 'text'}" class="form-control" placeholder="${name}" ` +
-      `value="${value}"${getDisabled(disabled)}>
-`)
+      `value="${value}"${getDisabled(disabled)}>`)
   }
+}
+const temporalColumnWidget = (name, disabled, required, type, value, hint) => {
+  const icon = type === 'date' ? 'far fa-calendar-alt' : 'far fa-clock'
+  html(`  <div class="input-group">
+   <input type="text" class="form-control" placeholder="${name}" ` +
+    `value="${value}"${getDisabled(disabled)}>
+   <div class="input-group-append">
+    <span class="input-group-text"><i class="${icon}"></i></span>
+   </div>
+  </div>${getHint(hint)}`)
 }
 const temporalField = (name, disabled, required, type, value, hint) => {
   const id = nextAutoId()
@@ -269,15 +327,25 @@ const temporalField = (name, disabled, required, type, value, hint) => {
    <div class="input-group-append">
     <span class="input-group-text"><i class="${icon}"></i></span>
    </div>
-  </div>
-`)
+  </div>`)
+}
+const multiLineColumnWidget = (name, disabled, required, value, hint) => {
+  html(`  <textarea rows="4" class="form-control" placeholder="${name}"` +
+    `${getDisabled(disabled)}>${value}</textarea>${getHint(hint)}`)
 }
 const multiLineField = (name, disabled, required, value, hint) => {
   const id = nextAutoId()
   labelledField(id, name, required, hint,
     `  <textarea id="${id}" rows="4" class="form-control" placeholder="${name}"` +
-    `${getDisabled(disabled)}>${value}</textarea>
-`)
+    `${getDisabled(disabled)}>${value}</textarea>`)
+}
+const checkboxColumnWidget = (name, disabled, required, value, hint) => {
+  const isTrue = value === true || (value && value.toLowerCase() === 'true')
+  html(`  <div class="form-check">
+   <input class="form-check-input" type="checkbox"` +
+    `${isTrue ? ' checked' : ''}${getDisabled(disabled)}>
+   <label class="form-check-label"></label>${getHint(hint)}
+  </div>`)
 }
 const checkbox = (name, disabled, required, value, hint) => {
   const id = nextAutoId()
@@ -285,13 +353,22 @@ const checkbox = (name, disabled, required, value, hint) => {
   return `  <div class="form-check">
    <input id="${id}" class="form-check-input" type="checkbox"` +
     `${isTrue ? ' checked' : ''}${getDisabled(disabled)}>
-   <label for="${id}" class="form-check-label">${name}${getRequired(required)}</label>
-${getHint(hint)}  </div>`
+   <label for="${id}" class="form-check-label">${name}${getRequired(required)}</label>${getHint(hint)}
+  </div>`
 }
 const checkboxField = (name, disabled, required, value, hint) => {
   html(` <div class="col-sm-7 col-lg-8 offset-sm-4 offset-lg-3">
 ${checkbox(name, disabled, required, value, hint)}
  </div>`)
+}
+const selectColumnWidget = (name, disabled, required, type, typeValues, values, hint) => {
+  const options = typeValues ? typeValues.split(',')
+    .map(value => value.trim())
+    .map(value => `   <option${values.includes(value) ? ' selected' : ''}>${value}</option>`)
+    .join('\n') + '\n' : ''
+  html(`  <select${type === 'multiSelect' ? ' multiple' : ''} class="form-control"` +
+    `${getDisabled(disabled)}>
+${type === 'select' ? '   <option></option>\n' : ''}${options}  </select>${getHint(hint)}`)
 }
 const selectField = (name, disabled, required, type, typeValues, values, hint) => {
   const id = nextAutoId()
@@ -302,8 +379,23 @@ const selectField = (name, disabled, required, type, typeValues, values, hint) =
   labelledField(id, name, required, hint,
     `  <select id="${id}"${type === 'multiSelect' ? ' multiple' : ''} class="form-control"` +
     `${getDisabled(disabled)}>
-${type === 'select' ? '   <option></option>\n' : ''}${options}  </select>
-`)
+${type === 'select' ? '   <option></option>\n' : ''}${options}  </select>`)
+}
+const radiosColumnWidget = (name, disabled, required, typeValues, values, hint) => {
+  let inputName
+  const radios = typeValues ? typeValues.split(',')
+    .map(value => value.trim())
+    .map(value => {
+      const id = nextAutoId()
+      inputName = inputName || id
+      return `  <div class="form-check">
+   <input id="${id}" class="form-check-input" type="radio" name="${inputName}" ` +
+        `value="${value}"${values.includes(value) ? ' checked' : ''}${getDisabled(disabled)}>
+   <label for="${id}" class="form-check-label">${value}</label>
+  </div>`
+    })
+    .join('\n') + getHint(hint) : ''
+  html(radios)
 }
 const radiosField = (name, disabled, required, typeValues, values, hint) => {
   let inputName
@@ -318,18 +410,35 @@ const radiosField = (name, disabled, required, typeValues, values, hint) => {
    <label for="${id}" class="form-check-label">${value}</label>
   </div>`
     })
-    .join('\n') + '\n' : ''
+    .join('\n') : ''
   labelledField(null, name, required, hint, radios)
+}
+const checkboxesColumnWidget = (name, disabled, required, typeValues, values, hint) => {
+  const checkboxes = typeValues ? typeValues.split(',')
+    .map(typeValue => typeValue.trim())
+    .map(typeValue => checkbox(typeValue, disabled, false, values.includes(typeValue)))
+    .join('\n') + getHint(hint) : ''
+  html(checkboxes)
 }
 const checkboxesField = (name, disabled, required, typeValues, values, hint) => {
   const checkboxes = typeValues ? typeValues.split(',')
     .map(typeValue => typeValue.trim())
     .map(typeValue => checkbox(typeValue, disabled, false, values.includes(typeValue)))
-    .join('\n') + '\n' : ''
+    .join('\n') : ''
   labelledField(null, name, required, hint, checkboxes)
 }
 const column = () => {
-  keep()
+  const name = fieldName()
+  const status = fieldStatus()
+  const disabled = status === 'readOnly'
+  const required = status === 'required'
+  const type = fieldType()
+  const typeValues = fieldTypeValues()
+  const hint = fieldHint()
+  html(`${name}${getRequired(required)}`)
+  context().tableFields.push({ name, disabled, required, type, typeValues, hint })
+  context().columnSet = true
+  next()
 }
 const columnValue = () => {
   token().text = processLinks(token().text)
