@@ -25,7 +25,7 @@ const buildSearchSection = meta => {
 <i class="fas fa-search text-muted"></i>
 </span>
 </div>
-<input id="searchText" type="text" class="form-control"
+<input id="__search-text" type="text" class="form-control"
 placeholder="Start typing to search..." />
 </div>
 </div>

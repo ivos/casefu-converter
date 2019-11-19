@@ -13,7 +13,6 @@ const htmlTemplate = content => `<!doctype html>
 
     <style>
         main > section {
-            display: none;
             margin-top: 20px;
         }
 
@@ -55,6 +54,11 @@ const htmlTemplate = content => `<!doctype html>
             font-weight: bold;
         }
     </style>
+    <style id="__print-style">
+        main > section {
+            display: none;
+        }
+    </style>
 </head>
 <body>
 
@@ -69,6 +73,12 @@ const htmlTemplate = content => `<!doctype html>
             </a>
         </li>
     </ul>
+    <div class="btn-group-toggle">
+        <label class="btn btn-outline-secondary btn-sm">
+            <input id="__print-button" type="checkbox" checked autocomplete="off">
+            <i class="fas fa-print"></i>
+        </label>
+    </div>
 </nav>
 
 <div class="container-fluid">
@@ -81,7 +91,7 @@ const htmlTemplate = content => `<!doctype html>
 
 <script>
   window.addEventListener("load", function () {
-    var searchText = document.getElementById('searchText')
+    var searchText = document.getElementById('__search-text')
     if (searchText) {
       searchText.oninput = function (event) {
         var query = event.target.value
@@ -96,6 +106,22 @@ const htmlTemplate = content => `<!doctype html>
         }
       }
       searchText.focus()
+    }
+
+    var printButton = document.getElementById('__print-button')
+    var printLabel = printButton.parentNode
+    var printStyle = document.getElementById('__print-style')
+    var printMode = false
+    printButton.onclick = function (event) {
+      event.preventDefault()
+      if (printMode) {
+        printStyle.innerHTML = 'main > section { display: none; }'
+        printLabel.classList.remove('active')
+      } else {
+        printStyle.innerHTML = ''
+        printLabel.classList.add('active')
+      }
+      printMode = !printMode
     }
 
     window.onhashchange = function () {
