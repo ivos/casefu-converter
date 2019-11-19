@@ -125,7 +125,7 @@ const tableEnd = () => {
       const { name, type, typeValues, disabled, required, hint } = (tableField || {})
       const value = columnValues[row] && columnValues[row].text
       if (value || type) {
-        widget({ name, type, typeValues, disabled, required, value: value || '', hint })
+        columnWidget({ name, type, typeValues, disabled, required, value: value || '', hint })
       }
       html('</td>')
     })
@@ -203,7 +203,7 @@ const columnValueEnd = () => {
   }
   next()
 }
-const widget = ({ name, type, typeValues, disabled, required, value, hint }) => {
+const columnWidget = ({ name, type, typeValues, disabled, required, value, hint }) => {
   switch (type) {
     case null:
     case 'text':
