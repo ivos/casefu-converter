@@ -62,19 +62,25 @@ const htmlTemplate = content => `<!doctype html>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#__home">
-        <i class="fas fa-home text-muted"></i>
+<nav class="navbar navbar-expand navbar-light bg-light">
+    <a class="navbar-brand" href="https://casefu.com/" target="_blank" style="margin-top: -6px;"
+       title="Open CaseFu.com web site">
+        <img src="https://casefu.com/favicon.ico" height="25" />
     </a>
     <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
+        <li class="nav-item pr-1">
+            <a class="nav-link" href="#__home">
+                <i class="fas fa-home"></i>
+            </a>
+        </li>
+        <li class="nav-item px-1">
             <a class="nav-link" href="#__search">
-                <i class="fas fa-search text-muted"></i>
+                <i class="fas fa-search"></i>
             </a>
         </li>
     </ul>
     <div class="btn-group-toggle">
-        <label class="btn btn-outline-secondary btn-sm">
+        <label class="btn btn-outline-secondary" title="Toggle print mode">
             <input id="__print-button" type="checkbox" checked autocomplete="off">
             <i class="fas fa-print"></i>
         </label>
