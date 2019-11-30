@@ -53,10 +53,24 @@
             color: red;
             font-weight: bold;
         }
+
+        main > section.cf-use-case > .cf-extensions > ul {
+            padding-left: 1.9rem;
+        }
+
+        main > section.cf-use-case > .cf-extensions li {
+            list-style: none;
+            text-indent: -1.9rem;
+        }
+
+        main > section.cf-use-case > .cf-extensions > ul > li:not(:last-of-type) {
+            margin-bottom: 0.5rem;
+        }
     </style>
     <style id="__print-style">
         main > section {
             display: none;
+            padding-bottom: 2rem;
         }
     </style>
 </head>
@@ -121,7 +135,7 @@
     printButton.onclick = function (event) {
       event.preventDefault()
       if (printMode) {
-        printStyle.innerHTML = 'main > section { display: none; }'
+        printStyle.innerHTML = 'main > section { display: none; padding-bottom: 2rem; }'
         printLabel.classList.remove('active')
       } else {
         printStyle.innerHTML = ''

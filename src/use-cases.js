@@ -1,9 +1,11 @@
 const {
   icons,
+  context,
   token,
   sectionCode,
   sectionName,
   keep,
+  html,
   sectionStart,
   isHeading
 } = require('./common')
@@ -21,10 +23,23 @@ const useCaseStart = () => {
   token().text = token().text.replace(/UC:\s*/, `<i class="${icons.useCase} text-muted"></i> `)
   keep()
 }
+const extensionsStart = () => {
+  html(`<div class="cf-extensions">`)
+  context().inExtensions = true
+  keep()
+}
+const extensionsEnd = () => {
+  context().inExtensions = false
+  html(`</div>`)
+}
 
 const isUseCase = () => isHeading(2) && token().text.startsWith('UC:')
+const isExtensions = () => isHeading(3) && token().text.startsWith('Extensions:')
 
 module.exports = {
   useCaseStart,
-  isUseCase
+  isUseCase,
+  isExtensions,
+  extensionsStart,
+  extensionsEnd
 }

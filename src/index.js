@@ -51,7 +51,10 @@ const {
 } = require('./actors')
 const {
   useCaseStart,
-  isUseCase
+  isUseCase,
+  isExtensions,
+  extensionsStart,
+  extensionsEnd
 } = require('./use-cases')
 const {
   homeStart,
@@ -107,6 +110,9 @@ const process = tokens => {
   if (context().inAttributes) {
     attributesEnd()
   }
+  if (context().inExtensions) {
+    extensionsEnd()
+  }
   if (context().inSection) {
     sectionEnd()
   }
@@ -146,7 +152,8 @@ const initContext = tokens => {
     insideTable: false,
     afterTable: null,
     inAttributes: false,
-    inAttribute: false
+    inAttribute: false,
+    inExtensions: false
   })
 }
 
@@ -160,6 +167,9 @@ const processTopLevelToken = () => {
   }
   if (isHeading() && context().inAttributes) {
     attributesEnd()
+  }
+  if (isHeading() && context().inExtensions) {
+    extensionsEnd()
   }
   if (isHeadingOrHigher(2) && context().inSection) {
     sectionEnd()
@@ -194,6 +204,8 @@ const processTopLevelToken = () => {
     tableStart('readOnly')
   } else if (isAttributes()) {
     attributesStart()
+  } else if (isExtensions()) {
+    extensionsStart()
   } else if (isListStart() && context().inColumn && !context().inColumnValues) {
     columnValuesListStart()
   } else if (isListStart() && (context().inForm || (context().inTable && !context().inColumn) || context().inAttributes)) {
