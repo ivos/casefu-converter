@@ -1,3 +1,5 @@
+const paramCase = require('param-case')
+
 const icons = {
   screen: 'fas fa-desktop',
   entity: 'fas fa-database',
@@ -46,7 +48,7 @@ const addSection = (type, code, name) => {
   context().meta.sections[code] = { type, name }
 }
 const sectionStart = (type, code, name) => {
-  html(`<section id="${code}">`)
+  html(`<section id="${code}" class="cf-${paramCase(type)}">`)
   context().inSection = true
   context().sectionCode = code
   name = name.replace(/`[^`]*`/g, '').trim()
