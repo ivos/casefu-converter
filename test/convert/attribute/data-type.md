@@ -16,3 +16,7 @@
 - Generic code (`OtherEntity`)
 - Explicit local reference ([some entity label](#SomeEntity))
 - Explicit outside reference ([some label](/path/url))
+
+- Spaced dash in type (string 4 - 14)
+- Spaced dash in type with description (string 6 - 16) - Spaced dash description
+- Parens ( varchar ( ( 30 - 40 )  ) ) - Desc ( d1 )

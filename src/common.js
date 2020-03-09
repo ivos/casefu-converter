@@ -59,6 +59,60 @@ const isText = () => token().type === 'text'
 const isHeading = (level = null) => token().type === 'heading' && (!level || token().depth === level)
 const isHeadingOrHigher = level => token().type === 'heading' && token().depth <= level
 
+const findFirstIndex = (text, items) => {
+  const firstIndex = items
+    .map(item => text.indexOf(item))
+    .filter(position => position >= 0)
+    .sort((a, b) => a - b)[0]
+  return firstIndex === undefined ? -1 : firstIndex
+}
+const labelStatusStart = '('
+const labelStatusEnd = ')'
+const labelValue = ':'
+const labelHint = ' - '
+const fieldName = text => {
+  const position = findFirstIndex(text, [labelStatusStart, labelValue, labelHint])
+  return (position >= 0)
+    ? [text.substring(0, position).trim(), text.substring(position)]
+    : [text.trim(), '']
+}
+const fieldStatusAndType = text => {
+  if (text.indexOf(labelStatusStart) === 0) {
+    let openBraces = 0
+    for (let i = 0; i < text.length; i++) {
+      if (text.substring(i).indexOf(labelStatusStart) === 0) openBraces++
+      if (text.substring(i).indexOf(labelStatusEnd) === 0) openBraces--
+      if (openBraces === 0) {
+        return [text.substring(labelStatusStart.length, i).trim(), text.substring(i + labelStatusEnd.length)]
+      }
+    }
+    return [text.substring(labelStatusStart.length).trim(), '']
+  }
+  return ['', text]
+}
+const fieldTypeValues = typeAndValues => {
+  return (typeAndValues.split(':')[1] || '').trim()
+}
+const fieldValue = text => {
+  if (text.indexOf(labelValue) === 0) {
+    text = text.substring(labelValue.length)
+    const position = findFirstIndex(text, [labelHint])
+    return (position >= 0)
+      ? [text.substring(0, position).trim(), text.substring(position)]
+      : [text.trim(), '']
+  }
+  return ['', text]
+}
+const fieldValues = value => !value ? []
+  : value.split(',')
+    .map(value => value.trim())
+const fieldHint = text => {
+  if (text.indexOf(labelHint) === 0) {
+    text = text.substring(labelHint.length)
+  }
+  return text.trim()
+}
+
 module.exports = {
   icons,
   context,
@@ -74,5 +128,11 @@ module.exports = {
   sectionStart,
   isText,
   isHeading,
-  isHeadingOrHigher
+  isHeadingOrHigher,
+  fieldName,
+  fieldStatusAndType,
+  fieldTypeValues,
+  fieldValue,
+  fieldValues,
+  fieldHint
 }

@@ -11,7 +11,13 @@ const {
   html,
   sectionStart,
   isText,
-  isHeading
+  isHeading,
+  fieldName,
+  fieldStatusAndType,
+  fieldTypeValues,
+  fieldValue,
+  fieldValues,
+  fieldHint
 } = require('./common')
 const { processLinks, processLinksToHtml } = require('./refs')
 
@@ -19,59 +25,38 @@ const screenCode = () => sectionCode() ||
   '/' + sectionName().replace(/[^\w]+/g, '/').toLowerCase()
 
 const isLink = () => !!token().text.match(/^\[.*\]\(.*\)|^`#[^`]*`/)
-const fieldName = () => token().text.split(/\(|:| - /)[0].trim()
-const fieldStatus = () => {
+
+const fieldStatus = statusAndType => {
   const statuses = {
     O: 'optional',
     RO: 'readOnly',
     R: 'required'
   }
-  const matches = token().text.match(/\(([^:\s)]+).*\)/)
-  const status = matches && matches[1]
-  const mappedStatus = statuses[status] || status
-  return Object.values(statuses).includes(mappedStatus) ? mappedStatus : context().defaultStatus
+  const firstWord = statusAndType.split(/\s/)[0] || ''
+  const mappedStatus = statuses[firstWord] || firstWord
+  return Object.values(statuses).includes(mappedStatus)
+    ? [mappedStatus, statusAndType.substring(firstWord.length).trim()]
+    : [context().defaultStatus, statusAndType]
 }
-const fieldType = () => {
+const fieldType = typeAndValues => {
   const types = ['text', 'password', 'date', 'time', 'multiLine', 'checkbox',
     'select', 'radios', 'multiSelect', 'checkboxes']
-  const matches = token().text.match(/\(([^:]+).*\)/)
-  const statusAndType = matches && matches[1].split(/\s/)
-  const type = statusAndType && statusAndType[statusAndType.length - 1]
+  const type = (typeAndValues.split(':')[0] || '').trim()
   return types.includes(type) ? type : null
 }
-const fieldTypeValues = () => {
-  const matches = token().text.match(/\([^:]+:(.+)\)/)
-  return matches && matches[1]
-}
-const fieldValue = () => {
-  const firstParenStart = token().text.indexOf('(')
-  const firstColon = token().text.indexOf(':')
-  if (firstParenStart > -1 && firstParenStart < firstColon) {
-    const afterFirstParenStart = token().text.substring(firstParenStart + 1)
-    const firstParenEnd = afterFirstParenStart.indexOf(')')
-    if (firstParenEnd > -1) {
-      const afterType = afterFirstParenStart.substring(firstParenEnd + 1)
-      return fieldValueAfterType(afterType)
-    }
-    return ''
-  }
-  return fieldValueAfterType(token().text)
-}
-const fieldValueAfterType = afterType => {
-  const matches = afterType.match(/:(.*)/)
-  if (matches) {
-    const valueWithMaybeHint = matches[1]
-    const hintStart = valueWithMaybeHint.indexOf(' - ')
-    return hintStart > -1 ? valueWithMaybeHint.substring(0, hintStart).trim() : valueWithMaybeHint.trim()
-  }
-  return ''
-}
-const fieldValues = value => !value ? []
-  : value.split(',')
-    .map(value => value.trim())
-const fieldHint = () => {
-  const matches = token().text.match(/ - (.*)/)
-  return (matches && matches[1].trim()) || ''
+const parseField = () => {
+  let rest = token().text
+  let name, statusAndType, value, hint
+  [name, rest] = fieldName(rest);
+  [statusAndType, rest] = fieldStatusAndType(rest)
+  const [status, typeAndValues] = fieldStatus(statusAndType)
+  const disabled = status === 'readOnly'
+  const required = status === 'required'
+  const type = fieldType(typeAndValues)
+  const typeValues = fieldTypeValues(typeAndValues);
+  [value, rest] = fieldValue(rest)
+  hint = fieldHint(rest)
+  return { name, disabled, required, type, typeValues, value, hint }
 }
 
 const screenStart = () => {
@@ -239,14 +224,7 @@ const field = () => {
     keep()
     html(`</div>`)
   } else {
-    const name = fieldName()
-    const status = fieldStatus()
-    const disabled = status === 'readOnly'
-    const required = status === 'required'
-    const type = fieldType()
-    const typeValues = fieldTypeValues()
-    const value = fieldValue()
-    const hint = fieldHint()
+    const { name, disabled, required, type, typeValues, value, hint } = parseField()
     switch (type) {
       case null:
       case 'text':
@@ -428,13 +406,7 @@ const checkboxesField = (name, disabled, required, typeValues, values, hint) => 
   labelledField(null, name, required, hint, checkboxes)
 }
 const column = () => {
-  const name = fieldName()
-  const status = fieldStatus()
-  const disabled = status === 'readOnly'
-  const required = status === 'required'
-  const type = fieldType()
-  const typeValues = fieldTypeValues()
-  const hint = fieldHint()
+  const { name, disabled, required, type, typeValues, hint } = parseField()
   html(`${name}${getRequired(required)}`)
   context().tableFields.push({ name, disabled, required, type, typeValues, hint })
   context().columnSet = true
@@ -454,7 +426,6 @@ const isTable = () => isHeading(3) && token().text.startsWith('Table:')
 const isFieldSet = () => isText() && token().text.startsWith('FieldSet:')
 
 module.exports = {
-  fieldName,
   screenStart,
   formStart,
   formEnd,
