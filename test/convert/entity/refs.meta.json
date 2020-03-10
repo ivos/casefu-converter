@@ -27,5 +27,6 @@
       "Entity_1"
     ]
   },
-  "attributeToEntity": {}
+  "attributeToEntity": {},
+  "entityAttributes": {}
 }

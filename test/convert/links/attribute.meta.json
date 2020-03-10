@@ -38,5 +38,35 @@
     "EntityB.attB1": "EntityB",
     "EntityB.b2": "EntityB",
     "EntityB.b3": "EntityB"
+  },
+  "entityAttributes": {
+    "A": {
+      "attA1": {
+        "status": null,
+        "dataType": ""
+      },
+      "a2": {
+        "status": null,
+        "dataType": ""
+      },
+      "a3": {
+        "status": null,
+        "dataType": ""
+      }
+    },
+    "EntityB": {
+      "attB1": {
+        "status": null,
+        "dataType": ""
+      },
+      "b2": {
+        "status": null,
+        "dataType": ""
+      },
+      "b3": {
+        "status": null,
+        "dataType": ""
+      }
+    }
   }
 }

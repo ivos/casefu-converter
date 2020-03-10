@@ -48,5 +48,29 @@
     "Entity_1.explicitInDataType": "Entity_1",
     "Entity_1.inDescription": "Entity_1",
     "Entity_1.explicitInDescription": "Entity_1"
+  },
+  "entityAttributes": {
+    "Entity_1": {
+      "inDataType": {
+        "status": null,
+        "dataType": "`#E3`"
+      },
+      "inDataTypeWithStatus": {
+        "status": "M",
+        "dataType": "`#Entity_4`"
+      },
+      "explicitInDataType": {
+        "status": null,
+        "dataType": "[entity 5](#Entity_5)"
+      },
+      "inDescription": {
+        "status": null,
+        "dataType": ""
+      },
+      "explicitInDescription": {
+        "status": null,
+        "dataType": ""
+      }
+    }
   }
 }

@@ -27,5 +27,6 @@
       "Actor_1"
     ]
   },
-  "attributeToEntity": {}
+  "attributeToEntity": {},
+  "entityAttributes": {}
 }

@@ -123,7 +123,12 @@ const process = tokens => {
   return context().work
 }
 
-const emptyMeta = () => ({ sections: {}, references: {}, attributeToEntity: {} })
+const emptyMeta = () => ({
+  sections: {},
+  references: {},
+  attributeToEntity: {},
+  entityAttributes: {}
+})
 const initContext = tokens => {
   const work = []
   work.links = { ...tokens.links }
