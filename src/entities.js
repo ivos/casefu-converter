@@ -40,6 +40,7 @@ const attributesStart = () => {
 <th>Name</th>
 <th>Status</th>
 <th>Type</th>
+<th>Example</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -141,7 +142,7 @@ const attributeDataType = dataType => {
   html(`</td>`)
 }
 const attribute = () => {
-  const { name, code, status, dataType, description } = parseAttribute()
+  const { name, code, status, dataType, value, description } = parseAttribute()
   html(`<td>${name}</td>`)
   if (status === null) {
     html('<td></td>')
@@ -152,6 +153,13 @@ const attribute = () => {
   }
   if (dataType) {
     attributeDataType(dataType)
+  } else {
+    html('<td></td>')
+  }
+  if (value) {
+    html(`<td>`)
+    addToken({ type: 'text', text: value })
+    html(`</td>`)
   } else {
     html('<td></td>')
   }
