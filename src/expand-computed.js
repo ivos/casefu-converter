@@ -36,12 +36,19 @@ const generateERD = (sectionCode, meta) => {
         return uml
       })
       .join('')
+    let relations = [...(meta.references[sectionCode] || []), ...(meta.backReferences[sectionCode] || [])]
+      .filter(reference => meta.sections[reference].type === 'entity')
+      .map(reference => `\n${sectionCode} -- ${reference}`)
+    relations.sort()
+    relations = [...new Set(relations)]
     const uml = `@startuml
 hide circle
 skinparam linetype ortho
 
 entity ${sectionCode} {${attributes}
 }
+${relations.join('')}
+@enduml
 `
     const url = 'http://www.plantuml.com/plantuml/img/' + plantumlEncoder.encode(uml)
     erd = `

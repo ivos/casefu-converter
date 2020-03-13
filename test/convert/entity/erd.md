@@ -16,9 +16,9 @@ Refers to `#/screen/2`.
 - Att 23 (O data type 23)
 - Att 24 (PK data type 24)
 - Att 25 (foreignKey data type 25)
-- Att 26 (`#Entity_1`)
-- Att 27 ([Entity 2](#Entity_2))
-- Att 28 (`#Entity_3`)
+- Att 26 (FK `#Entity_1`)
+- Att 27 (1:n [Entity 2](#Entity_2))
+- Att 28 (n:1 `#Entity_3`)
 
 ## Entity: Entity 3
 ### Attributes:

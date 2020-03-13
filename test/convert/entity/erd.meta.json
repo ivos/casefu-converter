@@ -81,15 +81,15 @@
         "dataType": "data type 25"
       },
       "att_26": {
-        "status": null,
+        "status": "FK",
         "dataType": "`#Entity_1`"
       },
       "att_27": {
-        "status": null,
+        "status": "1 : n",
         "dataType": "[Entity 2](#Entity_2)"
       },
       "att_28": {
-        "status": null,
+        "status": "n : 1",
         "dataType": "`#Entity_3`"
       }
     },

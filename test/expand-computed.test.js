@@ -104,6 +104,31 @@ after`
   expect(expandComputed(html, sectionCode, meta)).toStrictEqual(expanded)
 })
 
+test('expands computed, empty entity', () => {
+  const html = `before
+<div id="section-computed-Entity_1"/>
+after`
+  const sectionCode = 'Entity_1'
+  const meta = {
+    sections: {
+      'Entity_1': { name: 'Entity 1', type: 'entity' }
+    },
+    references: {},
+    backReferences: {},
+    entityAttributes: {
+      'Entity_1': {}
+    }
+  }
+
+  const expanded = `before
+<div id="section-computed-Entity_1">
+<img src="http://www.plantuml.com/plantuml/img/SoWkIImgAStDuSh8J4bLICuiIiv9vIhEpimhI2nAp5N8oSnBBQaiI5N8Boh9oEVYIiqhoIofL705K_662jLSjLnS3gbvAI0Z0000"/>
+</div>
+after`
+
+  expect(expandComputed(html, sectionCode, meta)).toStrictEqual(expanded)
+})
+
 test('expands computed, ERD', () => {
   const html = `before
 <div id="section-computed-Entity_1"/>
@@ -138,6 +163,10 @@ after`
       'Entity_4': {
         'type': 'entity',
         'name': 'Entity 4'
+      },
+      'Entity_5': {
+        'type': 'entity',
+        'name': 'Entity 5'
       }
     },
     references: {
@@ -156,9 +185,17 @@ after`
       ],
       'Entity_4': [
         'Entity_2'
+      ],
+      'Entity_5': [
+        'Entity_1'
       ]
     },
-    backReferences: {},
+    backReferences: {
+      'Entity_2': ['/screen/1', 'Entity_2', 'Entity_3', 'Entity_4'],
+      '/screen/2': ['Entity_2'],
+      'Entity_1': ['Entity_2', 'Entity_3', 'Entity_5'],
+      'Entity_3': ['Entity_2']
+    },
     attributeToEntity: {
       'Entity_2.att_21': 'Entity_2',
       'Entity_2.att_22': 'Entity_2',
@@ -197,15 +234,15 @@ after`
           'dataType': 'data type 25'
         },
         'att_26': {
-          'status': null,
+          'status': 'FK',
           'dataType': '`#Entity_1`'
         },
         'att_27': {
-          'status': null,
+          'status': '1 : n',
           'dataType': '[Entity 2](#Entity_2)'
         },
         'att_28': {
-          'status': null,
+          'status': 'n : 1',
           'dataType': '`#Entity_3`'
         }
       },
@@ -247,7 +284,14 @@ between 1
 <i class="fas fa-database text-muted"></i>&nbsp;<a href="#Entity_2" title="Entity 2">Entity 2</a>,
 <i class="fas fa-database text-muted"></i>&nbsp;<a href="#Entity_3" title="Entity 3">Entity 3</a>
 </div>
-<img src="http://www.plantuml.com/plantuml/img/LOx13e8m44Jl-nLxzaOBQWmXNlH2ZFu1QQ09ZQMGiXw8yT_TL9hAQMVdpMpsF9Foz1eizARJs1hVMWtpqxX9UJMWDKxJCcaSFVKZW7PaQC5B68t0Do0geaPaB7O_AV24dIA5eSXhMTwgAWRbbagczq3NThxbEVD7_Hyeje620zSwtTypNj_BedT8deZUCNaIFl05"/>
+<div id="section-referred-from-Entity_2">
+<strong>Referred from:</strong>
+<i class="fas fa-desktop text-muted"></i>&nbsp;<a href="#/screen/1" title="Screen 1">Screen 1</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Entity_2" title="Entity 2">Entity 2</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Entity_3" title="Entity 3">Entity 3</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Entity_4" title="Entity 4">Entity 4</a>
+</div>
+<img src="http://www.plantuml.com/plantuml/img/RP313e8m44Jl_Oezct1e0JM662vwCKR_W3JGX4OefAm7OlntbuhK9fowEszcCsa-eBJuR1jMwqf1gMtPA3OyjEcbbIqqsYWSUmMTnRfZJ1dKECB9FOM05mEGY8NWD6o-eu03L18bk22jMNOz7d_6EAGnqPkZSpe9UKByVlatfA4X9SCvC6p9C1Va7ZgqysYgnMardkuzdMePMZdHDsDB9egMqskYM1FZDJ5XkJBLzF4V"/>
 </div>
 between 2
 <div id="section-computed-Entity_3"/>
