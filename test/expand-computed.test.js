@@ -122,7 +122,10 @@ after`
 
   const expanded = `before
 <div id="section-computed-Entity_1">
-<img src="http://www.plantuml.com/plantuml/img/SoWkIImgAStDuSh8J4bLICuiIiv9vIhEpimhI2nAp5N8oSnBBQaiI5N8Boh9oEVYIiqhoIofL705K_662jLSjLnS3gbvAI0Z0000"/>
+<div id="section-erd-Entity_1">
+<div><strong>ERD:</strong></div>
+<img src="http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuSh8J4bLICuiIiv9vIhEpimhI2nAp5N8oSnBBQaiI5N8Boh9oEVYIiqhoIofL705K_662jLSjLnS3gbvAI0Z0000"/>
+</div>
 </div>
 after`
 
@@ -291,7 +294,10 @@ between 1
 <i class="fas fa-database text-muted"></i>&nbsp;<a href="#Entity_3" title="Entity 3">Entity 3</a>,
 <i class="fas fa-database text-muted"></i>&nbsp;<a href="#Entity_4" title="Entity 4">Entity 4</a>
 </div>
-<img src="http://www.plantuml.com/plantuml/img/RP313e8m44Jl_Oezct1e0JM662vwCKR_W3JGX4OefAm7OlntbuhK9fowEszcCsa-eBJuR1jMwqf1gMtPA3OyjEcbbIqqsYWSUmMTnRfZJ1dKECB9FOM05mEGY8NWD6o-eu03L18bk22jMNOz7d_6EAGnqPkZSpe9UKByVlatfA4X9SCvC6p9C1Va7ZgqysYgnMardkuzdMePMZdHDsDB9egMqskYM1FZDJ5XkJBLzF4V"/>
+<div id="section-erd-Entity_2">
+<div><strong>ERD:</strong></div>
+<img src="http://www.plantuml.com/plantuml/svg/RP313e8m44Jl_Oezct1e0JM662vwCKR_W3JGX4OefAm7OlntbuhK9fowEszcCsa-eBJuR1jMwqf1gMtPA3OyjEcbbIqqsYWSUmMTnRfZJ1dKECB9FOM05mEGY8NWD6o-eu03L18bk22jMNOz7d_6EAGnqPkZSpe9UKByVlatfA4X9SCvC6p9C1Va7ZgqysYgnMardkuzdMePMZdHDsDB9egMqskYM1FZDJ5XkJBLzF4V"/>
+</div>
 </div>
 between 2
 <div id="section-computed-Entity_3"/>

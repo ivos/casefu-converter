@@ -50,9 +50,12 @@ entity ${sectionCode} {${attributes}
 ${relations.join('')}
 @enduml
 `
-    const url = 'http://www.plantuml.com/plantuml/img/' + plantumlEncoder.encode(uml)
+    const url = 'http://www.plantuml.com/plantuml/svg/' + plantumlEncoder.encode(uml)
     erd = `
-<img src="${url}"/>`
+<div id="section-erd-${sectionCode}">
+<div><strong>ERD:</strong></div>
+<img src="${url}"/>
+</div>`
   }
   return erd
 }
