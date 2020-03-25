@@ -172,6 +172,14 @@ const attribute = () => {
   }
   next()
   context().meta.attributeToEntity[context().sectionCode + '.' + code] = context().sectionCode
+  const { entityAttributes } = context().meta
+  if (!entityAttributes[context().sectionCode]) {
+    entityAttributes[context().sectionCode] = {}
+  }
+  entityAttributes[context().sectionCode][code] = {
+    status: (status && status.code) ? status.code : status,
+    dataType
+  }
 }
 
 const isEntity = () => isHeading(2) && token().text.startsWith('Entity:')

@@ -72,5 +72,6 @@
       "/screen/1"
     ]
   },
-  "attributeToEntity": {}
+  "attributeToEntity": {},
+  "entityAttributes": {}
 }

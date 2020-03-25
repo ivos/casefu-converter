@@ -1,4 +1,5 @@
 const { icons } = require('./common')
+const { generateERD } = require('./uml-erd')
 
 const sectionLink = (meta, code) => {
   const translated = meta.attributeToEntity[code]
@@ -33,8 +34,9 @@ const expandComputed = (html, sectionCode, meta) => {
       .join(',\n')
     referredFrom += referredFromHtml + `\n</div>`
   }
+  const erd = generateERD(sectionCode, meta)
 
-  const expanded = `<div id="section-computed-${sectionCode}">${refersTo}${referredFrom}
+  const expanded = `<div id="section-computed-${sectionCode}">${refersTo}${referredFrom}${erd}
 </div>`
   return html.replace(`<div id="section-computed-${sectionCode}"/>`, expanded)
 }

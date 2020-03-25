@@ -17,6 +17,7 @@ const mergeMeta = files => {
       const sections = { ...acc.sections, ...val.sections }
       const references = { ...acc.references }
       const attributeToEntity = { ...acc.attributeToEntity, ...val.attributeToEntity }
+      const entityAttributes = { ...acc.entityAttributes, ...val.entityAttributes }
       Object.keys(val.references).forEach(refKey => {
         const accRefs = references[refKey] || []
         val.references[refKey].forEach(ref => {
@@ -26,8 +27,8 @@ const mergeMeta = files => {
         })
         references[refKey] = accRefs
       })
-      return { sections, references, attributeToEntity }
-    }, { sections: {}, references: {}, attributeToEntity: {} })
+      return { sections, references, attributeToEntity, entityAttributes }
+    }, { sections: {}, references: {}, attributeToEntity: {}, entityAttributes: {} })
 
   merged.backReferences = {}
   Object.keys(merged.references)

@@ -17,5 +17,6 @@
       "Entity12"
     ]
   },
-  "attributeToEntity": {}
+  "attributeToEntity": {},
+  "entityAttributes": {}
 }

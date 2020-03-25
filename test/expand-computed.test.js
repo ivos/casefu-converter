@@ -35,7 +35,8 @@ after`
       'EntityA.att1': 'EntityA',
       'EntityA.att2': 'EntityA',
       'EntityA.att3': 'EntityA'
-    }
+    },
+    entityAttributes: {}
   }
 
   const expanded = `before
@@ -87,7 +88,8 @@ after`
     backReferences: {
       'sec/1': ['sec/2'],
       'sec/3': ['sec/4']
-    }
+    },
+    entityAttributes: {}
   }
 
   const expanded = `before
@@ -97,6 +99,208 @@ between 1
 </div>
 between 2
 <div id="section-computed-sec/3"/>
+after`
+
+  expect(expandComputed(html, sectionCode, meta)).toStrictEqual(expanded)
+})
+
+test('expands computed, empty entity', () => {
+  const html = `before
+<div id="section-computed-Entity_1"/>
+after`
+  const sectionCode = 'Entity_1'
+  const meta = {
+    sections: {
+      'Entity_1': { name: 'Entity 1', type: 'entity' }
+    },
+    references: {},
+    backReferences: {},
+    entityAttributes: {
+      'Entity_1': {}
+    }
+  }
+
+  const expanded = `before
+<div id="section-computed-Entity_1">
+<div id="section-erd-Entity_1">
+<div><strong>ERD:</strong></div>
+<img src="http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuSh8J4bLICuiIiv9vIhEpimhI2nAp5N8oSnBBQaiI5N8Boh9oEVYIiqhoIofL705K_662jLSjLnS3gbvAI0Z0000"/>
+</div>
+</div>
+after`
+
+  expect(expandComputed(html, sectionCode, meta)).toStrictEqual(expanded)
+})
+
+test('expands computed, ERD', () => {
+  const html = `before
+<div id="section-computed-Entity_1"/>
+between 1
+<div id="section-computed-Entity_2"/>
+between 2
+<div id="section-computed-Entity_3"/>
+after`
+  const sectionCode = 'Entity_2'
+  const meta = {
+    sections: {
+      '/screen/1': {
+        'type': 'screen',
+        'name': 'Screen 1'
+      },
+      '/screen/2': {
+        'type': 'screen',
+        'name': 'Screen 2'
+      },
+      'Entity_1': {
+        'type': 'entity',
+        'name': 'Entity 1'
+      },
+      'Entity_2': {
+        'type': 'entity',
+        'name': 'Entity 2'
+      },
+      'Entity_3': {
+        'type': 'entity',
+        'name': 'Entity 3'
+      },
+      'Entity_4': {
+        'type': 'entity',
+        'name': 'Entity 4'
+      },
+      'Entity_5': {
+        'type': 'entity',
+        'name': 'Entity 5'
+      }
+    },
+    references: {
+      '/screen/1': [
+        'Entity_2'
+      ],
+      'Entity_2': [
+        '/screen/2',
+        'Entity_1',
+        'Entity_2',
+        'Entity_3'
+      ],
+      'Entity_3': [
+        'Entity_1',
+        'Entity_2'
+      ],
+      'Entity_4': [
+        'Entity_2'
+      ],
+      'Entity_5': [
+        'Entity_1'
+      ]
+    },
+    backReferences: {
+      'Entity_2': ['/screen/1', 'Entity_2', 'Entity_3', 'Entity_4'],
+      '/screen/2': ['Entity_2'],
+      'Entity_1': ['Entity_2', 'Entity_3', 'Entity_5'],
+      'Entity_3': ['Entity_2']
+    },
+    attributeToEntity: {
+      'Entity_2.att_21': 'Entity_2',
+      'Entity_2.att_22': 'Entity_2',
+      'Entity_2.att_23': 'Entity_2',
+      'Entity_2.att_24': 'Entity_2',
+      'Entity_2.att_25': 'Entity_2',
+      'Entity_2.att_26': 'Entity_2',
+      'Entity_2.att_27': 'Entity_2',
+      'Entity_2.att_28': 'Entity_2',
+      'Entity_3.att_31': 'Entity_3',
+      'Entity_3.att_32': 'Entity_3',
+      'Entity_3.att_33': 'Entity_3',
+      'Entity_3.att_34': 'Entity_3',
+      'Entity_4.att_41': 'Entity_4'
+    },
+    entityAttributes: {
+      'Entity_2': {
+        'att_21': {
+          'status': null,
+          'dataType': ''
+        },
+        'att_22': {
+          'status': 'M',
+          'dataType': 'data type 22'
+        },
+        'att_23': {
+          'status': 'O',
+          'dataType': 'data type 23'
+        },
+        'att_24': {
+          'status': 'PK',
+          'dataType': 'data type 24'
+        },
+        'att_25': {
+          'status': 'FK',
+          'dataType': 'data type 25'
+        },
+        'att_26': {
+          'status': 'FK',
+          'dataType': '`#Entity_1`'
+        },
+        'att_27': {
+          'status': '1 : n',
+          'dataType': '[Entity 2](#Entity_2)'
+        },
+        'att_28': {
+          'status': 'n : 1',
+          'dataType': '`#Entity_3`'
+        }
+      },
+      'Entity_3': {
+        'att_31': {
+          'status': null,
+          'dataType': ''
+        },
+        'att_32': {
+          'status': 'APK',
+          'dataType': 'bigint'
+        },
+        'att_33': {
+          'status': 'FK',
+          'dataType': '`#Entity_1`'
+        },
+        'att_34': {
+          'status': '1 : n',
+          'dataType': '`#Entity_2`'
+        }
+      },
+      'Entity_4': {
+        'att_41': {
+          'status': null,
+          'dataType': '`#Entity_2`'
+        }
+      }
+    }
+  }
+
+  const expanded = `before
+<div id="section-computed-Entity_1"/>
+between 1
+<div id="section-computed-Entity_2">
+<div id="section-refers-to-Entity_2">
+<strong>Refers to:</strong>
+<i class="fas fa-desktop text-muted"></i>&nbsp;<a href="#/screen/2" title="Screen 2">Screen 2</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Entity_1" title="Entity 1">Entity 1</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Entity_2" title="Entity 2">Entity 2</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Entity_3" title="Entity 3">Entity 3</a>
+</div>
+<div id="section-referred-from-Entity_2">
+<strong>Referred from:</strong>
+<i class="fas fa-desktop text-muted"></i>&nbsp;<a href="#/screen/1" title="Screen 1">Screen 1</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Entity_2" title="Entity 2">Entity 2</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Entity_3" title="Entity 3">Entity 3</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Entity_4" title="Entity 4">Entity 4</a>
+</div>
+<div id="section-erd-Entity_2">
+<div><strong>ERD:</strong></div>
+<img src="http://www.plantuml.com/plantuml/svg/TT6z3e8m40VmlKzniqa7ljGOGbXqCKRVW3JGX4Oe1Cw1WE_kKP7QWQbt_VrxkQHfZwB3LrsnKXKISjNbbMJzK-bMTAA6Icc9GokXwR1i69CQ5GvmDaVcmyW016BcUrJilgKF9oW42Z0FgOtZMvByWe6h0UdTwF8wT3qaVrp_0v4RY2XmSG9x2YmBUXOD7IpDQtdKQgj7g_DQcbgFzCtOEcwQE6_6TGPRXsr0i0KXS6ulKwcB-HC-"/>
+</div>
+</div>
+between 2
+<div id="section-computed-Entity_3"/>
 after`
 
   expect(expandComputed(html, sectionCode, meta)).toStrictEqual(expanded)

@@ -1,0 +1,120 @@
+{
+  "sections": {},
+  "references": {},
+  "attributeToEntity": {
+    "null.zeroOneToOne": null,
+    "null.oneOneToOne": null,
+    "null.oneToOne": null,
+    "null.zeroNToOne": null,
+    "null.zeroStarToOne": null,
+    "null.nToOne": null,
+    "null.starToOne": null,
+    "null.oneNToOne": null,
+    "null.oneStarToOne": null,
+    "null.oneToZeroOne": null,
+    "null.oneToOneOne": null,
+    "null.oneToZeroN": null,
+    "null.oneToZeroStar": null,
+    "null.oneToN": null,
+    "null.oneToStar": null,
+    "null.oneToOneN": null,
+    "null.oneToOneStar": null,
+    "null.nToN": null,
+    "null.starToStar": null,
+    "null.mToN": null,
+    "null.textDataType": null,
+    "null.refDataType": null
+  },
+  "entityAttributes": {
+    "null": {
+      "zeroOneToOne": {
+        "status": "0..1 : 1",
+        "dataType": ""
+      },
+      "oneOneToOne": {
+        "status": "1..1 : 1",
+        "dataType": ""
+      },
+      "oneToOne": {
+        "status": "1 : 1",
+        "dataType": ""
+      },
+      "zeroNToOne": {
+        "status": "0..N : 1",
+        "dataType": ""
+      },
+      "zeroStarToOne": {
+        "status": "0..* : 1",
+        "dataType": ""
+      },
+      "nToOne": {
+        "status": "N : 1",
+        "dataType": ""
+      },
+      "starToOne": {
+        "status": "* : 1",
+        "dataType": ""
+      },
+      "oneNToOne": {
+        "status": "1..N : 1",
+        "dataType": ""
+      },
+      "oneStarToOne": {
+        "status": "1..* : 1",
+        "dataType": ""
+      },
+      "oneToZeroOne": {
+        "status": "1 : 0..1",
+        "dataType": ""
+      },
+      "oneToOneOne": {
+        "status": "1 : 1..1",
+        "dataType": ""
+      },
+      "oneToZeroN": {
+        "status": "1 : 0..N",
+        "dataType": ""
+      },
+      "oneToZeroStar": {
+        "status": "1 : 0..*",
+        "dataType": ""
+      },
+      "oneToN": {
+        "status": "1 : N",
+        "dataType": ""
+      },
+      "oneToStar": {
+        "status": "1 : *",
+        "dataType": ""
+      },
+      "oneToOneN": {
+        "status": "1 : 1..N",
+        "dataType": ""
+      },
+      "oneToOneStar": {
+        "status": "1 : 1..*",
+        "dataType": ""
+      },
+      "nToN": {
+        "status": "N : n",
+        "dataType": ""
+      },
+      "starToStar": {
+        "status": "* : *",
+        "dataType": ""
+      },
+      "mToN": {
+        "status": "M : N",
+        "dataType": ""
+      },
+      "textDataType": {
+        "status": "1 : N",
+        "dataType": "data type"
+      },
+      "refDataType": {
+        "status": "1 : 1",
+        "dataType": "`#DataType`"
+      }
+    }
+  }
+}

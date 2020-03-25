@@ -93,7 +93,8 @@ test('merges metadata', () => {
       'EntityC.att1': 'EntityC',
       'EntityC.att2': 'EntityC',
       'EntityC.att3': 'EntityC'
-    }
+    },
+    entityAttributes: {}
   }
   expect(mergeMeta([f1, f2, f3]))
     .toStrictEqual(merged)
@@ -153,7 +154,8 @@ test('back references on attributes', () => {
       'EntityC.att1': 'EntityC',
       'EntityC.att2': 'EntityC',
       'EntityC.att3': 'EntityC'
-    }
+    },
+    entityAttributes: {}
   }
   expect(mergeMeta([f1, f2]))
     .toStrictEqual(merged)
@@ -164,6 +166,6 @@ test('back references on attributes', () => {
 
 test('merges empty files', () => {
   expect(mergeMeta([]))
-    .toStrictEqual({ sections: {}, references: {}, backReferences: {}, attributeToEntity: {} })
+    .toStrictEqual({ sections: {}, references: {}, backReferences: {}, attributeToEntity: {}, entityAttributes: {} })
   expect(errors).toEqual([])
 })

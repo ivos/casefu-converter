@@ -14,5 +14,37 @@
     "Entity_1.code-at-the": "Entity_1",
     "Entity_1.multiple": "Entity_1",
     "Entity_1.withUnclosedCodeStart": "Entity_1"
+  },
+  "entityAttributes": {
+    "Entity_1": {
+      "labelOnly": {
+        "status": null,
+        "dataType": ""
+      },
+      "code-only": {
+        "status": null,
+        "dataType": ""
+      },
+      "code-as-well": {
+        "status": null,
+        "dataType": ""
+      },
+      "code-in-the": {
+        "status": null,
+        "dataType": ""
+      },
+      "code-at-the": {
+        "status": null,
+        "dataType": ""
+      },
+      "multiple": {
+        "status": null,
+        "dataType": ""
+      },
+      "withUnclosedCodeStart": {
+        "status": null,
+        "dataType": ""
+      }
+    }
   }
 }

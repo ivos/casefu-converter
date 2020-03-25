@@ -19,5 +19,27 @@
     "Entity_2.attributeB": "Entity_2",
     "Entity_2.attributeC": "Entity_2",
     "Entity_3.attribute_3A": "Entity_3"
+  },
+  "entityAttributes": {
+    "Entity_2": {
+      "attributeA": {
+        "status": null,
+        "dataType": ""
+      },
+      "attributeB": {
+        "status": null,
+        "dataType": ""
+      },
+      "attributeC": {
+        "status": null,
+        "dataType": ""
+      }
+    },
+    "Entity_3": {
+      "attribute_3A": {
+        "status": null,
+        "dataType": ""
+      }
+    }
   }
 }

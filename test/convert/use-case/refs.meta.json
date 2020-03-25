@@ -27,5 +27,6 @@
       "UC-1"
     ]
   },
-  "attributeToEntity": {}
+  "attributeToEntity": {},
+  "entityAttributes": {}
 }
