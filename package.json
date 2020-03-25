@@ -7,7 +7,8 @@
     "standard": "standard --fix",
     "test:template": "node test/convert/run.js",
     "test:unit": "jest",
-    "test": "npm run test:template && npm run test:unit"
+    "test": "npm run test:template && npm run test:unit",
+    "build": "rimraf lib && webpack --optimize-minimize ./src/index.js -o lib/casefu.js"
   },
   "repository": {
     "type": "git",
@@ -32,7 +33,10 @@
     "eslint-plugin-react": "7.12.4",
     "eslint-plugin-standard": "4.0.0",
     "jest": "24.8.0",
-    "standard": "12.0.1"
+    "rimraf": "^3.0.2",
+    "standard": "12.0.1",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
   },
   "keywords": [
     "Screen",
@@ -45,6 +49,7 @@
     "Tool"
   ],
   "files": [
-    "src/**/*"
+    "src/**/*",
+    "lib/**/*"
   ]
 }

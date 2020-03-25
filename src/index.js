@@ -310,6 +310,18 @@ module.exports = {
   buildSearchSection
 }
 
+const convertString = markdown => {
+  let { html, meta } = convert(markdown)
+  meta = mergeMeta([{ meta }])
+  Object.keys(meta.sections)
+    .forEach(sectionCode => {
+      html = expandComputed(html, sectionCode, meta)
+    })
+  html = transformInnerLinks('[inline]', html, meta)
+  const searchSection = buildSearchSection(meta)
+  return htmlTemplate(html + searchSection)
+}
+
 if (typeof window !== 'undefined') {
-  window.CaseFuConverter = { convert }
+  window.CaseFuConverter = { convertString }
 }

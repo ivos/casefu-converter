@@ -31,7 +31,7 @@ const generateERD = (sectionCode, meta) => {
       })
       .join('')
     const fwdRelations = (meta.references[sectionCode] || [])
-      .filter(reference => meta.sections[reference].type === 'entity')
+      .filter(reference => (meta.sections[reference] || {}).type === 'entity')
       .map(reference => [sectionCode, reference, findRefAtt(meta, sectionCode, reference).status])
     const backRelations = (meta.backReferences[sectionCode] || [])
       .filter(reference => meta.sections[reference].type === 'entity')

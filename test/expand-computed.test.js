@@ -180,7 +180,8 @@ after`
         '/screen/2',
         'Entity_1',
         'Entity_2',
-        'Entity_3'
+        'Entity_3',
+        'NonExistent'
       ],
       'Entity_3': [
         'Entity_1',
@@ -247,6 +248,10 @@ after`
         'att_28': {
           'status': 'n : 1',
           'dataType': '`#Entity_3`'
+        },
+        'att_29': {
+          'status': null,
+          'dataType': '`#NonExistent`'
         }
       },
       'Entity_3': {
@@ -285,7 +290,8 @@ between 1
 <i class="fas fa-desktop text-muted"></i>&nbsp;<a href="#/screen/2" title="Screen 2">Screen 2</a>,
 <i class="fas fa-database text-muted"></i>&nbsp;<a href="#Entity_1" title="Entity 1">Entity 1</a>,
 <i class="fas fa-database text-muted"></i>&nbsp;<a href="#Entity_2" title="Entity 2">Entity 2</a>,
-<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Entity_3" title="Entity 3">Entity 3</a>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Entity_3" title="Entity 3">Entity 3</a>,
+<a href="#NonExistent" title="NonExistent">NonExistent</a>
 </div>
 <div id="section-referred-from-Entity_2">
 <strong>Referred from:</strong>
@@ -296,7 +302,7 @@ between 1
 </div>
 <div id="section-erd-Entity_2">
 <div><strong>ERD:</strong></div>
-<img src="http://www.plantuml.com/plantuml/svg/TT6z3e8m40VmlKzniqa7ljGOGbXqCKRVW3JGX4Oe1Cw1WE_kKP7QWQbt_VrxkQHfZwB3LrsnKXKISjNbbMJzK-bMTAA6Icc9GokXwR1i69CQ5GvmDaVcmyW016BcUrJilgKF9oW42Z0FgOtZMvByWe6h0UdTwF8wT3qaVrp_0v4RY2XmSG9x2YmBUXOD7IpDQtdKQgj7g_DQcbgFzCtOEcwQE6_6TGPRXsr0i0KXS6ulKwcB-HC-"/>
+<img src="http://www.plantuml.com/plantuml/svg/TP7B3e8m44NtynMpDc71orSCOOCRu-CFI2DDR8H2O4mauByxLAIoSDMvFNTcRjgu8L7JeyZXfZA9LrLVSmdDNUbArAB0N6b9RIMnhEbM0aXDYbfCp95ws06Y84ezbul5f_HmYvaWWQQHvMvtZAAlqPzJd-dPqB4xcFE0-UNmQmZdXf0D-vbXoOOne6kXGIkBXbWkIstfsj8XbcRfMhfXUIfrybGDyJF02s3QqlUEKtRJQ9Xs_07-Fn2WuzZBMEfi-9it"/>
 </div>
 </div>
 between 2
