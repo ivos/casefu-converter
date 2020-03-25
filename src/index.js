@@ -64,6 +64,7 @@ const {
 const {
   processLinks
 } = require('./refs')
+const { isPlant, plantCode } = require('./plant-code')
 require('./marked-link')
 
 const debug = false
@@ -254,13 +255,9 @@ const processTopLevelToken = () => {
     columnValue()
   } else if (isText() && context().inAttribute && !context().inBlockQuote) {
     attribute()
+  } else if (isPlant()) {
+    plantCode()
   } else {
-    if (isBlockQuoteStart()) {
-      context().inBlockQuote = true
-    }
-    if (isBlockQuoteEnd()) {
-      context().inBlockQuote = false
-    }
     processGenericToken()
   }
 }
@@ -274,6 +271,12 @@ const sectionEnd = () => {
   context().inSection = false
 }
 const processGenericToken = () => {
+  if (isBlockQuoteStart()) {
+    context().inBlockQuote = true
+  }
+  if (isBlockQuoteEnd()) {
+    context().inBlockQuote = false
+  }
   if (token().text) {
     token().text = processLinks(token().text)
   }

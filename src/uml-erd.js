@@ -1,4 +1,4 @@
-const plantumlEncoder = require('plantuml-encoder')
+const { plantImg } = require('./plant-code')
 
 const stripWrappers = (wrapper, text) => {
   let matches = text.match(wrapper)
@@ -86,11 +86,11 @@ entity ${sectionCode} {${attributes}
 ${relations.join('')}
 @enduml
 `
-    const url = 'http://www.plantuml.com/plantuml/svg/' + plantumlEncoder.encode(uml)
+    const img = plantImg(uml)
     erd = `
 <div id="section-erd-${sectionCode}">
 <div><strong>ERD:</strong></div>
-<img src="${url}"/>
+${img}
 </div>`
   }
   return erd
