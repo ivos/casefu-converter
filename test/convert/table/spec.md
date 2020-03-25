@@ -14,4 +14,14 @@ Text before columns.
 
 > Quote separated text 2.
 
+- Column 4
+> - Bullet a
+> - Bullet b
+> - Bullet c
+- Column 5
+	> 1. Numbered a
+	> 2. Numbered b
+	> 3. Numbered c
+- Column 6
+
 Text after columns.

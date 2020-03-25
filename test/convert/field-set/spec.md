@@ -17,5 +17,13 @@ Text in field set, no indent.
 		- Field AA2
 		> Quote in nested, same indent.
 		- Field AA3
+> - Bullet a
+> - Bullet b
+> - Bullet c
+		- Field AA4
+		> 1. Numbered a
+		> 2. Numbered b
+		> 3. Numbered c
+		- Field AA5
 	- Field A5
 - Field 2

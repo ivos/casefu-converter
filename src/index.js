@@ -158,7 +158,8 @@ const initContext = tokens => {
     afterTable: null,
     inAttributes: false,
     inAttribute: false,
-    inExtensions: false
+    inExtensions: false,
+    inBlockQuote: false
   })
 }
 
@@ -211,45 +212,55 @@ const processTopLevelToken = () => {
     attributesStart()
   } else if (isExtensions()) {
     extensionsStart()
-  } else if (isListStart() && context().inColumn && !context().inColumnValues) {
+  } else if (isListStart() && context().inColumn && !context().inColumnValues && !context().inBlockQuote) {
     columnValuesListStart()
-  } else if (isListStart() && (context().inForm || (context().inTable && !context().inColumn) || context().inAttributes)) {
+  } else if (isListStart() &&
+    (context().inForm || (context().inTable && !context().inColumn) || context().inAttributes) &&
+    !context().inBlockQuote) {
     next()
-  } else if (isListEnd() && context().fieldSetLevel > 0) {
+  } else if (isListEnd() && context().fieldSetLevel > 0 && !context().inBlockQuote) {
     fieldSetEnd()
     next()
-  } else if (isListEnd() && context().inColumnValues) {
+  } else if (isListEnd() && context().inColumnValues && !context().inBlockQuote) {
     columnValuesListEnd()
-  } else if (isListEnd() && (context().inForm || (context().inTable && !context().inColumn) || context().inAttributes)) {
+  } else if (isListEnd() &&
+    (context().inForm || (context().inTable && !context().inColumn) || context().inAttributes) &&
+    !context().inBlockQuote) {
     next()
-  } else if (isListItemStart() && context().inForm) {
+  } else if (isListItemStart() && context().inForm && !context().inBlockQuote) {
     fieldStart()
-  } else if (isListItemEnd() && context().inForm) {
+  } else if (isListItemEnd() && context().inForm && !context().inBlockQuote) {
     fieldEnd()
-  } else if (isListItemStart() && (context().inTable && !context().inColumn)) {
+  } else if (isListItemStart() && (context().inTable && !context().inColumn) && !context().inBlockQuote) {
     columnStart()
-  } else if (isListItemStart() && context().inColumnValues) {
+  } else if (isListItemStart() && context().inColumnValues && !context().inBlockQuote) {
     columnValueStart()
-  } else if (isListItemStart() && (context().inAttributes)) {
+  } else if (isListItemStart() && context().inAttributes && !context().inBlockQuote) {
     attributeStart()
-  } else if (isListItemEnd() && (context().inColumn && !context().inColumnValues)) {
+  } else if (isListItemEnd() && (context().inColumn && !context().inColumnValues) && !context().inBlockQuote) {
     columnEnd()
-  } else if (isListItemEnd() && context().inColumnValues) {
+  } else if (isListItemEnd() && context().inColumnValues && !context().inBlockQuote) {
     columnValueEnd()
-  } else if (isListItemEnd() && (context().inAttributes)) {
+  } else if (isListItemEnd() && context().inAttributes && !context().inBlockQuote) {
     attributeEnd()
   } else if (isFieldSet() && context().inField) {
     context().inField = false
     fieldSetStart()
   } else if (isText() && context().inField) {
     field()
-  } else if (isText() && context().inColumn && !context().inColumnValues) {
+  } else if (isText() && context().inColumn && !context().inColumnValues && !context().inBlockQuote) {
     column()
-  } else if (isText() && context().inColumn && context().inColumnValues) {
+  } else if (isText() && context().inColumn && context().inColumnValues && !context().inBlockQuote) {
     columnValue()
-  } else if (isText() && context().inAttribute) {
+  } else if (isText() && context().inAttribute && !context().inBlockQuote) {
     attribute()
   } else {
+    if (isBlockQuoteStart()) {
+      context().inBlockQuote = true
+    }
+    if (isBlockQuoteEnd()) {
+      context().inBlockQuote = false
+    }
     processGenericToken()
   }
 }
@@ -278,6 +289,8 @@ const isListStart = () => token().type === 'list_start'
 const isListEnd = () => token().type === 'list_end'
 const isListItemStart = () => token().type === 'list_item_start'
 const isListItemEnd = () => token().type === 'list_item_end'
+const isBlockQuoteStart = () => token().type === 'blockquote_start'
+const isBlockQuoteEnd = () => token().type === 'blockquote_end'
 
 const htmlTemplate = require('./html-template').htmlTemplate
 const mergeMeta = require('./merge-meta')
