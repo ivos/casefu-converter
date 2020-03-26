@@ -94,7 +94,11 @@ test('merges metadata', () => {
       'EntityC.att2': 'EntityC',
       'EntityC.att3': 'EntityC'
     },
-    entityAttributes: {}
+    entityAttributes: {},
+    errors: [
+      'ERROR: Duplicate section code: s2. The code has been overwritten.',
+      'ERROR: Duplicate section code: s3. The code has been overwritten.'
+    ]
   }
   expect(mergeMeta([f1, f2, f3]))
     .toStrictEqual(merged)
@@ -155,7 +159,10 @@ test('back references on attributes', () => {
       'EntityC.att2': 'EntityC',
       'EntityC.att3': 'EntityC'
     },
-    entityAttributes: {}
+    entityAttributes: {},
+    errors: [
+      'ERROR: Duplicate section code: s2. The code has been overwritten.'
+    ]
   }
   expect(mergeMeta([f1, f2]))
     .toStrictEqual(merged)
@@ -166,6 +173,8 @@ test('back references on attributes', () => {
 
 test('merges empty files', () => {
   expect(mergeMeta([]))
-    .toStrictEqual({ sections: {}, references: {}, backReferences: {}, attributeToEntity: {}, entityAttributes: {} })
+    .toStrictEqual({
+      sections: {}, references: {}, backReferences: {}, attributeToEntity: {}, entityAttributes: {}, errors: []
+    })
   expect(errors).toEqual([])
 })

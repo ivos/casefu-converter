@@ -21,11 +21,13 @@ test('passes row with no link', () => {
   const html = `before after`
   const meta = {
     sections: {},
-    attributeToEntity: {}
+    attributeToEntity: {},
+    errors: []
   }
 
   expect(transformInnerLinks('fileName1', html, meta)).toStrictEqual(html)
   expect(errors).toEqual([])
+  expect(meta.errors).toEqual([])
 })
 
 test('passes link', () => {
@@ -34,11 +36,13 @@ test('passes link', () => {
     sections: {
       'sec/1': {}
     },
-    attributeToEntity: {}
+    attributeToEntity: {},
+    errors: []
   }
 
   expect(transformInnerLinks('fileName1', html, meta)).toStrictEqual(html)
   expect(errors).toEqual([])
+  expect(meta.errors).toEqual([])
 })
 
 test('reports unknown link', () => {
@@ -47,13 +51,15 @@ test('reports unknown link', () => {
     sections: {
       'sec/2': {}
     },
-    attributeToEntity: {}
+    attributeToEntity: {},
+    errors: []
   }
 
   expect(transformInnerLinks('fileName1', html, meta)).toStrictEqual(html)
   expect(errors).toEqual([
     chalk.red('ERROR: Unknown reference to sec/1 in file fileName1')
   ])
+  expect(meta.errors).toEqual(['ERROR: Unknown reference to sec/1 in file fileName1'])
 })
 
 test('reports multiple unknown links on row', () => {
@@ -65,7 +71,8 @@ test('reports multiple unknown links on row', () => {
     sections: {
       'sec/2': {}
     },
-    attributeToEntity: {}
+    attributeToEntity: {},
+    errors: []
   }
 
   expect(transformInnerLinks('fileName1', html, meta)).toStrictEqual(html)
@@ -73,6 +80,11 @@ test('reports multiple unknown links on row', () => {
     chalk.red('ERROR: Unknown reference to sec/1 in file fileName1'),
     chalk.red('ERROR: Unknown reference to sec/3 in file fileName1'),
     chalk.red('ERROR: Unknown reference to sec/4 in file fileName1')
+  ])
+  expect(meta.errors).toEqual([
+    'ERROR: Unknown reference to sec/1 in file fileName1',
+    'ERROR: Unknown reference to sec/3 in file fileName1',
+    'ERROR: Unknown reference to sec/4 in file fileName1'
   ])
 })
 
@@ -88,12 +100,14 @@ test('transforms attribute link', () => {
       'EntityA.att1': 'EntityA',
       'EntityB.att2': 'EntityB',
       'EntityC.att3': 'EntityC'
-    }
+    },
+    errors: []
   }
   const expected = `before<a href="#EntityB" title="t1">label1</a>after`
 
   expect(transformInnerLinks('fileName1', html, meta)).toStrictEqual(expected)
   expect(errors).toEqual([])
+  expect(meta.errors).toEqual([])
 })
 
 test('transforms multiple attribute links', () => {
@@ -115,7 +129,8 @@ test('transforms multiple attribute links', () => {
       'EntityA.a3': 'EntityA',
       'EntityB.att2': 'EntityB',
       'EntityC.att3': 'EntityC'
-    }
+    },
+    errors: []
   }
   const expected = `before<a href="#EntityB" title="t1">label1</a>` +
     `between<a href="#EntityB" title="t2">label2</a>` +
@@ -126,4 +141,5 @@ test('transforms multiple attribute links', () => {
 
   expect(transformInnerLinks('fileName1', html, meta)).toStrictEqual(expected)
   expect(errors).toEqual([])
+  expect(meta.errors).toEqual([])
 })

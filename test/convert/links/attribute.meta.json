@@ -31,6 +31,7 @@
       "A.a3"
     ]
   },
+  "backReferences": {},
   "attributeToEntity": {
     "A.attA1": "A",
     "A.a2": "A",
@@ -68,5 +69,6 @@
         "dataType": ""
       }
     }
-  }
+  },
+  "errors": []
 }

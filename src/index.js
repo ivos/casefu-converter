@@ -85,7 +85,7 @@ const convert = markdown => {
     html = marked.parser(tokensProcessed)
   } catch (error) {
     console.error('Error parsing Markdown content.', error)
-    return { html: '', meta: emptyMeta() }
+    return { html: '', meta: { ...emptyMeta(), errors: ['Error parsing Markdown content: ' + error] } }
   }
   debug && console.log('formatted', html)
   const { meta } = context()
@@ -127,8 +127,10 @@ const process = tokens => {
 const emptyMeta = () => ({
   sections: {},
   references: {},
+  backReferences: {},
   attributeToEntity: {},
-  entityAttributes: {}
+  entityAttributes: {},
+  errors: []
 })
 const initContext = tokens => {
   const work = []
@@ -319,7 +321,11 @@ const convertString = markdown => {
     })
   html = transformInnerLinks('[inline]', html, meta)
   const searchSection = buildSearchSection(meta)
-  return htmlTemplate(html + searchSection)
+  html = htmlTemplate(html + searchSection)
+  let { errors } = meta
+  errors.sort()
+  errors = [...new Set(errors)]
+  return { errors, html }
 }
 
 if (typeof window !== 'undefined') {

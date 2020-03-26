@@ -43,6 +43,7 @@
       "Entity_2"
     ]
   },
+  "backReferences": {},
   "attributeToEntity": {
     "Entity_2.att_21": "Entity_2",
     "Entity_2.att_22": "Entity_2",
@@ -117,5 +118,6 @@
         "dataType": "`#Entity_2`"
       }
     }
-  }
+  },
+  "errors": []
 }

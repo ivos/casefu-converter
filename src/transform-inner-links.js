@@ -9,7 +9,12 @@ const transformInnerLinks = (fileName, html, meta) => {
       const code = match.match(re)[1]
       const translated = meta.attributeToEntity[code]
       if (!meta.sections[translated || code]) {
-        console.error(chalk.red(`ERROR: Unknown reference to ${code} in file ${fileName}`))
+        let error = `ERROR: Unknown reference to ${code}`
+        if (fileName !== '[inline]') {
+          error += ` in file ${fileName}`
+        }
+        meta.errors.push(error)
+        console.error(chalk.red(error))
       }
       if (translated) {
         const toBeReplaced = `<a href="#${code}"`

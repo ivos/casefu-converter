@@ -17,6 +17,8 @@
       "Entity12"
     ]
   },
+  "backReferences": {},
   "attributeToEntity": {},
-  "entityAttributes": {}
+  "entityAttributes": {},
+  "errors": []
 }

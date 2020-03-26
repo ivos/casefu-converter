@@ -14,6 +14,7 @@
     }
   },
   "references": {},
+  "backReferences": {},
   "attributeToEntity": {
     "Entity_2.attributeA": "Entity_2",
     "Entity_2.attributeB": "Entity_2",
@@ -41,5 +42,6 @@
         "dataType": ""
       }
     }
-  }
+  },
+  "errors": []
 }

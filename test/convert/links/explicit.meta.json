@@ -33,6 +33,8 @@
       "Supplier"
     ]
   },
+  "backReferences": {},
   "attributeToEntity": {},
-  "entityAttributes": {}
+  "entityAttributes": {},
+  "errors": []
 }

@@ -22,6 +22,8 @@
     }
   },
   "references": {},
+  "backReferences": {},
   "attributeToEntity": {},
-  "entityAttributes": {}
+  "entityAttributes": {},
+  "errors": []
 }

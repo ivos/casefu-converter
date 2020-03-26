@@ -28,6 +28,8 @@
       "Customer"
     ]
   },
+  "backReferences": {},
   "attributeToEntity": {},
-  "entityAttributes": {}
+  "entityAttributes": {},
+  "errors": []
 }

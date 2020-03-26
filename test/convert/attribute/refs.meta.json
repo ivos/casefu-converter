@@ -42,6 +42,7 @@
       "Entity_1"
     ]
   },
+  "backReferences": {},
   "attributeToEntity": {
     "Entity_1.inDataType": "Entity_1",
     "Entity_1.inDataTypeWithStatus": "Entity_1",
@@ -72,5 +73,6 @@
         "dataType": ""
       }
     }
-  }
+  },
+  "errors": []
 }

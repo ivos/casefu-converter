@@ -6,6 +6,7 @@
     }
   },
   "references": {},
+  "backReferences": {},
   "attributeToEntity": {
     "Entity_1.labelOnly": "Entity_1",
     "Entity_1.code-only": "Entity_1",
@@ -46,5 +47,6 @@
         "dataType": ""
       }
     }
-  }
+  },
+  "errors": []
 }
