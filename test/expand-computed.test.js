@@ -115,9 +115,7 @@ after`
     },
     references: {},
     backReferences: {},
-    entityAttributes: {
-      'Entity_1': {}
-    }
+    entityAttributes: {}
   }
 
   const expanded = `before
@@ -125,6 +123,69 @@ after`
 <div id="section-erd-Entity_1">
 <div><strong>ERD:</strong></div>
 <img src="http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuSh8J4bLICuiIiv9vIhEpimhI2nAp5N8oSnBBQaiI5N8Boh9oEVYIiqhoIofL705K_662jLSjLnS3gbvAI0Z0000"/>
+</div>
+</div>
+after`
+
+  expect(expandComputed(html, sectionCode, meta)).toStrictEqual(expanded)
+})
+
+test('expands computed, links with empty entity', () => {
+  const html = `before
+<div id="section-computed-Entity_1"/>
+after`
+  const sectionCode = 'Entity_1'
+  const meta = {
+    sections: {
+      'Entity_1': { name: 'Entity 1', type: 'entity' },
+      'Entity_2': { name: 'Entity 2', type: 'entity' },
+      'Entity_3': { name: 'Entity 3', type: 'entity' }
+    },
+    references: {
+      'Entity_1': [
+        'Entity_2'
+      ],
+      'Entity_3': [
+        'Entity_1'
+      ]
+    },
+    backReferences: {
+      'Entity_2': ['Entity_1'],
+      'Entity_1': ['Entity_3']
+    },
+    attributeToEntity: {
+      'Entity_1.att_12': 'Entity_1',
+      'Entity_3.att_31': 'Entity_3'
+    },
+    entityAttributes: {
+      'Entity_1': {
+        'att_12': {
+          'status': null,
+          'dataType': '`#Entity_2`'
+        }
+      },
+      'Entity_3': {
+        'att_31': {
+          'status': null,
+          'dataType': '`#Entity_1`'
+        }
+      }
+    }
+  }
+
+  const expanded = `before
+<div id="section-computed-Entity_1">
+<div id="section-refers-to-Entity_1">
+<strong>Refers to:</strong>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Entity_2" title="Entity 2">Entity 2</a>
+</div>
+<div id="section-referred-from-Entity_1">
+<strong>Referred from:</strong>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Entity_3" title="Entity 3">Entity 3</a>
+</div>
+<div id="section-erd-Entity_1">
+<div><strong>ERD:</strong></div>
+<img src="http://www.plantuml.com/plantuml/svg/JSux2e0m40JGVawn5x28TbOsdYC4NN0n7ubh8UBTHV5NpV2OOffPNTObU0pICtMIEy-OHucJoowGbyYwJamfwv00ZYgwKdk5DRI1oAbQKrBzQ8aTU1T5yVbTgXyQD1pxyy01"/>
 </div>
 </div>
 after`

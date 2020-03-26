@@ -18,7 +18,7 @@ const findRefAtt = (meta, entity, reference) => {
 const generateERD = (sectionCode, meta) => {
   let erd = ''
   if (meta.sections[sectionCode].type === 'entity') {
-    const attributes = Object.entries(meta.entityAttributes[sectionCode])
+    const attributes = Object.entries(meta.entityAttributes[sectionCode] || {})
       .map(([code, { status, dataType }]) => {
         const dataTypeStripped = stripWrappers(/`#([^`]*)`/, dataType)
         const dataTypeStripped2 = stripWrappers(/\[[^\]]*]\(#([^)]*)\)/, dataTypeStripped)
