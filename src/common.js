@@ -1,4 +1,5 @@
 const paramCase = require('param-case')
+const chalk = require('chalk')
 
 const icons = {
   screen: 'fas fa-desktop',
@@ -45,6 +46,11 @@ const keep = () => {
 const html = html => addToken({ type: 'html', pre: false, text: html + '\n' })
 
 const addSection = (type, code, name) => {
+  if (context().meta.sections[code]) {
+    const error = `ERROR: Duplicate section code: ${code}. The code has been overwritten.`
+    context().meta.errors.push(error)
+    console.error(chalk.red(error))
+  }
   context().meta.sections[code] = { type, name }
 }
 const sectionStart = (type, code, name) => {

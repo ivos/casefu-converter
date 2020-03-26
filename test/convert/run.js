@@ -16,7 +16,13 @@ let testCount = 0
 let errorCount = 0
 let skipCount = 0
 
+const errors = []
+const originalConsoleError = console.error
+console.error = output => errors.push(output)
+
 processDir(testsDir + '/')
+
+console.error = originalConsoleError
 
 function processDir (dir) {
   const files = fs.readdirSync(dir)

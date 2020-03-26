@@ -29,7 +29,11 @@ test('merges metadata', () => {
         'EntityA.att1': 'replaced',
         'EntityB.att1': 'EntityB',
         'EntityC.att1': 'EntityC'
-      }
+      },
+      errors: [
+        'Pre-existing error 11',
+        'Pre-existing error 12'
+      ]
     }
   }
   const f2 = {
@@ -59,7 +63,10 @@ test('merges metadata', () => {
         'EntityB.att2': 'EntityB',
         'EntityB.att3': 'EntityB',
         'EntityC.att3': 'EntityC'
-      }
+      },
+      errors: [
+        'Pre-existing error 31'
+      ]
     }
   }
   const merged = {
@@ -96,8 +103,11 @@ test('merges metadata', () => {
     },
     entityAttributes: {},
     errors: [
+      'Pre-existing error 11',
+      'Pre-existing error 12',
       'ERROR: Duplicate section code: s2. The code has been overwritten.',
-      'ERROR: Duplicate section code: s3. The code has been overwritten.'
+      'ERROR: Duplicate section code: s3. The code has been overwritten.',
+      'Pre-existing error 31'
     ]
   }
   expect(mergeMeta([f1, f2, f3]))

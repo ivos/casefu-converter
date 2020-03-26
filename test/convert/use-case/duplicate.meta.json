@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "Use-case-1": {
+      "type": "useCase",
+      "name": "Use case 1"
+    }
+  },
+  "references": {},
+  "backReferences": {},
+  "attributeToEntity": {},
+  "entityAttributes": {},
+  "errors": [
+    "ERROR: Duplicate section code: Use-case-1. The code has been overwritten."
+  ]
+}

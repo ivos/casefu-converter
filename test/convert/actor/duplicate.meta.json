@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "Actor_1": {
+      "type": "actor",
+      "name": "Actor 1"
+    }
+  },
+  "references": {},
+  "backReferences": {},
+  "attributeToEntity": {},
+  "entityAttributes": {},
+  "errors": [
+    "ERROR: Duplicate section code: Actor_1. The code has been overwritten."
+  ]
+}

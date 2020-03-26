@@ -12,15 +12,15 @@ const verifyCodeDuplicities = (errors, mergedSections, fileSections) => {
 }
 
 const mergeMeta = files => {
-  const errors = []
   const merged = files
     .map(file => file.meta)
     .reduce((acc, val) => {
-      verifyCodeDuplicities(errors, acc.sections, val.sections)
+      verifyCodeDuplicities(acc.errors, acc.sections, val.sections)
       const sections = { ...acc.sections, ...val.sections }
       const references = { ...acc.references }
       const attributeToEntity = { ...acc.attributeToEntity, ...val.attributeToEntity }
       const entityAttributes = { ...acc.entityAttributes, ...val.entityAttributes }
+      const errors = [...acc.errors, ...(val.errors || [])]
       Object.keys(val.references).forEach(refKey => {
         const accRefs = references[refKey] || []
         val.references[refKey].forEach(ref => {
@@ -30,8 +30,8 @@ const mergeMeta = files => {
         })
         references[refKey] = accRefs
       })
-      return { sections, references, attributeToEntity, entityAttributes }
-    }, { sections: {}, references: {}, attributeToEntity: {}, entityAttributes: {} })
+      return { sections, references, attributeToEntity, entityAttributes, errors }
+    }, { sections: {}, references: {}, attributeToEntity: {}, entityAttributes: {}, errors: [] })
 
   merged.backReferences = {}
   Object.keys(merged.references)
@@ -47,7 +47,6 @@ const mergeMeta = files => {
         })
     })
 
-  merged.errors = errors
   return merged
 }
 
