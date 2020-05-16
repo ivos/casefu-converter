@@ -325,7 +325,7 @@ const convertString = markdown => {
   let { errors } = meta
   errors.sort()
   errors = [...new Set(errors)]
-  return { errors, html }
+  return { errors, html, meta }
 }
 
 if (typeof window !== 'undefined') {
