@@ -32,10 +32,14 @@ const generateERD = (sectionCode, meta) => {
       .join('')
     const fwdRelations = (meta.references[sectionCode] || [])
       .filter(reference => (meta.sections[reference] || {}).type === 'entity')
-      .map(reference => [sectionCode, reference, findRefAtt(meta, sectionCode, reference).status])
+      .map(reference => [reference, findRefAtt(meta, sectionCode, reference)])
+      .filter(([reference, att]) => att)
+      .map(([reference, att]) => [sectionCode, reference, att.status])
     const backRelations = (meta.backReferences[sectionCode] || [])
       .filter(reference => meta.sections[reference].type === 'entity')
-      .map(reference => [reference, sectionCode, findRefAtt(meta, reference, sectionCode).status])
+      .map(reference => [reference, findRefAtt(meta, reference, sectionCode)])
+      .filter(([reference, att]) => att)
+      .map(([reference, att]) => [reference, sectionCode, att.status])
     let relations = [...fwdRelations, ...backRelations]
       .map(([from, to, status]) => {
         const collapsedStatus = (status || '').toLowerCase()

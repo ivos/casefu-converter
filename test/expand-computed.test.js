@@ -231,32 +231,25 @@ after`
       'Entity_5': {
         'type': 'entity',
         'name': 'Entity 5'
+      },
+      'Entity_Referred_From_Description': {
+        'type': 'entity',
+        'name': 'Entity referred from description'
+      },
+      'Entity_Back_Referred_From_Description': {
+        'type': 'entity',
+        'name': 'Entity back referred from description'
       }
     },
     references: {
-      '/screen/1': [
-        'Entity_2'
-      ],
-      'Entity_2': [
-        '/screen/2',
-        'Entity_1',
-        'Entity_2',
-        'Entity_3',
-        'NonExistent'
-      ],
-      'Entity_3': [
-        'Entity_1',
-        'Entity_2'
-      ],
-      'Entity_4': [
-        'Entity_2'
-      ],
-      'Entity_5': [
-        'Entity_1'
-      ]
+      '/screen/1': ['Entity_2'],
+      'Entity_2': ['/screen/2', 'Entity_1', 'Entity_2', 'Entity_3', 'NonExistent', 'Entity_Referred_From_Description'],
+      'Entity_3': ['Entity_1', 'Entity_2'],
+      'Entity_4': ['Entity_2'],
+      'Entity_5': ['Entity_1']
     },
     backReferences: {
-      'Entity_2': ['/screen/1', 'Entity_2', 'Entity_3', 'Entity_4'],
+      'Entity_2': ['/screen/1', 'Entity_2', 'Entity_3', 'Entity_4', 'Entity_Back_Referred_From_Description'],
       '/screen/2': ['Entity_2'],
       'Entity_1': ['Entity_2', 'Entity_3', 'Entity_5'],
       'Entity_3': ['Entity_2']
@@ -338,7 +331,8 @@ after`
           'status': null,
           'dataType': '`#Entity_2`'
         }
-      }
+      },
+      'Entity_Back_Referred_From_Description': {}
     }
   }
 
@@ -352,14 +346,16 @@ between 1
 <i class="fas fa-database text-muted"></i>&nbsp;<a href="#Entity_1" title="Entity 1">Entity 1</a>,
 <i class="fas fa-database text-muted"></i>&nbsp;<a href="#Entity_2" title="Entity 2">Entity 2</a>,
 <i class="fas fa-database text-muted"></i>&nbsp;<a href="#Entity_3" title="Entity 3">Entity 3</a>,
-<a href="#NonExistent" title="NonExistent">NonExistent</a>
+<a href="#NonExistent" title="NonExistent">NonExistent</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Entity_Referred_From_Description" title="Entity referred from description">Entity referred from description</a>
 </div>
 <div id="section-referred-from-Entity_2">
 <strong>Referred from:</strong>
 <i class="fas fa-desktop text-muted"></i>&nbsp;<a href="#/screen/1" title="Screen 1">Screen 1</a>,
 <i class="fas fa-database text-muted"></i>&nbsp;<a href="#Entity_2" title="Entity 2">Entity 2</a>,
 <i class="fas fa-database text-muted"></i>&nbsp;<a href="#Entity_3" title="Entity 3">Entity 3</a>,
-<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Entity_4" title="Entity 4">Entity 4</a>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Entity_4" title="Entity 4">Entity 4</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Entity_Back_Referred_From_Description" title="Entity back referred from description">Entity back referred from description</a>
 </div>
 <div id="section-erd-Entity_2">
 <div><strong>ERD:</strong></div>
