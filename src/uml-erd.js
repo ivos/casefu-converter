@@ -15,6 +15,13 @@ const findRefAtt = (meta, entity, reference) => {
       att.dataType.indexOf('(#' + reference + ')') >= 0)
 }
 
+const collapseStatus = status => (status || '')
+  .toLowerCase()
+  .replace(/1\.\.1/g, '1')
+  .replace(/\*/g, 'n')
+  .replace(/m/g, 'n')
+  .replace(/0\.\.n/g, 'n')
+
 const generateERD = (sectionCode, meta) => {
   let erd = ''
   if (meta.sections[sectionCode].type === 'entity') {
@@ -23,7 +30,13 @@ const generateERD = (sectionCode, meta) => {
         const dataTypeStripped = stripWrappers(/`#([^`]*)`/, dataType)
         const dataTypeStripped2 = stripWrappers(/\[[^\]]*]\(#([^)]*)\)/, dataTypeStripped)
         let uml = `\n  `
-        if (['APK', 'NPK', 'FPK', 'PK', 'FK', 'NK', 'BK', 'U', 'M'].includes(status)) uml += `* `
+        const collapsedStatus = collapseStatus(status)
+        const relationOtherSide = (/^(?:0..1|1..n|1|n) : (?:0..1|1..n|1|n)$/.test(collapsedStatus))
+          ? collapsedStatus.match(/^(?:0..1|1..n|1|n) : (0..1|1..n|1|n)$/)[1] : null
+        if (['APK', 'NPK', 'FPK', 'PK', 'FK', 'NK', 'BK', 'U', 'M'].includes(status) ||
+          ['1..n', '1'].includes(relationOtherSide)) {
+          uml += `* `
+        }
         uml += `${code}`
         if (dataTypeStripped2) uml += ` : ${dataTypeStripped2}`
         if (status) uml += ` <<${status}>>`
@@ -42,11 +55,7 @@ const generateERD = (sectionCode, meta) => {
       .map(([reference, att]) => [reference, sectionCode, att.status])
     let relations = [...fwdRelations, ...backRelations]
       .map(([from, to, status]) => {
-        const collapsedStatus = (status || '').toLowerCase()
-          .replace(/1\.\.1/g, '1')
-          .replace(/\*/g, 'n')
-          .replace(/m/g, 'n')
-          .replace(/0\.\.n/g, 'n')
+        const collapsedStatus = collapseStatus(status)
         if (['fk', 'fpk', 'n : 1'].includes(collapsedStatus)) {
           return `\n${to} ||--o{ ${from}`
         }
