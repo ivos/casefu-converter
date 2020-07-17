@@ -10,7 +10,7 @@ const stripWrappers = (wrapper, text) => {
 }
 
 const findRefAtt = (meta, entity, reference) => {
-  return Object.values(meta.entityAttributes[entity])
+  return Object.values(meta.entityAttributes[entity] || {})
     .find(att => att.dataType.indexOf('`#' + reference + '`') >= 0 ||
       att.dataType.indexOf('(#' + reference + ')') >= 0)
 }

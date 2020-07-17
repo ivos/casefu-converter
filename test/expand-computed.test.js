@@ -331,8 +331,7 @@ after`
           'status': null,
           'dataType': '`#Entity_2`'
         }
-      },
-      'Entity_Back_Referred_From_Description': {}
+      }
     }
   }
 
