@@ -22,6 +22,47 @@ const collapseStatus = status => (status || '')
   .replace(/m/g, 'n')
   .replace(/0\.\.n/g, 'n')
 
+const relationToUml = ([from, to, status]) => {
+  const collapsedStatus = collapseStatus(status)
+  if (['fk', 'fpk', 'n : 1'].includes(collapsedStatus)) {
+    return `\n${to} ||--o{ ${from}`
+  }
+  if (['1 : n'].includes(collapsedStatus)) {
+    return `\n${from} ||--o{ ${to}`
+  }
+  if (['fk', '1..n : 1'].includes(collapsedStatus)) {
+    return `\n${to} ||--|{ ${from}`
+  }
+  if (['1 : 1..n'].includes(collapsedStatus)) {
+    return `\n${from} ||--|{ ${to}`
+  }
+  if (['ofk', 'n : 0..1'].includes(collapsedStatus)) {
+    return `\n${to} |o--o{ ${from}`
+  }
+  if (['0..1 : n'].includes(collapsedStatus)) {
+    return `\n${from} |o--o{ ${to}`
+  }
+  if (['0..1 : 1'].includes(collapsedStatus)) {
+    return `\n${to} ||--o| ${from}`
+  }
+  if (['1 : 0..1'].includes(collapsedStatus)) {
+    return `\n${from} ||--o| ${to}`
+  }
+  if (['1 : 1'].includes(collapsedStatus)) {
+    return `\n${from} ||--|| ${to}`
+  }
+  if (['n : n'].includes(collapsedStatus)) {
+    return `\n${from} }o--o{ ${to}`
+  }
+  return `\n${from} -- ${to}`
+}
+
+const relationsToUml = relations => {
+  const mapped = relations.map(relationToUml)
+  mapped.sort()
+  return [...new Set(mapped)]
+}
+
 const generateERD = (sectionCode, meta) => {
   let erd = ''
   if (meta.sections[sectionCode].type === 'entity') {
@@ -53,50 +94,14 @@ const generateERD = (sectionCode, meta) => {
       .map(reference => [reference, findRefAtt(meta, reference, sectionCode)])
       .filter(([reference, att]) => att)
       .map(([reference, att]) => [reference, sectionCode, att.status])
-    let relations = [...fwdRelations, ...backRelations]
-      .map(([from, to, status]) => {
-        const collapsedStatus = collapseStatus(status)
-        if (['fk', 'fpk', 'n : 1'].includes(collapsedStatus)) {
-          return `\n${to} ||--o{ ${from}`
-        }
-        if (['1 : n'].includes(collapsedStatus)) {
-          return `\n${from} ||--o{ ${to}`
-        }
-        if (['fk', '1..n : 1'].includes(collapsedStatus)) {
-          return `\n${to} ||--|{ ${from}`
-        }
-        if (['1 : 1..n'].includes(collapsedStatus)) {
-          return `\n${from} ||--|{ ${to}`
-        }
-        if (['ofk', 'n : 0..1'].includes(collapsedStatus)) {
-          return `\n${to} |o--o{ ${from}`
-        }
-        if (['0..1 : n'].includes(collapsedStatus)) {
-          return `\n${from} |o--o{ ${to}`
-        }
-        if (['0..1 : 1'].includes(collapsedStatus)) {
-          return `\n${to} ||--o| ${from}`
-        }
-        if (['1 : 0..1'].includes(collapsedStatus)) {
-          return `\n${from} ||--o| ${to}`
-        }
-        if (['1 : 1'].includes(collapsedStatus)) {
-          return `\n${from} ||--|| ${to}`
-        }
-        if (['n : n'].includes(collapsedStatus)) {
-          return `\n${from} }o--o{ ${to}`
-        }
-        return `\n${from} -- ${to}`
-      })
-    relations.sort()
-    relations = [...new Set(relations)]
+    const umlRelations = relationsToUml([...fwdRelations, ...backRelations])
     const uml = `@startuml
 hide circle
 skinparam linetype ortho
 
 entity ${sectionCode} {${attributes}
 }
-${relations.join('')}
+${umlRelations.join('')}
 @enduml
 `
     const img = plantImg(uml)
@@ -110,5 +115,7 @@ ${img}
 }
 
 module.exports = {
+  findRefAtt,
+  relationsToUml,
   generateERD
 }

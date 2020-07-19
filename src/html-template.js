@@ -94,6 +94,11 @@ const htmlTemplate = content => `<!doctype html>
             </a>
         </li>
         <li class="nav-item px-1">
+            <a class="nav-link" href="#__overview_diagrams">
+                <i class="fas fa-project-diagram"></i>
+            </a>
+        </li>
+        <li class="nav-item px-1">
             <a class="nav-link" href="#__search">
                 <i class="fas fa-search"></i>
             </a>
