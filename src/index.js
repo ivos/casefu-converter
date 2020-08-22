@@ -304,16 +304,6 @@ const transformInnerLinks = require('./transform-inner-links')
 const buildSearchSection = require('./search-section')
 const buildOverviewDiagramsSection = require('./overview-diagrams-section')
 
-module.exports = {
-  convert,
-  htmlTemplate,
-  mergeMeta,
-  expandComputed,
-  transformInnerLinks,
-  buildSearchSection,
-  buildOverviewDiagramsSection
-}
-
 const convertString = markdown => {
   let { html, meta } = convert(markdown)
   meta = mergeMeta([{ meta }])
@@ -329,6 +319,17 @@ const convertString = markdown => {
   errors.sort()
   errors = [...new Set(errors)]
   return { errors, html, meta }
+}
+
+module.exports = {
+  convert,
+  htmlTemplate,
+  mergeMeta,
+  expandComputed,
+  transformInnerLinks,
+  buildSearchSection,
+  buildOverviewDiagramsSection,
+  convertString
 }
 
 if (typeof window !== 'undefined') {

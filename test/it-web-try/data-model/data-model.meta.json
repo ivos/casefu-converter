@@ -1,0 +1,197 @@
+{
+  "sections": {
+    "Person": {
+      "type": "entity",
+      "name": "Person"
+    },
+    "MultipleWordDefaultCode": {
+      "type": "entity",
+      "name": "Multiple word default code"
+    },
+    "SomeExplicitCode": {
+      "type": "entity",
+      "name": "Explicit code"
+    },
+    "PlainPk": {
+      "type": "entity",
+      "name": "Plain PK"
+    },
+    "Location": {
+      "type": "entity",
+      "name": "Location"
+    },
+    "Empty": {
+      "type": "entity",
+      "name": "Empty"
+    },
+    "Event": {
+      "type": "entity",
+      "name": "Event"
+    }
+  },
+  "references": {
+    "MultipleWordDefaultCode": [
+      "Person"
+    ],
+    "SomeExplicitCode": [
+      "Person"
+    ],
+    "PlainPk": [
+      "Person"
+    ],
+    "Event": [
+      "Person",
+      "Location",
+      "PlainPk",
+      "SomeExplicitCode",
+      "Empty"
+    ]
+  },
+  "attributeToEntity": {
+    "Person.id": "Person",
+    "Person.personalNumber": "Person",
+    "Person.familyName": "Person",
+    "Person.givenNames": "Person",
+    "Person.userName": "Person",
+    "Person.email": "Person",
+    "MultipleWordDefaultCode.naturalPrimaryKey": "MultipleWordDefaultCode",
+    "MultipleWordDefaultCode.description": "MultipleWordDefaultCode",
+    "MultipleWordDefaultCode.person": "MultipleWordDefaultCode",
+    "SomeExplicitCode.foreignPrimaryKey": "SomeExplicitCode",
+    "SomeExplicitCode.description": "SomeExplicitCode",
+    "PlainPk.primaryKey": "PlainPk",
+    "PlainPk.businessKey": "PlainPk",
+    "PlainPk.description": "PlainPk",
+    "PlainPk.maybePerson": "PlainPk",
+    "Location.name": "Location",
+    "Event.time": "Event",
+    "Event.persons": "Event",
+    "Event.location": "Event",
+    "Event.otherVariants": "Event",
+    "Event.oneToOne": "Event",
+    "Event.oneToOneEmpty": "Event"
+  },
+  "entityAttributes": {
+    "Person": {
+      "id": {
+        "status": "APK",
+        "dataType": "bigserial"
+      },
+      "personalNumber": {
+        "status": "NK",
+        "dataType": "text"
+      },
+      "familyName": {
+        "status": "M",
+        "dataType": "text"
+      },
+      "givenNames": {
+        "status": "O",
+        "dataType": "varchar(30)"
+      },
+      "userName": {
+        "status": "U",
+        "dataType": "text"
+      },
+      "email": {
+        "status": "OU",
+        "dataType": "text"
+      }
+    },
+    "MultipleWordDefaultCode": {
+      "naturalPrimaryKey": {
+        "status": "NPK",
+        "dataType": "text"
+      },
+      "description": {
+        "status": "O",
+        "dataType": "text"
+      },
+      "person": {
+        "status": "FK",
+        "dataType": "`#Person`"
+      }
+    },
+    "SomeExplicitCode": {
+      "foreignPrimaryKey": {
+        "status": "FPK",
+        "dataType": "`#Person`"
+      },
+      "description": {
+        "status": "O",
+        "dataType": "text"
+      }
+    },
+    "PlainPk": {
+      "primaryKey": {
+        "status": "PK",
+        "dataType": "bigint"
+      },
+      "businessKey": {
+        "status": "BK",
+        "dataType": "text"
+      },
+      "description": {
+        "status": "O",
+        "dataType": "text"
+      },
+      "maybePerson": {
+        "status": "OFK",
+        "dataType": "`#Person`"
+      }
+    },
+    "Location": {
+      "name": {
+        "status": null,
+        "dataType": ""
+      }
+    },
+    "Event": {
+      "time": {
+        "status": "M",
+        "dataType": "timestamp"
+      },
+      "persons": {
+        "status": "1 : n",
+        "dataType": "`#Person`"
+      },
+      "location": {
+        "status": "n : 1",
+        "dataType": "`#Location`"
+      },
+      "otherVariants": {
+        "status": "0..1 : 1..n",
+        "dataType": "`#PlainPk`"
+      },
+      "oneToOne": {
+        "status": "1 : 1",
+        "dataType": "`#SomeExplicitCode`"
+      },
+      "oneToOneEmpty": {
+        "status": "0..1 : 0..1",
+        "dataType": "`#Empty`"
+      }
+    }
+  },
+  "errors": [],
+  "backReferences": {
+    "Person": [
+      "MultipleWordDefaultCode",
+      "SomeExplicitCode",
+      "PlainPk",
+      "Event"
+    ],
+    "Location": [
+      "Event"
+    ],
+    "PlainPk": [
+      "Event"
+    ],
+    "SomeExplicitCode": [
+      "Event"
+    ],
+    "Empty": [
+      "Event"
+    ]
+  }
+}

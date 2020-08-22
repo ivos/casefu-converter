@@ -1,0 +1,128 @@
+{
+  "sections": {
+    "Person": {
+      "type": "entity",
+      "name": "Person"
+    },
+    "Location": {
+      "type": "entity",
+      "name": "Location"
+    },
+    "Event": {
+      "type": "entity",
+      "name": "Event"
+    },
+    "/persons": {
+      "type": "screen",
+      "name": "List persons"
+    },
+    "/persons/edit": {
+      "type": "screen",
+      "name": "Edit person"
+    },
+    "User": {
+      "type": "actor",
+      "name": "User"
+    },
+    "PR-100": {
+      "type": "useCase",
+      "name": "Edit person"
+    }
+  },
+  "references": {
+    "Event": [
+      "Person",
+      "Location"
+    ],
+    "/persons/edit": [
+      "/persons",
+      "PR-100"
+    ],
+    "User": [
+      "PR-100"
+    ],
+    "PR-100": [
+      "User",
+      "/persons/edit",
+      "Person"
+    ]
+  },
+  "attributeToEntity": {
+    "Person.id": "Person",
+    "Person.familyName": "Person",
+    "Person.givenNames": "Person",
+    "Location.country": "Location",
+    "Location.city": "Location",
+    "Location.street": "Location",
+    "Event.time": "Event",
+    "Event.person": "Event",
+    "Event.location": "Event"
+  },
+  "entityAttributes": {
+    "Person": {
+      "id": {
+        "status": "APK",
+        "dataType": "bigint"
+      },
+      "familyName": {
+        "status": "M",
+        "dataType": "text"
+      },
+      "givenNames": {
+        "status": "O",
+        "dataType": "varchar(30)"
+      }
+    },
+    "Location": {
+      "country": {
+        "status": "M",
+        "dataType": "text"
+      },
+      "city": {
+        "status": "M",
+        "dataType": "text"
+      },
+      "street": {
+        "status": "O",
+        "dataType": "text"
+      }
+    },
+    "Event": {
+      "time": {
+        "status": "M",
+        "dataType": "timestamp"
+      },
+      "person": {
+        "status": "FK",
+        "dataType": "`#Person`"
+      },
+      "location": {
+        "status": "n : 1",
+        "dataType": "`#Location`"
+      }
+    }
+  },
+  "errors": [],
+  "backReferences": {
+    "Person": [
+      "Event",
+      "PR-100"
+    ],
+    "Location": [
+      "Event"
+    ],
+    "/persons": [
+      "/persons/edit"
+    ],
+    "PR-100": [
+      "/persons/edit",
+      "User"
+    ],
+    "User": [
+      "PR-100"
+    ],
+    "/persons/edit": [
+      "PR-100"
+    ]
+  }
+}

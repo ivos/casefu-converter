@@ -6,8 +6,9 @@
   "scripts": {
     "standard": "standard --fix",
     "test:template": "node test/convert/run.js",
+    "test:it": "node test/it-web-try/run.js",
     "test:unit": "jest",
-    "test": "npm run test:template && npm run test:unit",
+    "test": "npm run test:template && npm run test:it && npm run test:unit",
     "build": "rimraf lib && webpack --optimize-minimize ./src/index.js -o lib/casefu.js && cpy lib/casefu.js ../casefu-web/src/assets/js/"
   },
   "repository": {

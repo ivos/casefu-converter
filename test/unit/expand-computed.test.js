@@ -1,7 +1,7 @@
 const expect = require('expect')
 const test = window.test
 
-const expandComputed = require('../src/expand-computed')
+const expandComputed = require('../../src/expand-computed')
 
 test('expands computed, full', () => {
   const html = `before

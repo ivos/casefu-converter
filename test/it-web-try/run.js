@@ -1,6 +1,6 @@
 const run = require('../run-common')
 const converter = require('../../src/index')
 
-const testsDir = 'test/convert'
+const testsDir = 'test/it-web-try'
 
-run(testsDir, converter.convert)
+run(testsDir, converter.convertString)

@@ -1,7 +1,7 @@
 const expect = require('expect')
 const test = window.test
 
-const buildOverviewDiagramsSection = require('../src/overview-diagrams-section')
+const buildOverviewDiagramsSection = require('../../src/overview-diagrams-section')
 
 test('overview diagrams, ERD', () => {
   const meta = {
