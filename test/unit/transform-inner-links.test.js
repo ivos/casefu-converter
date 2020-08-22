@@ -4,7 +4,7 @@ const test = window.test
 const beforeEach = window.beforeEach
 const afterEach = window.afterEach
 
-const transformInnerLinks = require('../src/transform-inner-links')
+const transformInnerLinks = require('../../src/transform-inner-links')
 
 let errors = []
 const originalConsoleError = console.error

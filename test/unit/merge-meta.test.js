@@ -4,7 +4,7 @@ const test = window.test
 const beforeEach = window.beforeEach
 const afterEach = window.afterEach
 
-const mergeMeta = require('../src/merge-meta')
+const mergeMeta = require('../../src/merge-meta')
 
 let errors = []
 const originalConsoleError = console.error
