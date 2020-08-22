@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>CaseFu FSD</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+          crossorigin="anonymous">
+
+    <style>
+        main > section {
+            margin-top: 20px;
+        }
+
+        main > section:target {
+            display: block;
+        }
+
+        .card {
+            margin-bottom: .75rem;
+        }
+
+        h5.card-title p {
+            margin-bottom: 0;
+        }
+
+        .form-group.row p {
+            margin-bottom: 0;
+            margin-top: 7px;
+        }
+
+        table th p, table td p {
+            margin-bottom: 0;
+        }
+
+        blockquote {
+            background-color: rgba(252, 252, 200, 0.5);
+            margin: 5px 0 1rem;
+            padding: 5px 5px 5px 10px;
+            border-left: 5px solid rgba(143, 188, 143, 0.5);
+            border-radius: 3px;
+        }
+
+        blockquote > *:last-child {
+            margin-bottom: 0;
+        }
+
+        .cf-required {
+            color: red;
+            font-weight: bold;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 0.1rem 0.4rem;
+            border-radius: 5px;
+        }
+
+        main > section.cf-use-case > .cf-extensions > ul {
+            padding-left: 1.9rem;
+        }
+
+        main > section.cf-use-case > .cf-extensions li {
+            list-style: none;
+            text-indent: -1.9rem;
+        }
+
+        main > section.cf-use-case > .cf-extensions > ul > li:not(:last-of-type) {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+    <style id="__print-style">
+        main > section {
+            display: none;
+            padding-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand navbar-light bg-light">
+    <a class="navbar-brand" href="https://casefu.com/" target="_blank" style="margin-top: -6px;"
+       title="Open CaseFu.com web site">
+        <img src="https://casefu.com/favicon.ico" height="25" />
+    </a>
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item pr-1">
+            <a class="nav-link" href="#__home">
+                <i class="fas fa-home"></i>
+            </a>
+        </li>
+        <li class="nav-item px-1">
+            <a class="nav-link" href="#__overview_diagrams">
+                <i class="fas fa-project-diagram"></i>
+            </a>
+        </li>
+        <li class="nav-item px-1">
+            <a class="nav-link" href="#__search">
+                <i class="fas fa-search"></i>
+            </a>
+        </li>
+    </ul>
+    <div class="btn-group-toggle">
+        <label class="btn btn-outline-secondary" title="Toggle print mode">
+            <input id="__print-button" type="checkbox" checked autocomplete="off">
+            <i class="fas fa-print"></i>
+        </label>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <main role="main">
+
+        <section id="__home">
+<h1>System name</h1>
+<p>System description.</p>
+</section>
+<section id="Person" class="cf-entity">
+<h2><i class="fas fa-database text-muted"></i> Person <code>Person</code></h2>
+<h3>Attributes:</h3>
+<table class="table table-bordered table-hover">
+<thead>
+<tr>
+<th>Name</th>
+<th>Status</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Id<code class="float-right">id</code></td>
+<td title="Auto-generated primary key"><span class="badge badge-danger">APK</span></td>
+<td>
+<p>bigint</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Family name<code class="float-right">familyName</code></td>
+<td title="Mandatory"><span class="badge badge-primary">M</span></td>
+<td>
+<p>text</p>
+</td>
+<td>
+<p>Doe</p>
+</td>
+<td>
+<p>The family name of the person.</p>
+</td>
+</tr>
+<tr>
+<td>Given names<code class="float-right">givenNames</code></td>
+<td title="Optional"><span class="badge badge-success">O</span></td>
+<td>
+<p>varchar(30)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div id="section-computed-Person">
+<div id="section-referred-from-Person">
+<strong>Referred from:</strong>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Event" title="Event">Event</a>,
+<i class="fas fa-list-alt text-muted"></i>&nbsp;<a href="#PR-100" title="PR-100 - Edit person">Edit person</a>
+</div>
+<div id="section-erd-Person">
+<div><strong>ERD:</strong></div>
+<img src="http://www.plantuml.com/plantuml/svg/BSxD2e9G48RX_Lp5B2iGWdOXOejMKNaB9vrqwFp8d4aIxTuxIjjvNlYcZ6f4tyv2nmrXpL9RWlXYtnin3Yrxqh4d3A9T022lh2DM935ud01nXzpW4H_SibVCyrDrAOhr_ZIExNWpZf8hVHQzhjRoG7w1c6GmKdT6DeVzDWNt57m1_WFpd6LXmdFA5KhopVBf3m00"/>
+</div>
+</div>
+</section>
+<section id="Location" class="cf-entity">
+<h2><i class="fas fa-database text-muted"></i> Location <code>Location</code></h2>
+<h3>Attributes:</h3>
+<table class="table table-bordered table-hover">
+<thead>
+<tr>
+<th>Name</th>
+<th>Status</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Country<code class="float-right">country</code></td>
+<td title="Mandatory"><span class="badge badge-primary">M</span></td>
+<td>
+<p>text</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>City<code class="float-right">city</code></td>
+<td title="Mandatory"><span class="badge badge-primary">M</span></td>
+<td>
+<p>text</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Street<code class="float-right">street</code></td>
+<td title="Optional"><span class="badge badge-success">O</span></td>
+<td>
+<p>text</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div id="section-computed-Location">
+<div id="section-referred-from-Location">
+<strong>Referred from:</strong>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Event" title="Event">Event</a>
+</div>
+<div id="section-erd-Location">
+<div><strong>ERD:</strong></div>
+<img src="http://www.plantuml.com/plantuml/svg/NOv12eD040Jlyuev1_n04F6IMqBUiAm33bbtPBOD4VNlKG89v5hTL7TR41pJaAZNJZYgnoHK7fh7u67Wf5amZyBcw8r8CXGpNoq6g6LUYFd4qQOCd_dCa1UuhczDymcEyXyjS17yw7sd6z5NkQvLPGjVdliMjPAxuzqR"/>
+</div>
+</div>
+</section>
+<section id="Event" class="cf-entity">
+<h2><i class="fas fa-database text-muted"></i> Event <code>Event</code></h2>
+<h3>Attributes:</h3>
+<table class="table table-bordered table-hover">
+<thead>
+<tr>
+<th>Name</th>
+<th>Status</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Time<code class="float-right">time</code></td>
+<td title="Mandatory"><span class="badge badge-primary">M</span></td>
+<td>
+<p>timestamp</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Person<code class="float-right">person</code></td>
+<td title="Foreign key"><span class="badge badge-dark">FK</span></td>
+<td>
+<p><a href="#Person" title="Person">Person</a></p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Location<code class="float-right">location</code></td>
+<td>n : 1</td>
+<td>
+<p><a href="#Location" title="Location">Location</a></p>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div id="section-computed-Event">
+<div id="section-refers-to-Event">
+<strong>Refers to:</strong>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Person" title="Person">Person</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Location" title="Location">Location</a>
+</div>
+<div id="section-erd-Event">
+<div><strong>ERD:</strong></div>
+<img src="http://www.plantuml.com/plantuml/svg/LO_D2i9038JlUOgSXHwyob9wqOiAliAo3JIuV-p6GcbzTxVRAdZAPBumGxeiEidBMHYu9pISZ2N8J_PH9-tGiYUP8c58CWG0yi8ouNai0cT0FA2m8ppLKS9SHANkRLjHf9I3B_2n2QKkrntPOBHmXRUlL6fTZ-NY3V1pbwLfmhnLmXxqvtNa-_M33m00"/>
+</div>
+</div>
+</section>
+<section id="/persons" class="cf-screen">
+<h2><i class="fas fa-desktop text-muted"></i> List persons <code>/persons</code></h2>
+<div class="card">
+<div class="card-body pb-0">
+<h3><i class="fas fa-list text-muted"></i> Search</h3>
+<div class="form-group row">
+ <label for="cf-aid-/persons-1" class="col-sm-4 col-lg-3 col-form-label">Search</label>
+ <div class="col-sm-7 col-lg-8">
+  <input id="cf-aid-/persons-1" type="text" class="form-control" placeholder="Search" value="">
+ </div>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-body pb-0">
+<h3><i class="fas fa-table text-muted"></i> </h3>
+<table class="table table-bordered table-sm">
+<thead>
+<tr>
+<th>
+Family name
+</th>
+<th>
+Given names
+</th>
+</tr>
+</thead>
+<tr>
+<td>
+<p>Fry</p>
+</td>
+<td>
+<p>Philip</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Turanga</p>
+</td>
+<td>
+<p>Leela</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div id="section-computed-/persons">
+<div id="section-referred-from-/persons">
+<strong>Referred from:</strong>
+<i class="fas fa-desktop text-muted"></i>&nbsp;<a href="#/persons/edit" title="Edit person">Edit person</a>
+</div>
+</div>
+</section>
+<section id="/persons/edit" class="cf-screen">
+<h2><i class="fas fa-desktop text-muted"></i> Edit person <code>/persons/edit</code></h2>
+<div class="card">
+<div class="card-body pb-0">
+<h3><i class="fas fa-list text-muted"></i> </h3>
+<div class="form-group row">
+ <label for="cf-aid-/persons/edit-2" class="col-sm-4 col-lg-3 col-form-label">Family name<span class="cf-required">&nbsp;*</span></label>
+ <div class="col-sm-7 col-lg-8">
+  <input id="cf-aid-/persons/edit-2" type="text" class="form-control" placeholder="Family name" value="Fry">
+ </div>
+</div>
+<div class="form-group row">
+ <label for="cf-aid-/persons/edit-3" class="col-sm-4 col-lg-3 col-form-label">Given names</label>
+ <div class="col-sm-7 col-lg-8">
+  <input id="cf-aid-/persons/edit-3" type="text" class="form-control" placeholder="Given names" value="Philip">
+ </div>
+</div>
+<div class="form-group row">
+<div class="offset-sm-4 offset-lg-3 col-sm-7 col-lg-8">
+<p><a href="#/persons" class="btn btn-primary" title="/persons">Save</a></p>
+</div>
+</div>
+<blockquote>
+<p>UC <a href="#PR-100" title="PR-100">PR-100</a></p>
+</blockquote>
+<div class="form-group row">
+<div class="offset-sm-4 offset-lg-3 col-sm-7 col-lg-8">
+<p><a href="#/persons" title="/persons">Cancel</a></p>
+</div>
+</div>
+</div>
+</div>
+<div id="section-computed-/persons/edit">
+<div id="section-refers-to-/persons/edit">
+<strong>Refers to:</strong>
+<i class="fas fa-desktop text-muted"></i>&nbsp;<a href="#/persons" title="List persons">List persons</a>,
+<i class="fas fa-list-alt text-muted"></i>&nbsp;<a href="#PR-100" title="PR-100 - Edit person">Edit person</a>
+</div>
+<div id="section-referred-from-/persons/edit">
+<strong>Referred from:</strong>
+<i class="fas fa-list-alt text-muted"></i>&nbsp;<a href="#PR-100" title="PR-100 - Edit person">Edit person</a>
+</div>
+</div>
+</section>
+<section id="User" class="cf-actor">
+<h2><i class="fas fa-user text-muted"></i> User <code>User</code></h2>
+<ul>
+<li>Person<ul>
+<li>List persons</li>
+<li><a href="#PR-100" title="PR-100">Edit person</a></li>
+</ul>
+</li>
+</ul>
+<div id="section-computed-User">
+<div id="section-refers-to-User">
+<strong>Refers to:</strong>
+<i class="fas fa-list-alt text-muted"></i>&nbsp;<a href="#PR-100" title="PR-100 - Edit person">Edit person</a>
+</div>
+<div id="section-referred-from-User">
+<strong>Referred from:</strong>
+<i class="fas fa-list-alt text-muted"></i>&nbsp;<a href="#PR-100" title="PR-100 - Edit person">Edit person</a>
+</div>
+</div>
+</section>
+<section id="PR-100" class="cf-use-case">
+<h2><i class="fas fa-list-alt text-muted"></i> <code>PR-100</code> Edit person</h2>
+<ul>
+<li>Primary actors: <a href="#User" title="User">User</a></li>
+<li>Screen: <a href="#/persons/edit" title="/persons/edit">Edit person</a></li>
+</ul>
+<h3>Main success scenario:</h3>
+<ol>
+<li>User edits person&#39;s data.</li>
+<li>System updates <a href="#Person" title="Person">Person</a> record.</li>
+</ol>
+<div id="section-computed-PR-100">
+<div id="section-refers-to-PR-100">
+<strong>Refers to:</strong>
+<i class="fas fa-user text-muted"></i>&nbsp;<a href="#User" title="User">User</a>,
+<i class="fas fa-desktop text-muted"></i>&nbsp;<a href="#/persons/edit" title="Edit person">Edit person</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Person" title="Person">Person</a>
+</div>
+<div id="section-referred-from-PR-100">
+<strong>Referred from:</strong>
+<i class="fas fa-desktop text-muted"></i>&nbsp;<a href="#/persons/edit" title="Edit person">Edit person</a>,
+<i class="fas fa-user text-muted"></i>&nbsp;<a href="#User" title="User">User</a>
+</div>
+</div>
+</section>
+<section id="__overview_diagrams">
+<h2><i class="fas fa-database text-muted"></i> ERD</h2>
+<ul>
+
+<div id="overview-diagram-erd">
+<div><strong>ERD:</strong></div>
+<img src="http://www.plantuml.com/plantuml/svg/LOxB2O1034JlgI8Ds8CNRnviOLa31jT4ib4GjNSLF-1jvZqOfimUpASXGSSjOMIBYI3tB6EmC61Y8Lz6GZNl5834sHTioB8AhliBQet1-OUg-GnN1_ZijXM5hhU2P-J7IfBsUdC0"/>
+</div>
+</ul>
+</section>
+<section id="__search">
+<form>
+<div class="form-row mb-3">
+<div class="input-group mx-2">
+<div class="input-group-prepend">
+<span class="input-group-text">
+<i class="fas fa-search text-muted"></i>
+</span>
+</div>
+<input id="__search-text" type="text" class="form-control"
+placeholder="Start typing to search..." />
+</div>
+</div>
+</form>
+<h2><i class="fas fa-desktop text-muted"></i> Screens</h2>
+<ul>
+<li class="__search-item" id="__search-item-/persons">
+<a href="#/persons" class="mr-3">List persons</a> <code>/persons</code>
+</li>
+<li class="__search-item" id="__search-item-/persons/edit">
+<a href="#/persons/edit" class="mr-3">Edit person</a> <code>/persons/edit</code>
+</li>
+
+</ul>
+<h2><i class="fas fa-database text-muted"></i> Entities</h2>
+<ul>
+<li class="__search-item" id="__search-item-Person">
+<a href="#Person" class="mr-3">Person</a> <code>Person</code>
+</li>
+<li class="__search-item" id="__search-item-Location">
+<a href="#Location" class="mr-3">Location</a> <code>Location</code>
+</li>
+<li class="__search-item" id="__search-item-Event">
+<a href="#Event" class="mr-3">Event</a> <code>Event</code>
+</li>
+
+</ul>
+<h2><i class="fas fa-user text-muted"></i> Actors</h2>
+<ul>
+<li class="__search-item" id="__search-item-User">
+<a href="#User" class="mr-3">User</a> <code>User</code>
+</li>
+
+</ul>
+<h2><i class="fas fa-list-alt text-muted"></i> Use cases</h2>
+<ul>
+<li class="__search-item" id="__search-item-PR-100">
+<a href="#PR-100" class="mr-3">Edit person</a> <code>PR-100</code>
+</li>
+
+</ul>
+</section>
+
+
+    </main>
+</div>
+
+<script>
+  window.addEventListener("load", function () {
+    var searchText = document.getElementById('__search-text')
+    if (searchText) {
+      searchText.oninput = function (event) {
+        var query = event.target.value
+        var items = document.getElementsByClassName('__search-item')
+        for (var i = 0; i < items.length; i++) {
+          var item = items[i]
+          var itemId = item.id
+          var code = itemId.substr('__search-item-'.length)
+          var section = document.getElementById(code)
+          var matches = !query.trim() || section.innerHTML.toLowerCase().indexOf(query.toLowerCase()) > -1
+          item.style.display = matches ? 'list-item' : 'none'
+        }
+      }
+      searchText.focus()
+    }
+
+    var printButton = document.getElementById('__print-button')
+    var printLabel = printButton.parentNode
+    var printStyle = document.getElementById('__print-style')
+    var printMode = false
+    printButton.onclick = function (event) {
+      event.preventDefault()
+      if (printMode) {
+        printStyle.innerHTML = 'main > section { display: none; padding-bottom: 2rem; }'
+        printLabel.classList.remove('active')
+      } else {
+        printStyle.innerHTML = ''
+        printLabel.classList.add('active')
+      }
+      printMode = !printMode
+    }
+
+    window.onhashchange = function () {
+      if (location.hash === '#__search') {
+        searchText.focus()
+      }
+    }
+
+    if (!window.location.hash) {
+      window.location.hash = '__home'
+    }
+  })
+</script>
+
+</body>
+</html>
