@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>CaseFu FSD</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+          crossorigin="anonymous">
+
+    <style>
+        main > section {
+            margin-top: 20px;
+        }
+
+        main > section:target {
+            display: block;
+        }
+
+        .card {
+            margin-bottom: .75rem;
+        }
+
+        h5.card-title p {
+            margin-bottom: 0;
+        }
+
+        .form-group.row p {
+            margin-bottom: 0;
+            margin-top: 7px;
+        }
+
+        table th p, table td p {
+            margin-bottom: 0;
+        }
+
+        blockquote {
+            background-color: rgba(252, 252, 200, 0.5);
+            margin: 5px 0 1rem;
+            padding: 5px 5px 5px 10px;
+            border-left: 5px solid rgba(143, 188, 143, 0.5);
+            border-radius: 3px;
+        }
+
+        blockquote > *:last-child {
+            margin-bottom: 0;
+        }
+
+        .cf-required {
+            color: red;
+            font-weight: bold;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 0.1rem 0.4rem;
+            border-radius: 5px;
+        }
+
+        main > section.cf-use-case > .cf-extensions > ul {
+            padding-left: 1.9rem;
+        }
+
+        main > section.cf-use-case > .cf-extensions li {
+            list-style: none;
+            text-indent: -1.9rem;
+        }
+
+        main > section.cf-use-case > .cf-extensions > ul > li:not(:last-of-type) {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+    <style id="__print-style">
+        main > section {
+            display: none;
+            padding-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand navbar-light bg-light">
+    <a class="navbar-brand" href="https://casefu.com/" target="_blank" style="margin-top: -6px;"
+       title="Open CaseFu.com web site">
+        <img src="https://casefu.com/favicon.ico" height="25" />
+    </a>
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item pr-1">
+            <a class="nav-link" href="#__home">
+                <i class="fas fa-home"></i>
+            </a>
+        </li>
+        <li class="nav-item px-1">
+            <a class="nav-link" href="#__overview_diagrams">
+                <i class="fas fa-project-diagram"></i>
+            </a>
+        </li>
+        <li class="nav-item px-1">
+            <a class="nav-link" href="#__search">
+                <i class="fas fa-search"></i>
+            </a>
+        </li>
+    </ul>
+    <div class="btn-group-toggle">
+        <label class="btn btn-outline-secondary" title="Toggle print mode">
+            <input id="__print-button" type="checkbox" checked autocomplete="off">
+            <i class="fas fa-print"></i>
+        </label>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <main role="main">
+
+        <section id="Person" class="cf-entity">
+<h2><i class="fas fa-database text-muted"></i> Person <code>Person</code></h2>
+<h3>Attributes:</h3>
+<table class="table table-bordered table-hover">
+<thead>
+<tr>
+<th>Name</th>
+<th>Status</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Id<code class="float-right">id</code></td>
+<td title="Auto-generated primary key"><span class="badge badge-danger">APK</span></td>
+<td>
+<p>bigserial</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Personal number<code class="float-right">personalNumber</code></td>
+<td title="Natural key"><span class="badge badge-warning">NK</span></td>
+<td>
+<p>text</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Family name<code class="float-right">familyName</code></td>
+<td title="Mandatory"><span class="badge badge-primary">M</span></td>
+<td>
+<p>text</p>
+</td>
+<td>
+<p>Doe</p>
+</td>
+<td>
+<p>The family name of the person.</p>
+</td>
+</tr>
+<tr>
+<td>Given names<code class="float-right">givenNames</code></td>
+<td title="Optional"><span class="badge badge-success">O</span></td>
+<td>
+<p>varchar(30)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>User name<code class="float-right">userName</code></td>
+<td title="Unique"><span class="badge badge-warning">U</span></td>
+<td>
+<p>text</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Email<code class="float-right">email</code></td>
+<td title="Optional unique"><span class="badge badge-warning">OU</span></td>
+<td>
+<p>text</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div id="section-computed-Person">
+<div id="section-referred-from-Person">
+<strong>Referred from:</strong>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#MultipleWordDefaultCode" title="Multiple word default code">Multiple word default code</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#SomeExplicitCode" title="Explicit code">Explicit code</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#PlainPk" title="Plain PK">Plain PK</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Event" title="Event">Event</a>
+</div>
+<div id="section-erd-Person">
+<div><strong>ERD:</strong></div>
+<img src="http://www.plantuml.com/plantuml/svg/NP1DQm9138Rlyojoh0MXq5iHiRIUn7L1Iizn9xh1p0Spi-BYzhztzgELzfZtUPAGh6B2a1eZgcPDK76eX5Gyi_KOq82mfTHw0XTIxPGYcpYrK5A8pi9D0Jm2QtY10vyY1KQ1nUArt2oN0_A3Xr8qva0XQuckAHl5Zt14mz8MQEWEjmCxyOLi3s8c5mnLZU7X-McMXTtKtEIDVri_1a86MUxXha-_b5hdWGcwRZvtj-a2DHtIkJ4KP5kUVzDHtJQIs0jzkg3VwOYvV7EQ_bbxPsXzzS8LZtX5LlUF_GO0"/>
+</div>
+</div>
+</section>
+<section id="MultipleWordDefaultCode" class="cf-entity">
+<h2><i class="fas fa-database text-muted"></i> Multiple word default code <code>MultipleWordDefaultCode</code></h2>
+<h3>Attributes:</h3>
+<table class="table table-bordered table-hover">
+<thead>
+<tr>
+<th>Name</th>
+<th>Status</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Natural primary key<code class="float-right">naturalPrimaryKey</code></td>
+<td title="Natural primary key"><span class="badge badge-danger">NPK</span></td>
+<td>
+<p>text</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Description<code class="float-right">description</code></td>
+<td title="Optional"><span class="badge badge-success">O</span></td>
+<td>
+<p>text</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Person<code class="float-right">person</code></td>
+<td title="Foreign key"><span class="badge badge-dark">FK</span></td>
+<td>
+<p><a href="#Person" title="Person">Person</a></p>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div id="section-computed-MultipleWordDefaultCode">
+<div id="section-refers-to-MultipleWordDefaultCode">
+<strong>Refers to:</strong>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Person" title="Person">Person</a>
+</div>
+<div id="section-erd-MultipleWordDefaultCode">
+<div><strong>ERD:</strong></div>
+<img src="http://www.plantuml.com/plantuml/svg/TKzB2i8m4DtFAMPTw0MaI45nKzJkN8Tcf8Df4YPJCBJUtROAhjozBxnN9pMYu-2WPqlOiNIE83tOHoDcGCUUD4V28De70FBAcl4yEkNew1R47kbk5de8Ity2n0AzqL6CQuK78xcXZ3jKUYfMrQLjzlibP2brmb4v-9zvtQm28qdQzFO3gkgqjbu0Ns6Uop9C_rP0JTwkbzu0"/>
+</div>
+</div>
+</section>
+<section id="SomeExplicitCode" class="cf-entity">
+<h2><i class="fas fa-database text-muted"></i> Explicit code <code>SomeExplicitCode</code></h2>
+<h3>Attributes:</h3>
+<table class="table table-bordered table-hover">
+<thead>
+<tr>
+<th>Name</th>
+<th>Status</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Foreign primary key<code class="float-right">foreignPrimaryKey</code></td>
+<td title="Foreign primary key"><span class="badge badge-danger">FPK</span></td>
+<td>
+<p><a href="#Person" title="Person">Person</a></p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Description<code class="float-right">description</code></td>
+<td title="Optional"><span class="badge badge-success">O</span></td>
+<td>
+<p>text</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div id="section-computed-SomeExplicitCode">
+<div id="section-refers-to-SomeExplicitCode">
+<strong>Refers to:</strong>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Person" title="Person">Person</a>
+</div>
+<div id="section-referred-from-SomeExplicitCode">
+<strong>Referred from:</strong>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Event" title="Event">Event</a>
+</div>
+<div id="section-erd-SomeExplicitCode">
+<div><strong>ERD:</strong></div>
+<img src="http://www.plantuml.com/plantuml/svg/POzD2i8m48NtESMiXLwW52b8tNHXmHE4TBI3-MCoIaFZtKt1NRVlUp-yFebcUJkh5feH3B6ngDABVDIi7LZoA3aY19ObA8LUI3BSWyDXZPOCoINKuAO0Jl08ZFJq4vFJd4VCqCA4d8A7hhjEu_bSRJCcmnI5gjg2u2eLtYhwAZLywW2KqZIb74RKlsh7OJlY7lsyF_a1"/>
+</div>
+</div>
+</section>
+<section id="PlainPk" class="cf-entity">
+<h2><i class="fas fa-database text-muted"></i> Plain PK <code>PlainPk</code></h2>
+<h3>Attributes:</h3>
+<table class="table table-bordered table-hover">
+<thead>
+<tr>
+<th>Name</th>
+<th>Status</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Primary key<code class="float-right">primaryKey</code></td>
+<td title="Primary key"><span class="badge badge-danger">PK</span></td>
+<td>
+<p>bigint</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Business key<code class="float-right">businessKey</code></td>
+<td title="Business key"><span class="badge badge-warning">BK</span></td>
+<td>
+<p>text</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Description<code class="float-right">description</code></td>
+<td title="Optional"><span class="badge badge-success">O</span></td>
+<td>
+<p>text</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Maybe person<code class="float-right">maybePerson</code></td>
+<td title="Optional foreign key"><span class="badge badge-dark">OFK</span></td>
+<td>
+<p><a href="#Person" title="Person">Person</a></p>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div id="section-computed-PlainPk">
+<div id="section-refers-to-PlainPk">
+<strong>Refers to:</strong>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Person" title="Person">Person</a>
+</div>
+<div id="section-referred-from-PlainPk">
+<strong>Referred from:</strong>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Event" title="Event">Event</a>
+</div>
+<div id="section-erd-PlainPk">
+<div><strong>ERD:</strong></div>
+<img src="http://www.plantuml.com/plantuml/svg/HS_D2eCm30VmUvyYvu4lC4Hai5qyhAzGDSnWlsZZMD6z-wmwl8N_Bmb97La5demM0_K87OLEeuWZMQ-2Cg398YUFu08FJWYqJ9n0QaLMZZ0BW0luG4Q5r622AxJq8ijGbhAfgetRAQvROjoTyPFrjckFiGlacPmzxRcHKQb5YI5kT1GhFlBaLuZxUpq65bSKo_m_I1njENLdMgFjyuy_"/>
+</div>
+</div>
+</section>
+<section id="Location" class="cf-entity">
+<h2><i class="fas fa-database text-muted"></i> Location <code>Location</code></h2>
+<h3>Attributes:</h3>
+<table class="table table-bordered table-hover">
+<thead>
+<tr>
+<th>Name</th>
+<th>Status</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name<code class="float-right">name</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div id="section-computed-Location">
+<div id="section-referred-from-Location">
+<strong>Referred from:</strong>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Event" title="Event">Event</a>
+</div>
+<div id="section-erd-Location">
+<div><strong>ERD:</strong></div>
+<img src="http://www.plantuml.com/plantuml/svg/FSon2O1034RX_fyY2xY3ZPrBX3DWy2uvpYY8khlQs3u-Nhy6jzXAngoJKDAMic1Tr2etBfJL98ugv2rc1yH2uw3H4uUwqGaYuoAuWJzULzVvISF-QlHYq_T_0000"/>
+</div>
+</div>
+</section>
+<section id="Empty" class="cf-entity">
+<h2><i class="fas fa-database text-muted"></i> Empty <code>Empty</code></h2>
+<div id="section-computed-Empty">
+<div id="section-referred-from-Empty">
+<strong>Referred from:</strong>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Event" title="Event">Event</a>
+</div>
+<div id="section-erd-Empty">
+<div><strong>ERD:</strong></div>
+<img src="http://www.plantuml.com/plantuml/svg/9Sp12S0W343HUwR80kxWnK540uQg4KqBKhjxBRtympjyEzHtFKk6n94mS0-PO1nSc---OEPAEXkXT4q2G5LP9xhITczu0Dor3PSO8-jti5JZjtm1"/>
+</div>
+</div>
+</section>
+<section id="Event" class="cf-entity">
+<h2><i class="fas fa-database text-muted"></i> Event <code>Event</code></h2>
+<h3>Attributes:</h3>
+<table class="table table-bordered table-hover">
+<thead>
+<tr>
+<th>Name</th>
+<th>Status</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Time<code class="float-right">time</code></td>
+<td title="Mandatory"><span class="badge badge-primary">M</span></td>
+<td>
+<p>timestamp</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Persons<code class="float-right">persons</code></td>
+<td>1 : n</td>
+<td>
+<p><a href="#Person" title="Person">Person</a></p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Location<code class="float-right">location</code></td>
+<td>n : 1</td>
+<td>
+<p><a href="#Location" title="Location">Location</a></p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Other variants<code class="float-right">otherVariants</code></td>
+<td>0..1 : 1..n</td>
+<td>
+<p><a href="#PlainPk" title="PlainPk">PlainPk</a></p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>One to one<code class="float-right">oneToOne</code></td>
+<td>1 : 1</td>
+<td>
+<p><a href="#SomeExplicitCode" title="SomeExplicitCode">SomeExplicitCode</a></p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>One to one empty<code class="float-right">oneToOneEmpty</code></td>
+<td>0..1 : 0..1</td>
+<td>
+<p><a href="#Empty" title="Empty">Empty</a></p>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div id="section-computed-Event">
+<div id="section-refers-to-Event">
+<strong>Refers to:</strong>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Person" title="Person">Person</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Location" title="Location">Location</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#PlainPk" title="Plain PK">Plain PK</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#SomeExplicitCode" title="Explicit code">Explicit code</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Empty" title="Empty">Empty</a>
+</div>
+<div id="section-erd-Event">
+<div><strong>ERD:</strong></div>
+<img src="http://www.plantuml.com/plantuml/svg/PL71QiCm3BtxAtGkD2pN44fXvBQnmaRl9XL4rBQCeusLkFy-nKbAOIT9xpq_wU7ZA3R9jtTce0j2JwbtQCOhXMYJzU0eeDmY0YSPs1WCGdA3xaSRc0p03eGyGbEAcla8RVj-E2WLCOqSHkLEfLEYrY4KSWUEUokaS0DlMzksyrYl2fO1qzacia6AZRCKJbTLlLJLR5LNrUR60R_u8yoNVBB7xZSwwabUMLCjUnVNJTVvg3aQMEh3SIwgknkpHCoyttDUL4zGdhPZDZ2hRbg3Fc4v_pl7FDAkZuhQ735Svd_u0m00"/>
+</div>
+</div>
+</section>
+<section id="__overview_diagrams">
+<h2><i class="fas fa-database text-muted"></i> ERD</h2>
+<ul>
+
+<div id="overview-diagram-erd">
+<div><strong>ERD:</strong></div>
+<img src="http://www.plantuml.com/plantuml/svg/TL7B3eCW4Bpp5Vo0_s3IUciJanvw9hYD6u4bY4sDzD-BhqerlP2TsM5c5_BM2-SxhLYD5N29JYfWROF62YSqLsZ0znOuELyJOs0y-fwNu5eoV7YlnBLJ7gs2Exdg30yHuOcYuQQuaORYPHLAtBTA9T2KJS9SI0gFFmc5jl5Cy3CM8sPiBWDb6OLPbr1XMFrNCaJTiAoGS24SPcJVEPPBavejsq-1c_lApie_3x9J7G9pCDNu6ny0"/>
+</div>
+</ul>
+</section>
+<section id="__search">
+<form>
+<div class="form-row mb-3">
+<div class="input-group mx-2">
+<div class="input-group-prepend">
+<span class="input-group-text">
+<i class="fas fa-search text-muted"></i>
+</span>
+</div>
+<input id="__search-text" type="text" class="form-control"
+placeholder="Start typing to search..." />
+</div>
+</div>
+</form>
+<h2><i class="fas fa-desktop text-muted"></i> Screens</h2>
+<ul>
+
+</ul>
+<h2><i class="fas fa-database text-muted"></i> Entities</h2>
+<ul>
+<li class="__search-item" id="__search-item-Person">
+<a href="#Person" class="mr-3">Person</a> <code>Person</code>
+</li>
+<li class="__search-item" id="__search-item-MultipleWordDefaultCode">
+<a href="#MultipleWordDefaultCode" class="mr-3">Multiple word default code</a> <code>MultipleWordDefaultCode</code>
+</li>
+<li class="__search-item" id="__search-item-SomeExplicitCode">
+<a href="#SomeExplicitCode" class="mr-3">Explicit code</a> <code>SomeExplicitCode</code>
+</li>
+<li class="__search-item" id="__search-item-PlainPk">
+<a href="#PlainPk" class="mr-3">Plain PK</a> <code>PlainPk</code>
+</li>
+<li class="__search-item" id="__search-item-Location">
+<a href="#Location" class="mr-3">Location</a> <code>Location</code>
+</li>
+<li class="__search-item" id="__search-item-Empty">
+<a href="#Empty" class="mr-3">Empty</a> <code>Empty</code>
+</li>
+<li class="__search-item" id="__search-item-Event">
+<a href="#Event" class="mr-3">Event</a> <code>Event</code>
+</li>
+
+</ul>
+<h2><i class="fas fa-user text-muted"></i> Actors</h2>
+<ul>
+
+</ul>
+<h2><i class="fas fa-list-alt text-muted"></i> Use cases</h2>
+<ul>
+
+</ul>
+</section>
+
+
+    </main>
+</div>
+
+<script>
+  window.addEventListener("load", function () {
+    var searchText = document.getElementById('__search-text')
+    if (searchText) {
+      searchText.oninput = function (event) {
+        var query = event.target.value
+        var items = document.getElementsByClassName('__search-item')
+        for (var i = 0; i < items.length; i++) {
+          var item = items[i]
+          var itemId = item.id
+          var code = itemId.substr('__search-item-'.length)
+          var section = document.getElementById(code)
+          var matches = !query.trim() || section.innerHTML.toLowerCase().indexOf(query.toLowerCase()) > -1
+          item.style.display = matches ? 'list-item' : 'none'
+        }
+      }
+      searchText.focus()
+    }
+
+    var printButton = document.getElementById('__print-button')
+    var printLabel = printButton.parentNode
+    var printStyle = document.getElementById('__print-style')
+    var printMode = false
+    printButton.onclick = function (event) {
+      event.preventDefault()
+      if (printMode) {
+        printStyle.innerHTML = 'main > section { display: none; padding-bottom: 2rem; }'
+        printLabel.classList.remove('active')
+      } else {
+        printStyle.innerHTML = ''
+        printLabel.classList.add('active')
+      }
+      printMode = !printMode
+    }
+
+    window.onhashchange = function () {
+      if (location.hash === '#__search') {
+        searchText.focus()
+      }
+    }
+
+    if (!window.location.hash) {
+      window.location.hash = '__home'
+    }
+  })
+</script>
+
+</body>
+</html>
