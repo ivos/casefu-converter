@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>CaseFu FSD</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+          crossorigin="anonymous">
+
+    <style>
+        main > section {
+            margin-top: 20px;
+        }
+
+        main > section:target {
+            display: block;
+        }
+
+        .card {
+            margin-bottom: .75rem;
+        }
+
+        h5.card-title p {
+            margin-bottom: 0;
+        }
+
+        .form-group.row p {
+            margin-bottom: 0;
+            margin-top: 7px;
+        }
+
+        table th p, table td p {
+            margin-bottom: 0;
+        }
+
+        blockquote {
+            background-color: rgba(252, 252, 200, 0.5);
+            margin: 5px 0 1rem;
+            padding: 5px 5px 5px 10px;
+            border-left: 5px solid rgba(143, 188, 143, 0.5);
+            border-radius: 3px;
+        }
+
+        blockquote > *:last-child {
+            margin-bottom: 0;
+        }
+
+        .cf-required {
+            color: red;
+            font-weight: bold;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 0.1rem 0.4rem;
+            border-radius: 5px;
+        }
+
+        main > section.cf-use-case > .cf-extensions > ul {
+            padding-left: 1.9rem;
+        }
+
+        main > section.cf-use-case > .cf-extensions li {
+            list-style: none;
+            text-indent: -1.9rem;
+        }
+
+        main > section.cf-use-case > .cf-extensions > ul > li:not(:last-of-type) {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+    <style id="__print-style">
+        main > section {
+            display: none;
+            padding-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand navbar-light bg-light">
+    <a class="navbar-brand" href="https://casefu.com/" target="_blank" style="margin-top: -6px;"
+       title="Open CaseFu.com web site">
+        <img src="https://casefu.com/favicon.ico" height="25" />
+    </a>
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item pr-1">
+            <a class="nav-link" href="#__home">
+                <i class="fas fa-home"></i>
+            </a>
+        </li>
+        <li class="nav-item px-1">
+            <a class="nav-link" href="#__overview_diagrams">
+                <i class="fas fa-project-diagram"></i>
+            </a>
+        </li>
+        <li class="nav-item px-1">
+            <a class="nav-link" href="#__search">
+                <i class="fas fa-search"></i>
+            </a>
+        </li>
+    </ul>
+    <div class="btn-group-toggle">
+        <label class="btn btn-outline-secondary" title="Toggle print mode">
+            <input id="__print-button" type="checkbox" checked autocomplete="off">
+            <i class="fas fa-print"></i>
+        </label>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <main role="main">
+
+        <section id="A" class="cf-entity">
+<h2><i class="fas fa-database text-muted"></i> A <code>A</code></h2>
+<h3>Attributes:</h3>
+<table class="table table-bordered table-hover">
+<thead>
+<tr>
+<th>Name</th>
+<th>Status</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Code<code class="float-right">code</code></td>
+<td title="Auto-generated primary key"><span class="badge badge-danger">APK</span></td>
+<td>
+<p>bigserial</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Created<code class="float-right">created</code></td>
+<td></td>
+<td>
+<p>timestamp</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div id="section-computed-A">
+<div id="section-referred-from-A">
+<strong>Referred from:</strong>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#ReferringR" title="Referring R">Referring R</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#ReferringS" title="Referring S">Referring S</a>
+</div>
+<div id="section-erd-A">
+<div><strong>ERD:</strong></div>
+<img src="http://www.plantuml.com/plantuml/svg/FSwz2i9040JWVfzYQo4l827aQXk9Jt1UncJnVi9cBKBYktiMsWry33FzQbxjbIBDCeA3Q8YWzIbvyUeJHycmRG4NjRaG8PlOnevtOZvnABLqvhjCArHyvBPrrqlNLGmARnYhcYJKcRJGcyZnSJHDsNd00wgIfu7-yVP3Hpto-Btr0G00"/>
+</div>
+</div>
+</section>
+<section id="B" class="cf-entity">
+<h2><i class="fas fa-database text-muted"></i> B <code>B</code></h2>
+<h3>Attributes:</h3>
+<table class="table table-bordered table-hover">
+<thead>
+<tr>
+<th>Name</th>
+<th>Status</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Code<code class="float-right">code</code></td>
+<td title="Natural primary key"><span class="badge badge-danger">NPK</span></td>
+<td>
+<p>varchar(15)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Created<code class="float-right">created</code></td>
+<td></td>
+<td>
+<p>timestamp</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div id="section-computed-B">
+<div id="section-referred-from-B">
+<strong>Referred from:</strong>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#C" title="C">C</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#ReferringR" title="Referring R">Referring R</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#ReferringS" title="Referring S">Referring S</a>
+</div>
+<div id="section-erd-B">
+<div><strong>ERD:</strong></div>
+<img src="http://www.plantuml.com/plantuml/svg/FSwz2i9040JWVfzYInLIMDX82E4iXI3n2OxBQXRl9snM8II-knT1ssyOPkfHhUWpUEYv8tGipXEC3uw35HlGSoIT1i8asYS0YieweS4P47VeKYuTyMN5zLOs-yCMoxAvdAignqx8AdKvLmwKXy80Rm23IogAD6DBDnBXU6zNMxvsWhzUVsQWfjYj7py0"/>
+</div>
+</div>
+</section>
+<section id="C" class="cf-entity">
+<h2><i class="fas fa-database text-muted"></i> C <code>C</code></h2>
+<h3>Attributes:</h3>
+<table class="table table-bordered table-hover">
+<thead>
+<tr>
+<th>Name</th>
+<th>Status</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Code<code class="float-right">code</code></td>
+<td title="Foreign primary key"><span class="badge badge-danger">FPK</span></td>
+<td>
+<p><a href="#B" title="B">B</a></p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Created<code class="float-right">created</code></td>
+<td></td>
+<td>
+<p>timestamp</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div id="section-computed-C">
+<div id="section-refers-to-C">
+<strong>Refers to:</strong>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#B" title="B">B</a>
+</div>
+<div id="section-referred-from-C">
+<strong>Referred from:</strong>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#D" title="D">D</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#ReferringR" title="Referring R">Referring R</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#ReferringS" title="Referring S">Referring S</a>
+</div>
+<div id="section-erd-C">
+<div><strong>ERD:</strong></div>
+<img src="http://www.plantuml.com/plantuml/svg/HOvB2i9044JtVOfU2xc0X10ouiQD92SOPbhJE9_GQHSXyUvE17NtgE8LrSvgHPynmCYUqB6uG30_E4rMRCJ0YNIP2BFec04eAUk21bT0FA3BHJfYXtLzlbwQfeHEo2hvaYf7AlDnWXT0XzjMLNb50-QBfp_sT2CHJlSUVZXyocrNMaf-F_a6"/>
+</div>
+</div>
+</section>
+<section id="D" class="cf-entity">
+<h2><i class="fas fa-database text-muted"></i> D <code>D</code></h2>
+<h3>Attributes:</h3>
+<table class="table table-bordered table-hover">
+<thead>
+<tr>
+<th>Name</th>
+<th>Status</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Code<code class="float-right">code</code></td>
+<td title="Foreign primary key"><span class="badge badge-danger">FPK</span></td>
+<td>
+<p><a href="#C" title="C">C</a></p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Created<code class="float-right">created</code></td>
+<td></td>
+<td>
+<p>timestamp</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div id="section-computed-D">
+<div id="section-refers-to-D">
+<strong>Refers to:</strong>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#C" title="C">C</a>
+</div>
+<div id="section-referred-from-D">
+<strong>Referred from:</strong>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#ReferringR" title="Referring R">Referring R</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#ReferringS" title="Referring S">Referring S</a>
+</div>
+<div id="section-erd-D">
+<div><strong>ERD:</strong></div>
+<img src="http://www.plantuml.com/plantuml/svg/FOv12eD040Jlyue-1_n0416KN789vWNBEeb3t5qPnuEeVyycXDoAehlfUZQdjeIH1kaPNjIFJFDBukJK1OmIsTQ9aTI6HCJHn5Qqs0WumQTSEgD1MLvkrwhAqYixupvRay1vFanq43NOzw986rfgiQSlTlnWLOdFZlvunv5-kPfZ_tds1W00"/>
+</div>
+</div>
+</section>
+<section id="E" class="cf-entity">
+<h2><i class="fas fa-database text-muted"></i> E <code>E</code></h2>
+<h3>Attributes:</h3>
+<table class="table table-bordered table-hover">
+<thead>
+<tr>
+<th>Name</th>
+<th>Status</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Code<code class="float-right">code</code></td>
+<td title="Primary key"><span class="badge badge-danger">PK</span></td>
+<td>
+<p>SERIAL</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Created<code class="float-right">created</code></td>
+<td></td>
+<td>
+<p>TIMESTAMP</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div id="section-computed-E">
+<div id="section-referred-from-E">
+<strong>Referred from:</strong>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#ReferringR" title="Referring R">Referring R</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#ReferringS" title="Referring S">Referring S</a>
+</div>
+<div id="section-erd-E">
+<div><strong>ERD:</strong></div>
+<img src="http://www.plantuml.com/plantuml/svg/FSv12eCm48NX_PnYrWKlK4HqaOMqWYHU82JJ6gg9ZED2j7TlkcXt3puU_FKgbcMR9nY39tI1tKImla9SBDiPfn19zeKmiOm9WA84sL7X0OWNT2cVhcYKRfixbcL_gweCZiaA-In3soapD5qFRm25vraKwK1D3s8EyQdXFyqF5TGK_JVf0m00"/>
+</div>
+</div>
+</section>
+<section id="F" class="cf-entity">
+<h2><i class="fas fa-database text-muted"></i> F <code>F</code></h2>
+<h3>Attributes:</h3>
+<table class="table table-bordered table-hover">
+<thead>
+<tr>
+<th>Name</th>
+<th>Status</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name<code class="float-right">name</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div id="section-computed-F">
+<div id="section-referred-from-F">
+<strong>Referred from:</strong>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#ReferringR" title="Referring R">Referring R</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#ReferringS" title="Referring S">Referring S</a>
+</div>
+<div id="section-erd-F">
+<div><strong>ERD:</strong></div>
+<img src="http://www.plantuml.com/plantuml/svg/HSsn3OKm30N0tbEy1TY1YW5WWWZCno9na345mdzteAAzvjhTa_bHCYqoCKQnCJFjg-YMB1LaKVPpOrJpfHAnklY93XS1cWhJdwZdcSr4VpqYcYO2tMS3eZvsFTQoJczr0m00"/>
+</div>
+</div>
+</section>
+<section id="ReferringR" class="cf-entity">
+<h2><i class="fas fa-database text-muted"></i> Referring R <code>ReferringR</code></h2>
+<h3>Attributes:</h3>
+<table class="table table-bordered table-hover">
+<thead>
+<tr>
+<th>Name</th>
+<th>Status</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fk<code class="float-right">fk</code></td>
+<td title="Foreign key"><span class="badge badge-dark">FK</span></td>
+<td>
+<p><a href="#A" title="A">A</a></p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ofk<code class="float-right">ofk</code></td>
+<td title="Optional foreign key"><span class="badge badge-dark">OFK</span></td>
+<td>
+<p><a href="#B" title="B">The B</a></p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>N to 1<code class="float-right">nTo_1</code></td>
+<td>n : 1</td>
+<td>
+<p><a href="#C" title="C">C</a></p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>N to 0..1<code class="float-right">nTo_0_1</code></td>
+<td>N : 0..1</td>
+<td>
+<p><a href="#D" title="D">D</a></p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>N to 1..1<code class="float-right">nTo_1_1</code></td>
+<td>n : 1..1</td>
+<td>
+<p><a href="#E" title="E">E</a></p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>One to 1<code class="float-right">oneTo_1</code></td>
+<td>1 : 1</td>
+<td>
+<p><a href="#F" title="F">F</a></p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Not a ref<code class="float-right">notARef</code></td>
+<td title="Foreign key"><span class="badge badge-dark">FK</span></td>
+<td>
+<p>varchar(42)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div id="section-computed-ReferringR">
+<div id="section-refers-to-ReferringR">
+<strong>Refers to:</strong>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#A" title="A">A</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#B" title="B">B</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#C" title="C">C</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#D" title="D">D</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#E" title="E">E</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#F" title="F">F</a>
+</div>
+<div id="section-erd-ReferringR">
+<div><strong>ERD:</strong></div>
+<img src="http://www.plantuml.com/plantuml/svg/RT312i8m30RWUvuYHnKcJZo933VdBeA2U9UoHLSssr6h8DPtDnjJX-mK-Fuaj5bUhJ3sTYaXbnbXAarQ4bmBgIfXn0LBgSW-Aa9jRAu1I5bf7xYd4naZrNcFJq0SuQd0EOQuM2IR863H3KGCkrP6g0xwwBEkM1LNl_5Q9ut7x5kka_7OxuuquVepz0kredPZmg7_tSXZseRyH9QxC6akp60s7NuUzm88qJdFqy_EFo12f_zjrTCNz_IjU_ew9wf3vp219QcillKR"/>
+</div>
+</div>
+</section>
+<section id="ReferringS" class="cf-entity">
+<h2><i class="fas fa-database text-muted"></i> Referring S <code>ReferringS</code></h2>
+<h3>Attributes:</h3>
+<table class="table table-bordered table-hover">
+<thead>
+<tr>
+<th>Name</th>
+<th>Status</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>one to n<code class="float-right">oneToN</code></td>
+<td>1 : n</td>
+<td>
+<p><a href="#A" title="A">A</a></p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>one to 0..n<code class="float-right">oneTo_0N</code></td>
+<td>1 : 0..N</td>
+<td>
+<p><a href="#B" title="B">B</a></p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>One..1 to 1..n<code class="float-right">one_1To_1N</code></td>
+<td>1..1 : 1..n</td>
+<td>
+<p><a href="#C" title="C">C</a></p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>M to n<code class="float-right">mToN</code></td>
+<td>m : N</td>
+<td>
+<p><a href="#D" title="D">D</a></p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>One to *<code class="float-right">oneTo</code></td>
+<td>1 : *</td>
+<td>
+<p><a href="#E" title="E">E</a></p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Zero..1 to 1..*<code class="float-right">zero_1To_1</code></td>
+<td>0..1 : 1..*</td>
+<td>
+<p><a href="#F" title="F">F</a></p>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div id="section-computed-ReferringS">
+<div id="section-refers-to-ReferringS">
+<strong>Refers to:</strong>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#A" title="A">A</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#B" title="B">B</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#C" title="C">C</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#D" title="D">D</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#E" title="E">E</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#F" title="F">F</a>
+</div>
+<div id="section-erd-ReferringS">
+<div><strong>ERD:</strong></div>
+<img src="http://www.plantuml.com/plantuml/svg/RP2n3e8m443t-ugRII2m6cC4r951tGtHKngXPseT5Fnthu2AXkdIzwulJUTNcnjxgqeer85mhyo-9BYUbRxa9g-mL9hi_KB8nXOCGDegUySr7SaOfKyRh06HDMqvmmd6E9r6ClLiziQxq8ca5s4GPAtpdDr5uYFdK-U3mAt8wAvNNNCXgfAPVPjoMlP1hwyzo72N4xWI6NvgRkK9C7XpmxxVrBZwOOtlSutn24j6sFAVIIyTiYUtUmkOapwu3tu1"/>
+</div>
+</div>
+</section>
+<section id="Master" class="cf-entity">
+<h2><i class="fas fa-database text-muted"></i> Master <code>Master</code></h2>
+<h3>Attributes:</h3>
+<table class="table table-bordered table-hover">
+<thead>
+<tr>
+<th>Name</th>
+<th>Status</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>slaves<code class="float-right">slaves</code></td>
+<td>1 : n</td>
+<td>
+<p><a href="#Slave" title="Slave">Slave</a></p>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div id="section-computed-Master">
+<div id="section-refers-to-Master">
+<strong>Refers to:</strong>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Slave" title="Slave">Slave</a>
+</div>
+<div id="section-referred-from-Master">
+<strong>Referred from:</strong>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Slave" title="Slave">Slave</a>
+</div>
+<div id="section-erd-Master">
+<div><strong>ERD:</strong></div>
+<img src="http://www.plantuml.com/plantuml/svg/BSr12eDG34NHULRnDk2WqoBY1Xnr1K43Xdxp9KaBejrxAtLs1mTk7ycUhwNGh9DWL1-BK3pLLdPUKDGajrLGFUTA99QQ6mQE5CTEG1H-I-2EnnbeszklhUleGtInusYQkly1zMBJ-Vi2"/>
+</div>
+</div>
+</section>
+<section id="Slave" class="cf-entity">
+<h2><i class="fas fa-database text-muted"></i> Slave <code>Slave</code></h2>
+<h3>Attributes:</h3>
+<table class="table table-bordered table-hover">
+<thead>
+<tr>
+<th>Name</th>
+<th>Status</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>master<code class="float-right">master</code></td>
+<td>n : 1</td>
+<td>
+<p><a href="#Master" title="Master">Master</a></p>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div id="section-computed-Slave">
+<div id="section-refers-to-Slave">
+<strong>Refers to:</strong>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Master" title="Master">Master</a>
+</div>
+<div id="section-referred-from-Slave">
+<strong>Referred from:</strong>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Master" title="Master">Master</a>
+</div>
+<div id="section-erd-Slave">
+<div><strong>ERD:</strong></div>
+<img src="http://www.plantuml.com/plantuml/svg/BOr12eD034NtESLV5rnqMqIyG5SzGT20eJCPoQG5KU_UYkx-U_3uVGts-EH4auw2GNr8GlMjDhDpHbAJM6P1yPWAaLXeB7Wb_WfM0cx8N4CS3ppFqRRsXtlNqKvqkMrhchAU6VLYu_7u0m00"/>
+</div>
+</div>
+</section>
+<section id="__overview_diagrams">
+<h2><i class="fas fa-database text-muted"></i> ERD</h2>
+<ul>
+
+<div id="overview-diagram-erd">
+<div><strong>ERD:</strong></div>
+<img src="http://www.plantuml.com/plantuml/svg/RP5B2eCm48RtSugvW7VmlUj6Jn1qMaDZ8Z4Ln7ZtagfqaEo-VFDWVfBEJbZt6HKCiYVifEqKmVoMUX9MZAYa9hTEXCQwmG2GTjAjcE6sNvmpBXYNZ2l6DUE6dcIjrAyc9bic7s9sP9bebLWel04oz3v9pCRMGOxUHDpHLq1nOVb7rbb6fgj8ttdLMVYT12nJyDvZ3InIMEotcplciuZB8wwwEnyYCRURCrjAkW-V-mK0"/>
+</div>
+</ul>
+</section>
+<section id="__search">
+<form>
+<div class="form-row mb-3">
+<div class="input-group mx-2">
+<div class="input-group-prepend">
+<span class="input-group-text">
+<i class="fas fa-search text-muted"></i>
+</span>
+</div>
+<input id="__search-text" type="text" class="form-control"
+placeholder="Start typing to search..." />
+</div>
+</div>
+</form>
+<h2><i class="fas fa-desktop text-muted"></i> Screens</h2>
+<ul>
+
+</ul>
+<h2><i class="fas fa-database text-muted"></i> Entities</h2>
+<ul>
+<li class="__search-item" id="__search-item-A">
+<a href="#A" class="mr-3">A</a> <code>A</code>
+</li>
+<li class="__search-item" id="__search-item-B">
+<a href="#B" class="mr-3">B</a> <code>B</code>
+</li>
+<li class="__search-item" id="__search-item-C">
+<a href="#C" class="mr-3">C</a> <code>C</code>
+</li>
+<li class="__search-item" id="__search-item-D">
+<a href="#D" class="mr-3">D</a> <code>D</code>
+</li>
+<li class="__search-item" id="__search-item-E">
+<a href="#E" class="mr-3">E</a> <code>E</code>
+</li>
+<li class="__search-item" id="__search-item-F">
+<a href="#F" class="mr-3">F</a> <code>F</code>
+</li>
+<li class="__search-item" id="__search-item-ReferringR">
+<a href="#ReferringR" class="mr-3">Referring R</a> <code>ReferringR</code>
+</li>
+<li class="__search-item" id="__search-item-ReferringS">
+<a href="#ReferringS" class="mr-3">Referring S</a> <code>ReferringS</code>
+</li>
+<li class="__search-item" id="__search-item-Master">
+<a href="#Master" class="mr-3">Master</a> <code>Master</code>
+</li>
+<li class="__search-item" id="__search-item-Slave">
+<a href="#Slave" class="mr-3">Slave</a> <code>Slave</code>
+</li>
+
+</ul>
+<h2><i class="fas fa-user text-muted"></i> Actors</h2>
+<ul>
+
+</ul>
+<h2><i class="fas fa-list-alt text-muted"></i> Use cases</h2>
+<ul>
+
+</ul>
+</section>
+
+
+    </main>
+</div>
+
+<script>
+  window.addEventListener("load", function () {
+    var searchText = document.getElementById('__search-text')
+    if (searchText) {
+      searchText.oninput = function (event) {
+        var query = event.target.value
+        var items = document.getElementsByClassName('__search-item')
+        for (var i = 0; i < items.length; i++) {
+          var item = items[i]
+          var itemId = item.id
+          var code = itemId.substr('__search-item-'.length)
+          var section = document.getElementById(code)
+          var matches = !query.trim() || section.innerHTML.toLowerCase().indexOf(query.toLowerCase()) > -1
+          item.style.display = matches ? 'list-item' : 'none'
+        }
+      }
+      searchText.focus()
+    }
+
+    var printButton = document.getElementById('__print-button')
+    var printLabel = printButton.parentNode
+    var printStyle = document.getElementById('__print-style')
+    var printMode = false
+    printButton.onclick = function (event) {
+      event.preventDefault()
+      if (printMode) {
+        printStyle.innerHTML = 'main > section { display: none; padding-bottom: 2rem; }'
+        printLabel.classList.remove('active')
+      } else {
+        printStyle.innerHTML = ''
+        printLabel.classList.add('active')
+      }
+      printMode = !printMode
+    }
+
+    window.onhashchange = function () {
+      if (location.hash === '#__search') {
+        searchText.focus()
+      }
+    }
+
+    if (!window.location.hash) {
+      window.location.hash = '__home'
+    }
+  })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,263 @@
+{
+  "sections": {
+    "A": {
+      "type": "entity",
+      "name": "A"
+    },
+    "B": {
+      "type": "entity",
+      "name": "B"
+    },
+    "C": {
+      "type": "entity",
+      "name": "C"
+    },
+    "D": {
+      "type": "entity",
+      "name": "D"
+    },
+    "E": {
+      "type": "entity",
+      "name": "E"
+    },
+    "F": {
+      "type": "entity",
+      "name": "F"
+    },
+    "ReferringR": {
+      "type": "entity",
+      "name": "Referring R"
+    },
+    "ReferringS": {
+      "type": "entity",
+      "name": "Referring S"
+    },
+    "Master": {
+      "type": "entity",
+      "name": "Master"
+    },
+    "Slave": {
+      "type": "entity",
+      "name": "Slave"
+    }
+  },
+  "references": {
+    "C": [
+      "B"
+    ],
+    "D": [
+      "C"
+    ],
+    "ReferringR": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+    ],
+    "ReferringS": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+    ],
+    "Master": [
+      "Slave"
+    ],
+    "Slave": [
+      "Master"
+    ]
+  },
+  "attributeToEntity": {
+    "A.code": "A",
+    "A.created": "A",
+    "B.code": "B",
+    "B.created": "B",
+    "C.code": "C",
+    "C.created": "C",
+    "D.code": "D",
+    "D.created": "D",
+    "E.code": "E",
+    "E.created": "E",
+    "F.name": "F",
+    "ReferringR.fk": "ReferringR",
+    "ReferringR.ofk": "ReferringR",
+    "ReferringR.nTo_1": "ReferringR",
+    "ReferringR.nTo_0_1": "ReferringR",
+    "ReferringR.nTo_1_1": "ReferringR",
+    "ReferringR.oneTo_1": "ReferringR",
+    "ReferringR.notARef": "ReferringR",
+    "ReferringS.oneToN": "ReferringS",
+    "ReferringS.oneTo_0N": "ReferringS",
+    "ReferringS.one_1To_1N": "ReferringS",
+    "ReferringS.mToN": "ReferringS",
+    "ReferringS.oneTo": "ReferringS",
+    "ReferringS.zero_1To_1": "ReferringS",
+    "Master.slaves": "Master",
+    "Slave.master": "Slave"
+  },
+  "entityAttributes": {
+    "A": {
+      "code": {
+        "status": "APK",
+        "dataType": "bigserial"
+      },
+      "created": {
+        "status": null,
+        "dataType": "timestamp"
+      }
+    },
+    "B": {
+      "code": {
+        "status": "NPK",
+        "dataType": "varchar(15)"
+      },
+      "created": {
+        "status": null,
+        "dataType": "timestamp"
+      }
+    },
+    "C": {
+      "code": {
+        "status": "FPK",
+        "dataType": "`#B`"
+      },
+      "created": {
+        "status": null,
+        "dataType": "timestamp"
+      }
+    },
+    "D": {
+      "code": {
+        "status": "FPK",
+        "dataType": "`#C`"
+      },
+      "created": {
+        "status": null,
+        "dataType": "timestamp"
+      }
+    },
+    "E": {
+      "code": {
+        "status": "PK",
+        "dataType": "SERIAL"
+      },
+      "created": {
+        "status": null,
+        "dataType": "TIMESTAMP"
+      }
+    },
+    "F": {
+      "name": {
+        "status": null,
+        "dataType": ""
+      }
+    },
+    "ReferringR": {
+      "fk": {
+        "status": "FK",
+        "dataType": "`#A`"
+      },
+      "ofk": {
+        "status": "OFK",
+        "dataType": "[The B](#B)"
+      },
+      "nTo_1": {
+        "status": "n : 1",
+        "dataType": "`#C`"
+      },
+      "nTo_0_1": {
+        "status": "N : 0..1",
+        "dataType": "`#D`"
+      },
+      "nTo_1_1": {
+        "status": "n : 1..1",
+        "dataType": "`#E`"
+      },
+      "oneTo_1": {
+        "status": "1 : 1",
+        "dataType": "`#F`"
+      },
+      "notARef": {
+        "status": "FK",
+        "dataType": "varchar(42)"
+      }
+    },
+    "ReferringS": {
+      "oneToN": {
+        "status": "1 : n",
+        "dataType": "`#A`"
+      },
+      "oneTo_0N": {
+        "status": "1 : 0..N",
+        "dataType": "`#B`"
+      },
+      "one_1To_1N": {
+        "status": "1..1 : 1..n",
+        "dataType": "`#C`"
+      },
+      "mToN": {
+        "status": "m : N",
+        "dataType": "`#D`"
+      },
+      "oneTo": {
+        "status": "1 : *",
+        "dataType": "`#E`"
+      },
+      "zero_1To_1": {
+        "status": "0..1 : 1..*",
+        "dataType": "`#F`"
+      }
+    },
+    "Master": {
+      "slaves": {
+        "status": "1 : n",
+        "dataType": "`#Slave`"
+      }
+    },
+    "Slave": {
+      "master": {
+        "status": "n : 1",
+        "dataType": "`#Master`"
+      }
+    }
+  },
+  "errors": [],
+  "backReferences": {
+    "B": [
+      "C",
+      "ReferringR",
+      "ReferringS"
+    ],
+    "C": [
+      "D",
+      "ReferringR",
+      "ReferringS"
+    ],
+    "A": [
+      "ReferringR",
+      "ReferringS"
+    ],
+    "D": [
+      "ReferringR",
+      "ReferringS"
+    ],
+    "E": [
+      "ReferringR",
+      "ReferringS"
+    ],
+    "F": [
+      "ReferringR",
+      "ReferringS"
+    ],
+    "Slave": [
+      "Master"
+    ],
+    "Master": [
+      "Slave"
+    ]
+  }
+}

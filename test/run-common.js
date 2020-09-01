@@ -60,7 +60,7 @@ function processFile (testedFn, markdownFile) {
       console.log(message)
       fs.writeFileSync(htmlFile, actualHtml)
     } else {
-      const diff = Diff.diffChars(expectedHtml, actualHtml)
+      const diff = Diff.diffWords(expectedHtml, actualHtml)
       message = chalk.redBright(`Assertion failed for test case ${fileBase}:\n`)
       diff.forEach(function (part) {
         const color = part.added ? 'green' : part.removed ? 'red' : 'grey'
@@ -75,7 +75,7 @@ function processFile (testedFn, markdownFile) {
       console.log(message)
       fs.writeFileSync(metaFile, actualMeta)
     } else {
-      const diff = Diff.diffChars(expectedMeta, actualMeta)
+      const diff = Diff.diffWords(expectedMeta, actualMeta)
       message = chalk.redBright(`Assertion failed for test case ${fileBase}:\n`)
       diff.forEach(function (part) {
         const color = part.added ? 'green' : part.removed ? 'red' : 'grey'
