@@ -54,6 +54,7 @@
     "Person.givenNames": "Person",
     "Person.userName": "Person",
     "Person.email": "Person",
+    "Person.sex": "Person",
     "MultipleWordDefaultCode.naturalPrimaryKey": "MultipleWordDefaultCode",
     "MultipleWordDefaultCode.description": "MultipleWordDefaultCode",
     "MultipleWordDefaultCode.person": "MultipleWordDefaultCode",
@@ -65,6 +66,7 @@
     "PlainPk.maybePerson": "PlainPk",
     "Location.name": "Location",
     "Event.time": "Event",
+    "Event.status": "Event",
     "Event.persons": "Event",
     "Event.location": "Event",
     "Event.otherVariants": "Event",
@@ -96,6 +98,10 @@
       "email": {
         "status": "OU",
         "dataType": "text"
+      },
+      "sex": {
+        "status": "O",
+        "dataType": "enum: male, female"
       }
     },
     "MultipleWordDefaultCode": {
@@ -150,6 +156,10 @@
       "time": {
         "status": "M",
         "dataType": "timestamp"
+      },
+      "status": {
+        "status": "M",
+        "dataType": "enum: active, preApproved, disabled,     multi    word"
       },
       "persons": {
         "status": "1 : n",

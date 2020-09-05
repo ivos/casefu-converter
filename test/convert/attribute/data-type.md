@@ -20,3 +20,7 @@
 - Spaced dash in type (string 4 - 14)
 - Spaced dash in type with description (string 6 - 16) - Spaced dash description
 - Parens ( varchar ( ( 30 - 40 )  ) ) - Desc ( d1 )
+
+- Enum without status (enum: created, preApproved, postApproved, disabled)
+- Enum full (M enum: active , disabled): `active` - An enum attribute.
+- Enum with whitespaces (M enum: disabled, some white  space   included value)

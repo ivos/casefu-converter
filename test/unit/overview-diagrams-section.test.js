@@ -114,7 +114,7 @@ test('overview diagrams, ERD', () => {
   }
 
   const expected = `<section id="__overview_diagrams">
-<h2><i class="fas fa-database text-muted"></i> ERD</h2>
+<h2><i class="fas fa-database text-muted"></i> Data model</h2>
 <ul>
 
 <div id="overview-diagram-erd">

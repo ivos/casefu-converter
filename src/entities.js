@@ -124,6 +124,19 @@ const attributeStatusAndDataType = statusAndType => {
   }
   return [null, statusAndType]
 }
+const processDataType = dataType => {
+  const enumPrefix = 'enum: '
+  if (dataType.trim().indexOf(enumPrefix) === 0) {
+    return enumPrefix +
+      dataType.trim().substring(enumPrefix.length)
+        .split(',')
+        .map(s => s.trim())
+        .map(s => s.replace(/\s+/g, '_'))
+        .map(s => `<code>${s}</code>`)
+        .join(',<br/>')
+  }
+  return dataType
+}
 const parseAttribute = () => {
   let rest = token().text
   let fName, statusAndType, value, description
@@ -152,7 +165,7 @@ const attribute = () => {
     html(`<td title="${status.label}"><span class="badge badge-${status.variant}">${status.code}</span></td>`)
   }
   if (dataType) {
-    attributeDataType(dataType)
+    attributeDataType(processDataType(dataType))
   } else {
     html('<td></td>')
   }

@@ -7,7 +7,7 @@ const {
 
 const buildOverviewDiagramsSection = meta => {
   return `<section id="__overview_diagrams">
-<h2><i class="${icons.entity} text-muted"></i> ERD</h2>
+<h2><i class="${icons.entity} text-muted"></i> Data model</h2>
 <ul>
 ${generateERDOverview(meta)}
 </ul>

@@ -187,6 +187,15 @@
 <td></td>
 <td></td>
 </tr>
+<tr>
+<td>Sex<code class="float-right">sex</code></td>
+<td title="Optional"><span class="badge badge-success">O</span></td>
+<td>
+<p>enum: <code>male</code>,<br/><code>female</code></p>
+</td>
+<td></td>
+<td></td>
+</tr>
 </tbody>
 </table>
 <div id="section-computed-Person">
@@ -199,7 +208,7 @@
 </div>
 <div id="section-erd-Person">
 <div><strong>ERD:</strong></div>
-<img src="http://www.plantuml.com/plantuml/svg/NP1DQm9138Rlyojoh0MXq5iHiRIUn7L1Iizn9xh1p0Spi-BYzhztzgELzfZtUPAGh6B2a1eZgcPDK76eX5Gyi_KOq82mfTHw0XTIxPGYcpYrK5A8pi9D0Jm2QtY10vyY1KQ1nUArt2oN0_A3Xr8qva0XQuckAHl5Zt14mz8MQEWEjmCxyOLi3s8c5mnLZU7X-McMXTtKtEIDVri_1a86MUxXha-_b5hdWGcwRZvtj-a2DHtIkJ4KP5kUVzDHtJQIs0jzkg3VwOYvV7EQ_bbxPsXzzS8LZtX5LlUF_GO0"/>
+<img src="http://www.plantuml.com/plantuml/svg/NP1DQyCm38Rl_XKwheF2OBTHIiVMKsaQA6DdDLORKVa3soa9pVxxt2HRsOvwdqSIqYec3AanechM11M7IaZ5CrkF0Gq8MqgT9t0XrKufiebJ1oM5w2nS5S0Zi8ONEF0fKc0KM2nUoyroEI0_U2X5OmuKifQeJTaeVeGZ6fQkG4Dtk1tOYIzaRo1cSi5GrHWUdfzcMTXDpKtU-BVrOo1aaEKUxiOqKfipiesPHdmfjSux4lJzVEwkqr5gkgrtOoZ8jZp_fgEwRIIn5_fqGR_J4NFvvZJzi_REqBhrmXMFU4LMttxz3G00"/>
 </div>
 </div>
 </section>
@@ -444,6 +453,15 @@
 <td></td>
 </tr>
 <tr>
+<td>Status<code class="float-right">status</code></td>
+<td title="Mandatory"><span class="badge badge-primary">M</span></td>
+<td>
+<p>enum: <code>active</code>,<br/><code>preApproved</code>,<br/><code>disabled</code>,<br/><code>multi_word</code></p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
 <td>Persons<code class="float-right">persons</code></td>
 <td>1 : n</td>
 <td>
@@ -501,12 +519,12 @@
 </div>
 <div id="section-erd-Event">
 <div><strong>ERD:</strong></div>
-<img src="http://www.plantuml.com/plantuml/svg/PL71QiCm3BtxAtGkD2pN44fXvBQnmaRl9XL4rBQCeusLkFy-nKbAOIT9xpq_wU7ZA3R9jtTce0j2JwbtQCOhXMYJzU0eeDmY0YSPs1WCGdA3xaSRc0p03eGyGbEAcla8RVj-E2WLCOqSHkLEfLEYrY4KSWUEUokaS0DlMzksyrYl2fO1qzacia6AZRCKJbTLlLJLR5LNrUR60R_u8yoNVBB7xZSwwabUMLCjUnVNJTVvg3aQMEh3SIwgknkpHCoyttDUL4zGdhPZDZ2hRbg3Fc4v_pl7FDAkZuhQ735Svd_u0m00"/>
+<img src="http://www.plantuml.com/plantuml/svg/PL5DQyCm3BtxL-WyQ5Yl8PJ2o6rZXOtTJIg8gIqPHnahyVxxv7nHs4bFJq_FUlWyY4qo1czwTqNeNEeyck7cADfa0tX7AFU8m4bwDWP9dDoX_LO0am5u0d41ePwBceK8JVDsEiqZxMKST8WqXfsFc0QcGbzcf8EZDhGkUUwiEALhUDrWqvJsk2fOUanVDZbBCjjuw-XoKzLpLHMhOrLjRapuoUzKBlpWWErFzAvpyiAQTdbtSTrqROYQhuQbxewbgExNc2LwviE1yw9weFAq7REHMNNJ6lI1o_dVEMPFkoxDQdD6kfR_-GC0"/>
 </div>
 </div>
 </section>
 <section id="__overview_diagrams">
-<h2><i class="fas fa-database text-muted"></i> ERD</h2>
+<h2><i class="fas fa-database text-muted"></i> Data model</h2>
 <ul>
 
 <div id="overview-diagram-erd">

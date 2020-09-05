@@ -77,8 +77,11 @@ const generateERD = (sectionCode, meta) => {
   if (meta.sections[sectionCode].type === 'entity') {
     const attributes = Object.entries(meta.entityAttributes[sectionCode] || {})
       .map(([code, { status, dataType }]) => {
-        const dataTypeStripped = stripWrappers(/`#([^`]*)`/, dataType)
-        const dataTypeStripped2 = stripWrappers(/\[[^\]]*]\(#([^)]*)\)/, dataTypeStripped)
+        dataType = stripWrappers(/`#([^`]*)`/, dataType)
+        dataType = stripWrappers(/\[[^\]]*]\(#([^)]*)\)/, dataType)
+        if (dataType.indexOf('enum: ') === 0) {
+          dataType = 'enum'
+        }
         let uml = `\n  `
         const collapsedStatus = collapseStatus(status)
         const relationOtherSide = (/^(?:0..1|1..n|1|n) : (?:0..1|1..n|1|n)$/.test(collapsedStatus))
@@ -88,7 +91,7 @@ const generateERD = (sectionCode, meta) => {
           uml += `* `
         }
         uml += `${code}`
-        if (dataTypeStripped2) uml += ` : ${dataTypeStripped2}`
+        if (dataType) uml += ` : ${dataType}`
         if (status) uml += ` <<${status}>>`
         return uml
       })

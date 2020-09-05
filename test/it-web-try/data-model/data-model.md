@@ -8,6 +8,7 @@
 - Given names (O varchar(30))
 - User name (U text)
 - Email (OU text)
+- Sex (O enum: male, female)
 
 
 ## Entity: Multiple word default code
@@ -52,6 +53,7 @@
 ### Attributes:
 
 - Time (M timestamp)
+- Status (M enum: active, preApproved, disabled,     multi    word )
 - Persons (1:n `#Person`)
 - Location (n:1 `#Location`)
 - Other variants (0..1:1..n `#PlainPk`)
