@@ -1,4 +1,5 @@
 {
+  "systemName": "System name",
   "sections": {
     "Person": {
       "type": "entity",

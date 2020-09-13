@@ -38,6 +38,7 @@ test('merges metadata', () => {
   }
   const f2 = {
     meta: {
+      systemName: 'First system name',
       sections: { s2: 's2DefB', s3: 's3Def' },
       references: {
         s2: ['sc', 'sd', 'se'],
@@ -52,6 +53,7 @@ test('merges metadata', () => {
   }
   const f3 = {
     meta: {
+      systemName: 'Second system name',
       sections: { s3: 's3DefB', s4: 's4Def' },
       references: {
         s3: ['sf', 'sg', 'sh'],
@@ -70,6 +72,7 @@ test('merges metadata', () => {
     }
   }
   const merged = {
+    systemName: 'First system name',
     sections: { s1: 's1Def', s2: 's2DefB', s3: 's3DefB', s4: 's4Def' },
     references: {
       s1: ['sa', 'sb', 'sc', 'se'],
@@ -149,6 +152,7 @@ test('back references on attributes', () => {
     }
   }
   const merged = {
+    systemName: undefined,
     sections: { s1: 's1Def', s2: 's2DefB', s3: 's3Def' },
     references: {
       s1: ['EntityB.att1', 'EntityB.att2', 'EntityB.att3', 'EntityC.att2'],
@@ -184,7 +188,13 @@ test('back references on attributes', () => {
 test('merges empty files', () => {
   expect(mergeMeta([]))
     .toStrictEqual({
-      sections: {}, references: {}, backReferences: {}, attributeToEntity: {}, entityAttributes: {}, errors: []
+      systemName: undefined,
+      sections: {},
+      references: {},
+      backReferences: {},
+      attributeToEntity: {},
+      entityAttributes: {},
+      errors: []
     })
   expect(errors).toEqual([])
 })

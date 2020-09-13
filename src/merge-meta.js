@@ -15,6 +15,7 @@ const mergeMeta = files => {
   const merged = files
     .map(file => file.meta)
     .reduce((acc, val) => {
+      const systemName = acc.systemName || val.systemName
       verifyCodeDuplicities(acc.errors, acc.sections, val.sections)
       const sections = { ...acc.sections, ...val.sections }
       const references = { ...acc.references }
@@ -30,8 +31,15 @@ const mergeMeta = files => {
         })
         references[refKey] = accRefs
       })
-      return { sections, references, attributeToEntity, entityAttributes, errors }
-    }, { sections: {}, references: {}, attributeToEntity: {}, entityAttributes: {}, errors: [] })
+      return { systemName, sections, references, attributeToEntity, entityAttributes, errors }
+    }, {
+      systemName: undefined,
+      sections: {},
+      references: {},
+      attributeToEntity: {},
+      entityAttributes: {},
+      errors: []
+    })
 
   merged.backReferences = {}
   Object.keys(merged.references)

@@ -1,5 +1,6 @@
 const {
   context,
+  token,
   keep,
   html,
   isHeading
@@ -8,6 +9,9 @@ const {
 const homeStart = () => {
   html('<section id="__home">')
   context().inHome = true
+  if (!context().meta.systemName) {
+    context().meta.systemName = token().text
+  }
   keep()
 }
 const homeEnd = () => {

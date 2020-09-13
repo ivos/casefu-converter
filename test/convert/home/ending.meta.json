@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "/a/section/before": {
+      "type": "screen",
+      "name": "A section before"
+    },
+    "/ending/screen": {
+      "type": "screen",
+      "name": "Ending screen"
+    },
+    "EndingEntity": {
+      "type": "entity",
+      "name": "Ending entity"
+    },
+    "Ending-use-case": {
+      "type": "useCase",
+      "name": "Ending use case"
+    }
+  },
+  "references": {},
+  "backReferences": {},
+  "attributeToEntity": {},
+  "entityAttributes": {},
+  "errors": [],
+  "systemName": "Document title"
+}
