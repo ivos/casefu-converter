@@ -136,7 +136,7 @@ const htmlTemplate = content => `<!doctype html>
           item.style.display = matches ? 'list-item' : 'none'
         }
       }
-      searchText.focus()
+      // searchText.focus() // prevent focus stealing in Try
     }
 
     var printButton = document.getElementById('__print-button')
