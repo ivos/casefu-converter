@@ -129,13 +129,15 @@ const attributeStatusAndDataType = statusAndType => {
 const processDataType = dataType => {
   const enumPrefix = 'enum: '
   if (dataType.trim().indexOf(enumPrefix) === 0) {
-    return enumPrefix +
-      dataType.trim().substring(enumPrefix.length)
-        .split(',')
-        .map(s => s.trim())
-        .map(s => s.replace(/\s+/g, '_'))
-        .map(s => `<code>${s}</code>`)
-        .join(',<br/>')
+    const values = dataType
+      .trim()
+      .substring(enumPrefix.length)
+      .split(',')
+      .map(s => s.trim())
+      .map(s => s.replace(/\s+/g, '_'))
+      .map(s => `<li><code>${s}</code></li>`)
+      .join('')
+    return `${enumPrefix}<ul class="list-unstyled mb-0">${values}</ul>`
   }
   return dataType
 }
