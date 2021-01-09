@@ -1,0 +1,182 @@
+{
+  "sections": {},
+  "references": {},
+  "backReferences": {},
+  "attributeToEntity": {
+    "null.defaultStatus": null,
+    "null.fullCodeApk": null,
+    "null.fullCodeNpk": null,
+    "null.fullCodeFpk": null,
+    "null.fullCodePk": null,
+    "null.fullCodeFk": null,
+    "null.fullCodeOfk": null,
+    "null.fullCodeNk": null,
+    "null.fullCodeBk": null,
+    "null.fullCodeU": null,
+    "null.fullCodeOu": null,
+    "null.fullCodeM": null,
+    "null.fullCodeV": null,
+    "null.fullCodeS": null,
+    "null.fullCodeC": null,
+    "null.fullCodeO": null,
+    "null.fullCodeRo": null,
+    "null.shortCodeApk": null,
+    "null.shortCodeNpk": null,
+    "null.shortCodeFpk": null,
+    "null.shortCodePk": null,
+    "null.shortCodeFk": null,
+    "null.shortCodeOfk": null,
+    "null.shortCodeNk": null,
+    "null.shortCodeBk": null,
+    "null.shortCodeU": null,
+    "null.shortCodeOu": null,
+    "null.shortCodeM": null,
+    "null.shortCodeV": null,
+    "null.shortCodeS": null,
+    "null.shortCodeC": null,
+    "null.shortCodeO": null,
+    "null.shortCodeRo": null,
+    "null.unknown": null
+  },
+  "entityAttributes": {
+    "null": {
+      "defaultStatus": {
+        "status": null,
+        "dataType": ""
+      },
+      "fullCodeApk": {
+        "status": "APK",
+        "dataType": ""
+      },
+      "fullCodeNpk": {
+        "status": "NPK",
+        "dataType": ""
+      },
+      "fullCodeFpk": {
+        "status": "FPK",
+        "dataType": ""
+      },
+      "fullCodePk": {
+        "status": "PK",
+        "dataType": ""
+      },
+      "fullCodeFk": {
+        "status": "FK",
+        "dataType": ""
+      },
+      "fullCodeOfk": {
+        "status": "OFK",
+        "dataType": ""
+      },
+      "fullCodeNk": {
+        "status": "NK",
+        "dataType": ""
+      },
+      "fullCodeBk": {
+        "status": "BK",
+        "dataType": ""
+      },
+      "fullCodeU": {
+        "status": "U",
+        "dataType": ""
+      },
+      "fullCodeOu": {
+        "status": "OU",
+        "dataType": ""
+      },
+      "fullCodeM": {
+        "status": "M",
+        "dataType": ""
+      },
+      "fullCodeV": {
+        "status": "V",
+        "dataType": ""
+      },
+      "fullCodeS": {
+        "status": "S",
+        "dataType": ""
+      },
+      "fullCodeC": {
+        "status": "C",
+        "dataType": ""
+      },
+      "fullCodeO": {
+        "status": "O",
+        "dataType": ""
+      },
+      "fullCodeRo": {
+        "status": "RO",
+        "dataType": ""
+      },
+      "shortCodeApk": {
+        "status": "APK",
+        "dataType": ""
+      },
+      "shortCodeNpk": {
+        "status": "NPK",
+        "dataType": ""
+      },
+      "shortCodeFpk": {
+        "status": "FPK",
+        "dataType": ""
+      },
+      "shortCodePk": {
+        "status": "PK",
+        "dataType": ""
+      },
+      "shortCodeFk": {
+        "status": "FK",
+        "dataType": ""
+      },
+      "shortCodeOfk": {
+        "status": "OFK",
+        "dataType": ""
+      },
+      "shortCodeNk": {
+        "status": "NK",
+        "dataType": ""
+      },
+      "shortCodeBk": {
+        "status": "BK",
+        "dataType": ""
+      },
+      "shortCodeU": {
+        "status": "U",
+        "dataType": ""
+      },
+      "shortCodeOu": {
+        "status": "OU",
+        "dataType": ""
+      },
+      "shortCodeM": {
+        "status": "M",
+        "dataType": ""
+      },
+      "shortCodeV": {
+        "status": "V",
+        "dataType": ""
+      },
+      "shortCodeS": {
+        "status": "S",
+        "dataType": ""
+      },
+      "shortCodeC": {
+        "status": "C",
+        "dataType": ""
+      },
+      "shortCodeO": {
+        "status": "O",
+        "dataType": ""
+      },
+      "shortCodeRo": {
+        "status": "RO",
+        "dataType": ""
+      },
+      "unknown": {
+        "status": null,
+        "dataType": "unknown"
+      }
+    }
+  },
+  "errors": []
+}

@@ -104,6 +104,8 @@ const attributeStatusAndDataType = statusAndType => {
     unique: { code: 'U', label: 'Unique', variant: 'warning' },
     optionalUnique: { code: 'OU', label: 'Optional unique', variant: 'warning' },
     mandatory: { code: 'M', label: 'Mandatory', variant: 'primary' },
+    version: { code: 'V', label: 'Version, mandatory', variant: 'primary' },
+    status: { code: 'S', label: 'Status, mandatory', variant: 'primary' },
     conditional: { code: 'C', label: 'Conditional', variant: 'info' },
     optional: { code: 'O', label: 'Optional', variant: 'success' },
     readOnly: { code: 'RO', label: 'Read-only', variant: 'secondary' }

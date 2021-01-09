@@ -86,7 +86,7 @@ const generateERD = (sectionCode, meta) => {
         const collapsedStatus = collapseStatus(status)
         const relationOtherSide = (/^(?:0..1|1..n|1|n) : (?:0..1|1..n|1|n)$/.test(collapsedStatus))
           ? collapsedStatus.match(/^(?:0..1|1..n|1|n) : (0..1|1..n|1|n)$/)[1] : null
-        if (['APK', 'NPK', 'FPK', 'PK', 'FK', 'NK', 'BK', 'U', 'M'].includes(status) ||
+        if (['APK', 'NPK', 'FPK', 'PK', 'FK', 'NK', 'BK', 'U', 'M', 'V', 'S'].includes(status) ||
           ['1..n', '1'].includes(relationOtherSide)) {
           uml += `* `
         }
