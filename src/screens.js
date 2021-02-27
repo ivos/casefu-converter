@@ -40,7 +40,7 @@ const fieldStatus = statusAndType => {
 }
 const fieldType = typeAndValues => {
   const types = ['text', 'password', 'date', 'time', 'multiLine', 'checkbox',
-    'select', 'radios', 'multiSelect', 'checkboxes']
+    'select', 'typeAhead', 'radios', 'multiSelect', 'checkboxes']
   const type = (typeAndValues.split(':')[0] || '').trim()
   return types.includes(type) ? type : null
 }
@@ -209,6 +209,9 @@ const columnWidget = ({ name, type, typeValues, disabled, required, value, hint 
     case 'multiSelect':
       selectColumnWidget(name, disabled, required, type, typeValues, fieldValues(value), hint)
       break
+    case 'typeAhead':
+      typeAheadColumnWidget(name, disabled, required, type, typeValues, fieldValues(value), hint)
+      break
     case 'radios':
       radiosColumnWidget(name, disabled, required, typeValues, fieldValues(value), hint)
       break
@@ -244,6 +247,9 @@ const field = () => {
       case 'select':
       case 'multiSelect':
         selectField(name, disabled, required, type, typeValues, fieldValues(value), hint)
+        break
+      case 'typeAhead':
+        typeAheadField(name, disabled, required, type, typeValues, fieldValues(value), hint)
         break
       case 'radios':
         radiosField(name, disabled, required, typeValues, fieldValues(value), hint)
