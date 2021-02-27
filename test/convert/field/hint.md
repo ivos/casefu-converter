@@ -12,6 +12,7 @@
 - MultiLine field (multiLine) - Hint multiLine
 - Checkbox field (checkbox) - Hint checkbox
 - Select field (select: Value s1, Value s2, Value s3) - Hint select
+- TypeAhead field (typeAhead: Value s1, Value s2, Value s3) - Hint typeAhead
 - Radios field (radios: Value r1, Value r2, Value r3) - Hint radios
 - MultiSelect field (multiSelect: Value m1, Value m2, Value m3) - Hint multiSelect
 - Checkboxes field (checkboxes: Value c1, Value c2, Value c3) - Hint checkboxes
@@ -23,6 +24,7 @@
 - MultiLine value field (multiLine): value 6 - Hint multiLine value
 - Checkbox value field checked (checkbox): true - Hint checkbox value
 - Select value field (select: Value s1, Value s2, Value s3): Value s2 - Hint select value
+- TypeAhead value field (typeAhead: Value s1, Value s2, Value s3): Value s2 - Hint typeAhead value
 - Radios value field (radios: Value r1, Value r2, Value r3): Value r2 - Hint radios value
 - MultiSelect value field (multiSelect: Value m1, Value m2, Value m3): Value m1, Value m3 - Hint multiSelect value
 - Checkboxes value field (checkboxes: Value c1, Value c2, Value c3): Value c1, Value c3 - Hint checkboxes value

@@ -14,6 +14,7 @@
 - Checkbox field checked (readOnly checkbox): true
 - Checkbox field unchecked (readOnly checkbox): false
 - Select field (readOnly select: Value s1, Value s2, Value s3): Value s2
+- TypeAhead field (readOnly typeAhead: Value s1, Value s2, Value s3): Value s2
 - Radios field (readOnly radios: Value r1, Value r2, Value r3): Value r2
 - MultiSelect field (readOnly multiSelect: Value m1, Value m2, Value m3): Value m1, Value m3
 - Checkboxes field (readOnly checkboxes: Value c1, Value c2, Value c3): Value c1, Value c3
@@ -37,6 +38,7 @@
 - Checkbox field checked (RO checkbox): true
 - Checkbox field unchecked (RO checkbox): false
 - Select field (RO select: Value s1, Value s2, Value s3): Value s2
+- TypeAhead field (RO typeAhead: Value s1, Value s2, Value s3): Value s2
 - Radios field (RO radios: Value r1, Value r2, Value r3): Value r2
 - MultiSelect field (RO multiSelect: Value m1, Value m2, Value m3): Value m1, Value m3
 - Checkboxes field (RO checkboxes: Value c1, Value c2, Value c3): Value c1, Value c3

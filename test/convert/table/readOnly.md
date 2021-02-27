@@ -24,6 +24,10 @@
 	- Value s3
 	-
 	- Value s2
+- TypeAhead field (readOnly typeAhead: Value s1, Value s2, Value s3): Value s2
+	- Value s3
+	-
+	- Value s2
 
 ### Table: Multi-rows
 

@@ -10,6 +10,7 @@
 - Checkbox field checked (checkbox): true
 - Checkbox field unchecked (checkbox): false
 - Select field (select: Value s1, Value s2, Value s3): Value s2
+- TypeAhead field (typeAhead: Value s1, Value s2, Value s3): Value s2
 - Radios field (radios: Value r1, Value r2, Value r3): Value r2
 - MultiSelect field (multiSelect: Value m1, Value m2, Value m3): Value m1, Value m3
 - Checkboxes field (checkboxes: Value c1, Value c2, Value c3): Value c1, Value c3

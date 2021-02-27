@@ -12,6 +12,7 @@
 - Checkbox field checked (required checkbox): true
 - Checkbox field unchecked (required checkbox): false
 - Select field (required select: Value s1, Value s2, -, Value s3): Value s2
+- TypeAhead field (required typeAhead: Value s1, Value s2, Value s3): Value s2
 - Radios field (required radios: Value r1, Value r2, Value r3): Value r2
 - MultiSelect field (required multiSelect: Value m1, Value m2, ---, Value m3): Value m1, Value m3
 - Checkboxes field (required checkboxes: Value c1, Value c2, Value c3): Value c1, Value c3

@@ -40,7 +40,7 @@ const fieldStatus = statusAndType => {
 }
 const fieldType = typeAndValues => {
   const types = ['text', 'password', 'date', 'time', 'multiLine', 'checkbox',
-    'select', 'radios', 'multiSelect', 'checkboxes']
+    'select', 'typeAhead', 'radios', 'multiSelect', 'checkboxes']
   const type = (typeAndValues.split(':')[0] || '').trim()
   return types.includes(type) ? type : null
 }
@@ -209,6 +209,9 @@ const columnWidget = ({ name, type, typeValues, disabled, required, value, hint 
     case 'multiSelect':
       selectColumnWidget(name, disabled, required, type, typeValues, fieldValues(value), hint)
       break
+    case 'typeAhead':
+      typeAheadColumnWidget(name, disabled, required, type, typeValues, value, hint)
+      break
     case 'radios':
       radiosColumnWidget(name, disabled, required, typeValues, fieldValues(value), hint)
       break
@@ -244,6 +247,9 @@ const field = () => {
       case 'select':
       case 'multiSelect':
         selectField(name, disabled, required, type, typeValues, fieldValues(value), hint)
+        break
+      case 'typeAhead':
+        typeAheadField(name, disabled, required, type, typeValues, value, hint)
         break
       case 'radios':
         radiosField(name, disabled, required, typeValues, fieldValues(value), hint)
@@ -369,6 +375,27 @@ const selectField = (name, disabled, required, type, typeValues, values, hint) =
     `  <select id="${id}"${type === 'multiSelect' ? ' multiple' : ''} class="form-control"` +
     `${getDisabled(disabled)}>
 ${type === 'select' ? '   <option></option>\n' : ''}${options}  </select>`)
+}
+const typeAheadColumnWidget = (name, disabled, required, type, typeValues, value, hint) => {
+  const id = nextAutoId()
+  const options = typeValues ? typeValues.split(',')
+    .map(value => selectOption([], value))
+    .join('\n') + '\n' : ''
+  html(`  <input id="${id}" type="text" list="${id}-datalist" class="form-control"` +
+    ` placeholder="${name}" value="${value}"${getDisabled(disabled)}>
+  <datalist id="${id}-datalist">
+${options}  </datalist>${getHint(hint)}`)
+}
+const typeAheadField = (name, disabled, required, type, typeValues, value, hint) => {
+  const id = nextAutoId()
+  const options = typeValues ? typeValues.split(',')
+    .map(value => selectOption([], value))
+    .join('\n') + '\n' : ''
+  labelledField(id, name, required, hint,
+    `  <input id="${id}" type="text" list="${id}-datalist" class="form-control"` +
+    ` placeholder="${name}" value="${value}"${getDisabled(disabled)}>
+  <datalist id="${id}-datalist">
+${options}  </datalist>`)
 }
 const radiosColumnWidget = (name, disabled, required, typeValues, values, hint) => {
   let inputName

@@ -24,6 +24,10 @@
 	- Value s3
 	-
 	- Value s2
+- TypeAhead field (O typeAhead: Value s1, Value s2, Value s3): Value s2 - Hint typeAhead
+	- Value s3
+	-
+	- Value s2
 
 ### Table: Multi-rows
 
