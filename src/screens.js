@@ -339,10 +339,22 @@ const checkboxField = (name, disabled, required, value, hint) => {
 ${checkbox(name, disabled, required, value, hint)}
  </div>`)
 }
+const selectOption = (values, value) => {
+  value = value.trim()
+  const isDivider = value.match(/^-+$/)
+  let attributes = ''
+  if (values.includes(value)) {
+    attributes += ' selected'
+  }
+  if (isDivider) {
+    attributes += ' disabled'
+    value = '—————'
+  }
+  return `   <option${attributes}>${value}</option>`
+}
 const selectColumnWidget = (name, disabled, required, type, typeValues, values, hint) => {
   const options = typeValues ? typeValues.split(',')
-    .map(value => value.trim())
-    .map(value => `   <option${values.includes(value) ? ' selected' : ''}>${value}</option>`)
+    .map(value => selectOption(values, value))
     .join('\n') + '\n' : ''
   html(`  <select${type === 'multiSelect' ? ' multiple' : ''} class="form-control"` +
     `${getDisabled(disabled)}>
@@ -351,8 +363,7 @@ ${type === 'select' ? '   <option></option>\n' : ''}${options}  </select>${getHi
 const selectField = (name, disabled, required, type, typeValues, values, hint) => {
   const id = nextAutoId()
   const options = typeValues ? typeValues.split(',')
-    .map(value => value.trim())
-    .map(value => `   <option${values.includes(value) ? ' selected' : ''}>${value}</option>`)
+    .map(value => selectOption(values, value))
     .join('\n') + '\n' : ''
   labelledField(id, name, required, hint,
     `  <select id="${id}"${type === 'multiSelect' ? ' multiple' : ''} class="form-control"` +

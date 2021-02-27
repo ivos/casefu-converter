@@ -20,7 +20,7 @@
 	- false
 	- 
 	- true
-- Select field (required select: Value s1, Value s2, Value s3): Value s2
+- Select field (required select: Value s1, Value s2, --, Value s3): Value s2
 	- Value s3
 	-
 	- Value s2
@@ -39,7 +39,7 @@
 	- Value r3
 	-
 	- Value r1
-- MultiSelect field (required multiSelect: Value m1, Value m2, Value m3): Value m1, Value m3
+- MultiSelect field (required multiSelect: Value m1, Value m2, -, Value m3): Value m1, Value m3
 	- Value m2, Value m3
 	-
 	- Value m3, Value m1, Value m2
