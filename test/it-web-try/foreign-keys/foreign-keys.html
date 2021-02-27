@@ -743,7 +743,7 @@ placeholder="Start typing to search..." />
           item.style.display = matches ? 'list-item' : 'none'
         }
       }
-      searchText.focus()
+      // searchText.focus() // prevent focus stealing in Try
     }
 
     var printButton = document.getElementById('__print-button')

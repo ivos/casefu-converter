@@ -191,7 +191,7 @@
 <td>Sex<code class="float-right">sex</code></td>
 <td title="Optional"><span class="badge badge-success">O</span></td>
 <td>
-<p>enum: <code>male</code>,<br/><code>female</code></p>
+<p>enum: <ul class="list-unstyled mb-0"><li><code>male</code></li><li><code>female</code></li></ul></p>
 </td>
 <td></td>
 <td></td>
@@ -456,7 +456,7 @@
 <td>Status<code class="float-right">status</code></td>
 <td title="Mandatory"><span class="badge badge-primary">M</span></td>
 <td>
-<p>enum: <code>active</code>,<br/><code>preApproved</code>,<br/><code>disabled</code>,<br/><code>multi_word</code></p>
+<p>enum: <ul class="list-unstyled mb-0"><li><code>active</code></li><li><code>preApproved</code></li><li><code>disabled</code></li><li><code>multi_word</code></li></ul></p>
 </td>
 <td></td>
 <td></td>
@@ -606,7 +606,7 @@ placeholder="Start typing to search..." />
           item.style.display = matches ? 'list-item' : 'none'
         }
       }
-      searchText.focus()
+      // searchText.focus() // prevent focus stealing in Try
     }
 
     var printButton = document.getElementById('__print-button')
