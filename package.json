@@ -1,6 +1,6 @@
 {
   "name": "casefu-converter",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "CaseFu.com Converter from CaseFu-enhanced Markdown to HTML.",
   "main": "src/index",
   "scripts": {
