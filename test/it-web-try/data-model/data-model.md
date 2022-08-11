@@ -47,6 +47,16 @@
 
 ## Entity: Empty
 
+## Entity: Other A
+
+## Entity: Other B
+
+## Entity: Other C
+
+## Entity: Other D
+
+## Entity: Other E
+
 
 ## Entity: Event
 
@@ -59,3 +69,8 @@
 - Other variants (0..1:1..n `#PlainPk`)
 - One to one (1:1 `#SomeExplicitCode`)
 - One to one empty (0..1:0..1 `#Empty`)
+- Many to many (n:n `#OtherA`)
+- Many to many as m n (m:n `#OtherB`)
+- Many to many mandatory (1..n:1..n `#OtherC`)
+- Many to many left mandatory (1..n:n `#OtherD`)
+- Many to many right mandatory (n:1..n `#OtherE`)

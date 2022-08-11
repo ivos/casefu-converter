@@ -429,6 +429,71 @@
 </div>
 </div>
 </section>
+<section id="OtherA" class="cf-entity">
+<h2><i class="fas fa-database text-muted"></i> Other A <code>OtherA</code></h2>
+<div id="section-computed-OtherA">
+<div id="section-referred-from-OtherA">
+<strong>Referred from:</strong>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Event" title="Event">Event</a>
+</div>
+<div id="section-erd-OtherA">
+<div><strong>ERD:</strong></div>
+<img src="http://www.plantuml.com/plantuml/svg/BSpD2S0W343XUwR80kvW3prt1j60eVuHquA8kxU5Njy7ptPrebTE43aGUXQV2Fh9fJbn6HCNqj48gsYi05IKTU2XaMJ32GjWlz-8gnfJvmzWgOHl-W00"/>
+</div>
+</div>
+</section>
+<section id="OtherB" class="cf-entity">
+<h2><i class="fas fa-database text-muted"></i> Other B <code>OtherB</code></h2>
+<div id="section-computed-OtherB">
+<div id="section-referred-from-OtherB">
+<strong>Referred from:</strong>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Event" title="Event">Event</a>
+</div>
+<div id="section-erd-OtherB">
+<div><strong>ERD:</strong></div>
+<img src="http://www.plantuml.com/plantuml/svg/BSpD2S0W343XUwR80kuWXPuxWsZ0KF-8QK74tTj2h--3PxiwqIidY1m8FOjF1FtaqfouZ8aBwMY4LJHM02hAEl3GIBBXX0Mmts_4LOsfymUmLC8tVG00"/>
+</div>
+</div>
+</section>
+<section id="OtherC" class="cf-entity">
+<h2><i class="fas fa-database text-muted"></i> Other C <code>OtherC</code></h2>
+<div id="section-computed-OtherC">
+<div id="section-referred-from-OtherC">
+<strong>Referred from:</strong>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Event" title="Event">Event</a>
+</div>
+<div id="section-erd-OtherC">
+<div><strong>ERD:</strong></div>
+<img src="http://www.plantuml.com/plantuml/svg/BSn12e0W443H_PnYBk0TWcZT6KG773ALSGf4lNi5RV-3lrIrejSP8R0dT2mk4jI3Kx5YJuoSI5iXpA8X0r1IreQx1f8LEqo0xNuZpc7Cw3_0Gib_qmS0"/>
+</div>
+</div>
+</section>
+<section id="OtherD" class="cf-entity">
+<h2><i class="fas fa-database text-muted"></i> Other D <code>OtherD</code></h2>
+<div id="section-computed-OtherD">
+<div id="section-referred-from-OtherD">
+<strong>Referred from:</strong>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Event" title="Event">Event</a>
+</div>
+<div id="section-erd-OtherD">
+<div><strong>ERD:</strong></div>
+<img src="http://www.plantuml.com/plantuml/svg/BSpD2O0m343XUwR80kxGWvwTeRI11lj76eLIkxiANjy7ppIrecUA4DWJEXON2Th1kLgn2IDdqbu9YsWe09ILjUEkWMJ50HDWkzw8yrwMCdu0Gzb_qmS0"/>
+</div>
+</div>
+</section>
+<section id="OtherE" class="cf-entity">
+<h2><i class="fas fa-database text-muted"></i> Other E <code>OtherE</code></h2>
+<div id="section-computed-OtherE">
+<div id="section-referred-from-OtherE">
+<strong>Referred from:</strong>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Event" title="Event">Event</a>
+</div>
+<div id="section-erd-OtherE">
+<div><strong>ERD:</strong></div>
+<img src="http://www.plantuml.com/plantuml/svg/BSpD2S0W343XUwR80jt1Y-VE81emr3zYMX3hxcsXr_V1CrsTw9aJH0w4diKdWdvmQKvSniI5T3J2AXeh01Lb7RXh9B4uOG7OwusuwhRTymSmLC8tVG00"/>
+</div>
+</div>
+</section>
 <section id="Event" class="cf-entity">
 <h2><i class="fas fa-database text-muted"></i> Event <code>Event</code></h2>
 <h3>Attributes:</h3>
@@ -506,6 +571,51 @@
 <td></td>
 <td></td>
 </tr>
+<tr>
+<td>Many to many<code class="float-right">manyToMany</code></td>
+<td>n : n</td>
+<td>
+<p><a href="#OtherA" title="OtherA">OtherA</a></p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Many to many as m n<code class="float-right">manyToManyAsMN</code></td>
+<td>m : n</td>
+<td>
+<p><a href="#OtherB" title="OtherB">OtherB</a></p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Many to many mandatory<code class="float-right">manyToManyMandatory</code></td>
+<td>1..n : 1..n</td>
+<td>
+<p><a href="#OtherC" title="OtherC">OtherC</a></p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Many to many left mandatory<code class="float-right">manyToManyLeftMandatory</code></td>
+<td>1..n : n</td>
+<td>
+<p><a href="#OtherD" title="OtherD">OtherD</a></p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Many to many right mandatory<code class="float-right">manyToManyRightMandatory</code></td>
+<td>n : 1..n</td>
+<td>
+<p><a href="#OtherE" title="OtherE">OtherE</a></p>
+</td>
+<td></td>
+<td></td>
+</tr>
 </tbody>
 </table>
 <div id="section-computed-Event">
@@ -515,11 +625,16 @@
 <i class="fas fa-database text-muted"></i>&nbsp;<a href="#Location" title="Location">Location</a>,
 <i class="fas fa-database text-muted"></i>&nbsp;<a href="#PlainPk" title="Plain PK">Plain PK</a>,
 <i class="fas fa-database text-muted"></i>&nbsp;<a href="#SomeExplicitCode" title="Explicit code">Explicit code</a>,
-<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Empty" title="Empty">Empty</a>
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#Empty" title="Empty">Empty</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#OtherA" title="Other A">Other A</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#OtherB" title="Other B">Other B</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#OtherC" title="Other C">Other C</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#OtherD" title="Other D">Other D</a>,
+<i class="fas fa-database text-muted"></i>&nbsp;<a href="#OtherE" title="Other E">Other E</a>
 </div>
 <div id="section-erd-Event">
 <div><strong>ERD:</strong></div>
-<img src="http://www.plantuml.com/plantuml/svg/PL5DQyCm3BtxL-WyQ5Yl8PJ2o6rZXOtTJIg8gIqPHnahyVxxv7nHs4bFJq_FUlWyY4qo1czwTqNeNEeyck7cADfa0tX7AFU8m4bwDWP9dDoX_LO0am5u0d41ePwBceK8JVDsEiqZxMKST8WqXfsFc0QcGbzcf8EZDhGkUUwiEALhUDrWqvJsk2fOUanVDZbBCjjuw-XoKzLpLHMhOrLjRapuoUzKBlpWWErFzAvpyiAQTdbtSTrqROYQhuQbxewbgExNc2LwviE1yw9weFAq7REHMNNJ6lI1o_dVEMPFkoxDQdD6kfR_-GC0"/>
+<img src="http://www.plantuml.com/plantuml/svg/RL9DRyCW3BtpApXFQhHUgwZgnt9hrsghTaSfMr03ZeWxhIhzxpC4acZP8S5-Vdx-W5MBmk9LrwnIPybBPSjQilQYJ2EiqBnMHkAjaHmiLi2ODAZmnejlClYTSVx4KMd95-4WCTtmFDylbo54FbvR2afprJtUIDk2yV0nM1IOasDYKWsbG4NmWk-IcUVUdKS6O2NjXx1A60mojL3cU27MSvPvgNcM9JKmyWG7upjy1osBdwPMfS8jqBHTtKuryGhTq7mBtfszeZy2JmjpEy6U_eGUV2Fhs9tv4r-t-zV4sH17ZsOSMFIT1OBjvRQ-BUf_FCP0tybFdAIy32dJ0c_ggvgc56cbNOa7OzsLEfZDm7NJZo1tJqjEe2FUFLxW27DkikOOVK38w5Rs3xOPOIvYHSBSm7iPOOctPVrBYOq53bj9S_Pl-nS0"/>
 </div>
 </div>
 </section>
@@ -529,7 +644,7 @@
 
 <div id="overview-diagram-erd">
 <div><strong>ERD:</strong></div>
-<img src="http://www.plantuml.com/plantuml/svg/TL7B3eCW4Bpp5Vo0_s3IUciJanvw9hYD6u4bY4sDzD-BhqerlP2TsM5c5_BM2-SxhLYD5N29JYfWROF62YSqLsZ0znOuELyJOs0y-fwNu5eoV7YlnBLJ7gs2Exdg30yHuOcYuQQuaORYPHLAtBTA9T2KJS9SI0gFFmc5jl5Cy3CM8sPiBWDb6OLPbr1XMFrNCaJTiAoGS24SPcJVEPPBavejsq-1c_lApie_3x9J7G9pCDNu6ny0"/>
+<img src="http://www.plantuml.com/plantuml/svg/TPBDRiCW3CVlF0Klq7VeckJMQP5ss1abdcALO4JSQLNekuyMQ1ZTBiZ--G_-Oh-mSdoUjPXm13cW6pI8vOJ6AgTcgT40Non8SZoH460O-I9xS0iPkLupU3rhHglXWzpOmgSARaFXmKtnJZDqtrRZW7MermfDVoh8aGR5-2j3DzjmRluRJ-1UQd2eGLE3jWPTcUGh63TVY6Xwskt8n-G5ycikEaCVT6kQIy6yVseyHQzqln7R-8CT2kOJwpBpcwujMDOruZ70LDXT8zBQV4oJEyWqAl_PPALwQceFPhnzeny0"/>
 </div>
 </ul>
 </section>
@@ -570,6 +685,21 @@ placeholder="Start typing to search..." />
 </li>
 <li class="__search-item" id="__search-item-Empty">
 <a href="#Empty" class="mr-3">Empty</a> <code>Empty</code>
+</li>
+<li class="__search-item" id="__search-item-OtherA">
+<a href="#OtherA" class="mr-3">Other A</a> <code>OtherA</code>
+</li>
+<li class="__search-item" id="__search-item-OtherB">
+<a href="#OtherB" class="mr-3">Other B</a> <code>OtherB</code>
+</li>
+<li class="__search-item" id="__search-item-OtherC">
+<a href="#OtherC" class="mr-3">Other C</a> <code>OtherC</code>
+</li>
+<li class="__search-item" id="__search-item-OtherD">
+<a href="#OtherD" class="mr-3">Other D</a> <code>OtherD</code>
+</li>
+<li class="__search-item" id="__search-item-OtherE">
+<a href="#OtherE" class="mr-3">Other E</a> <code>OtherE</code>
 </li>
 <li class="__search-item" id="__search-item-Event">
 <a href="#Event" class="mr-3">Event</a> <code>Event</code>

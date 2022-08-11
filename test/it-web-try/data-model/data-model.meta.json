@@ -24,6 +24,26 @@
       "type": "entity",
       "name": "Empty"
     },
+    "OtherA": {
+      "type": "entity",
+      "name": "Other A"
+    },
+    "OtherB": {
+      "type": "entity",
+      "name": "Other B"
+    },
+    "OtherC": {
+      "type": "entity",
+      "name": "Other C"
+    },
+    "OtherD": {
+      "type": "entity",
+      "name": "Other D"
+    },
+    "OtherE": {
+      "type": "entity",
+      "name": "Other E"
+    },
     "Event": {
       "type": "entity",
       "name": "Event"
@@ -44,7 +64,12 @@
       "Location",
       "PlainPk",
       "SomeExplicitCode",
-      "Empty"
+      "Empty",
+      "OtherA",
+      "OtherB",
+      "OtherC",
+      "OtherD",
+      "OtherE"
     ]
   },
   "attributeToEntity": {
@@ -71,7 +96,12 @@
     "Event.location": "Event",
     "Event.otherVariants": "Event",
     "Event.oneToOne": "Event",
-    "Event.oneToOneEmpty": "Event"
+    "Event.oneToOneEmpty": "Event",
+    "Event.manyToMany": "Event",
+    "Event.manyToManyAsMN": "Event",
+    "Event.manyToManyMandatory": "Event",
+    "Event.manyToManyLeftMandatory": "Event",
+    "Event.manyToManyRightMandatory": "Event"
   },
   "entityAttributes": {
     "Person": {
@@ -180,6 +210,26 @@
       "oneToOneEmpty": {
         "status": "0..1 : 0..1",
         "dataType": "`#Empty`"
+      },
+      "manyToMany": {
+        "status": "n : n",
+        "dataType": "`#OtherA`"
+      },
+      "manyToManyAsMN": {
+        "status": "m : n",
+        "dataType": "`#OtherB`"
+      },
+      "manyToManyMandatory": {
+        "status": "1..n : 1..n",
+        "dataType": "`#OtherC`"
+      },
+      "manyToManyLeftMandatory": {
+        "status": "1..n : n",
+        "dataType": "`#OtherD`"
+      },
+      "manyToManyRightMandatory": {
+        "status": "n : 1..n",
+        "dataType": "`#OtherE`"
       }
     }
   },
@@ -201,6 +251,21 @@
       "Event"
     ],
     "Empty": [
+      "Event"
+    ],
+    "OtherA": [
+      "Event"
+    ],
+    "OtherB": [
+      "Event"
+    ],
+    "OtherC": [
+      "Event"
+    ],
+    "OtherD": [
+      "Event"
+    ],
+    "OtherE": [
       "Event"
     ]
   }

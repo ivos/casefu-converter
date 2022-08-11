@@ -63,6 +63,15 @@ const relationToUml = ([from, to, status]) => {
   if (['n : n'].includes(collapsedStatus)) {
     return `\n${from} }o--o{ ${to}`
   }
+  if (['1..n : 1..n'].includes(collapsedStatus)) {
+    return `\n${from} }|--|{ ${to}`
+  }
+  if (['1..n : n'].includes(collapsedStatus)) {
+    return `\n${from} }|--o{ ${to}`
+  }
+  if (['n : 1..n'].includes(collapsedStatus)) {
+    return `\n${from} }o--|{ ${to}`
+  }
   return `\n${from} -- ${to}`
 }
 
