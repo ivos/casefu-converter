@@ -122,7 +122,7 @@ after`
 <div id="section-computed-Entity_1">
 <div id="section-erd-Entity_1">
 <div><strong>ERD:</strong></div>
-<img src="http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuSh8J4bLICuiIiv9vIhEpimhI2nAp5N8oSnBBQaiI5N8Boh9oEVYIiqhoIofL705K_662jLSjLnS3gbvAI0Z0000"/>
+<img src="https://img.plantuml.biz/plantuml/svg/SoWkIImgAStDuSh8J4bLICuiIiv9vIhEpimhI2nAp5N8oSnBBQaiI5N8Boh9oEVYIiqhoIofL705K_662jLSjLnS3gbvAI0Z0000"/>
 </div>
 </div>
 after`
@@ -185,7 +185,7 @@ after`
 </div>
 <div id="section-erd-Entity_1">
 <div><strong>ERD:</strong></div>
-<img src="http://www.plantuml.com/plantuml/svg/JSux2e0m40JGVawn5x28TbOsdYC4NN0n7ubh8UBTHV5NpV2OOffPNTObU0pICtMIEy-OHucJoowGbyYwJamfwv00ZYgwKdk5DRI1oAbQKrBzQ8aTU1T5yVbTgXyQD1pxyy01"/>
+<img src="https://img.plantuml.biz/plantuml/svg/JSux2e0m40JGVawn5x28TbOsdYC4NN0n7ubh8UBTHV5NpV2OOffPNTObU0pICtMIEy-OHucJoowGbyYwJamfwv00ZYgwKdk5DRI1oAbQKrBzQ8aTU1T5yVbTgXyQD1pxyy01"/>
 </div>
 </div>
 after`
@@ -359,7 +359,7 @@ between 1
 </div>
 <div id="section-erd-Entity_2">
 <div><strong>ERD:</strong></div>
-<img src="http://www.plantuml.com/plantuml/svg/TP7B3e8m44NtynMpDc71msSCSOCRu-CFJ0DDQCIMb37HWF_kW4fXmQfpU-wTcRIxYeIbnxs0N6KIKsNJGa9rKxeKLjonK5hIgvHeBEK6G6fIzCAaEwu1re0eYAw1pyNiMmQumKoGm2x8Shiznl7V68vfoFJSqLyw6lE8-UKmDCp7XZaRzYF3WWs_1Nq7ExHqg5tBPwc7qPNZxMAQfU_IQvOdevEdgeWV0ju0_PocyJnJzysXdp81mYaGeUUvovtKMVix7m00"/>
+<img src="https://img.plantuml.biz/plantuml/svg/TP7D2i8m48Jl-nHp5dfeMlz2A5xq8lwyWGGRQB0cqgwWgEykhThOGq-xx3UpEx2BcdN5rtD9XSqDZhOwbeRgatKNNUapIkiCtoy6lkB24nd7bkzOjkKWy210Cnz4JC3eqmf8v9erMgCGK6gJPJzXqgS9bDgrzEjE-po5Kllrls3S5uoXrAedc43-0iO1jcWQK1ChXeJxjyu2Ru8vICJ1FOV4rhlbpTPi7DEBgBlpV4QHVtJBgRio098Xa2AAmd1XNDvyvmq0"/>
 </div>
 </div>
 between 2

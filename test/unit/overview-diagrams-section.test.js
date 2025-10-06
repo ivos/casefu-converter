@@ -119,7 +119,7 @@ test('overview diagrams, ERD', () => {
 
 <div id="overview-diagram-erd">
 <div><strong>ERD:</strong></div>
-<img src="http://www.plantuml.com/plantuml/svg/VP112i8m44NtSufS80jDtHTH3-05GaX6EhH9odIwAArt5rr4CDJLX_V_mF_JJk9OvZX0Hm6L9_O3mjHJ6Xsxg0PAACk8AhDq6G2Ja2pg-X5xKElp1nrhP6hKrEXKepi-a1c3lN6EzeAJPng5SggZP-Vx_tc0KdhRjCvhQRnd62YRTYxCdj4ehR-mnHJUBtu1"/>
+<img src="https://img.plantuml.biz/plantuml/svg/VP112i8m44NtSufS80jDtHTH3-05GaX6EhH9odIwAArt5rr4CDJLX_V_mF_JJk9OvZX0Hm6L9_O3mjHJ6Xsxg0PAACk8AhDq6G2Ja2pg-X5xKElp1nrhP6hKrEXKepi-a1c3lN6EzeAJPng5SggZP-Vx_tc0KdhRjCvhQRnd62YRTYxCdj4ehR-mnHJUBtu1"/>
 </div>
 </ul>
 </section>
