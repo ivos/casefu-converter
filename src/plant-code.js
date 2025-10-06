@@ -8,7 +8,7 @@ const {
 const isPlant = () => token().type === 'code' && token().lang === 'plant'
 
 const plantImg = uml => {
-  const url = 'http://www.plantuml.com/plantuml/svg/' + plantumlEncoder.encode(uml)
+  const url = 'https://img.plantuml.biz/plantuml/svg/' + plantumlEncoder.encode(uml)
   return `<img src="${url}"/>`
 }
 const plantCode = () => {
